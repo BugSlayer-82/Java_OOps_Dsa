@@ -39,7 +39,7 @@ You are building a library management system.
 - Create two child classes — `Book` with an additional private `String author` and `Magazine` with an additional private `int issueNumber`
 - Each child class must call `super(itemId, title)` in its constructor
 - Each child class must override `getItemInfo()` — call `super.getItemInfo()` and append its own info — method must return a `String`
-- Create a class called `Library` with a private `String` library name and a private collection that can hold multiple `LibraryItem` objects — choose the right data     structure
+- Create a class called `Library` with a private `String` library name and a private collection that can hold multiple `LibraryItem` objects — choose the right data structure
 - Add a constructor that takes the library name
 - Add a method `addItem(LibraryItem item)` that adds an item to the collection
 - Add a method `getAllItems()` that returns all items
