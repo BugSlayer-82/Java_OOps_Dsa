@@ -1,34 +1,102 @@
-// import java.util.ArrayList;
+import java.util.ArrayList;
 // import java.util.Stack;
 
-// /* Question 3 Inheritance + ArrayList (Easy) */
+// /* Question 3 Inheritance + ArrayList (Easy) */ 
+class LibraryItem {
+    private String itemId;
+    private String title;
+
+    LibraryItem(String itemId, String title) {
+        this.itemId = itemId;
+        this.title = title;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getItemInfo() {
+        return itemId + " " + title;
+    }
+}
+
+class Book extends LibraryItem {
+    private String author;
+
+    Book(String author, String itemId, String title) {
+        super(itemId, title);
+        this.author = author;
+    }
+
+    @Override
+    public String getItemInfo() {
+        String str = super.getItemInfo();
+        return author.concat(str);
+    }
+}
+
+class Magazine extends LibraryItem {
+    private int issueNumber;
+
+    Magazine(int issueNumber, String itemId, String title) {
+        super(itemId, title);
+        this.issueNumber = issueNumber;
+    }
+
+    @Override
+    public String getItemInfo() {
+        String prev = super.getItemInfo();
+        return Integer.toString(issueNumber) + " ".concat(prev);
+    }
+}
+
+class Library {
+    private String libraryName;
+    private ArrayList<LibraryItem> liblist = new ArrayList<LibraryItem>();
+
+    Library(String libraryName) {
+        this.libraryName = libraryName;
+    }
+
+    public void addItem(LibraryItem item) {
+        liblist.add(item);
+    }
+
+    public ArrayList<LibraryItem> getAllItems() {
+        return liblist;
+    }
+}
 
 // /* Question 2 Encapsulation + Stack (Easy) */
-// class BrowserHistory {
-//     private String browserName;
-//     private Stack<String> history = new Stack<String>();
-//     BrowserHistory(String browserName) {
-//         this.browserName = browserName;
-//     }
-//     public void visitPage(String url) {
-//         if (url == null) {
-//             return;
-//         }
-//         history.push(url);
-//     }
-//     public String goBack() {
-//         if (history.isEmpty()) {
-//             return "No history found";
-//         }
-//         String oldHistory = history.pop();
-//         return oldHistory;
-//     }
-//     public String getBrowseName() {
-//         return browserName;
-//     }
-//     public int getHistorySize() {
-//         return history.size();
-//     }
+// s BrowserHistory {
+// private String browserName;
+// private Stack<String> history = new Stack<String>();
+// serHistory(String browserName) {
+// this.browserName = browserName;
+// }
+// ic void visitPage(String url) {
+// url == null) {
+// return;
+// }
+// history.push(url);
+// }
+// ic String goBack() {
+// history.isEmpty()) {
+// return "No history found";
+// }
+// String oldHistory = history.pop();
+// return oldHistory;
+// }
+// ic String getBrowseName() {
+// return browserName;
+// }
+// ic int getHistorySize() {
+// return history.size();
+// }
 // }
 
 // /* Question 1 Encapsulation + ArrayList (Easy) */
@@ -89,6 +157,13 @@ public class Oops_dsa_3 {
         // System.out.println(bh.getHistorySize());
 
         // /* Question 3 ===> Inheritance + ArrayList (Easy) */
-
+        Book b1 = new Book("William Shakespeare", "WS-206", "Merchant of Venice");
+        Book b2 = new Book("Yashvant Kanethkar", "YK-406", "Let Us C");
+        Magazine m1 = new Magazine(104, "JL-109", "India Today");
+        Library lib = new Library("My Library");
+        lib.addItem(b1);
+        lib.addItem(b2);
+        lib.addItem(m1);
+        System.out.println("Library Info ==> " + lib.getAllItems());
     }
 }
