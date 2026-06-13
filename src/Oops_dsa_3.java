@@ -3,63 +3,120 @@
 // import java.util.Queue;
 // import java.util.LinkedList;
 
-// /* Question 3 Inheritance + ArrayList (Easy) */ 
+// /* Question 4 Abstraction + Queue (Medium) */
+// abstract class SupportTicket {
+//     private String ticketId;
+//     private String customerName;
+//     private String issueDescription;
+//     SupportTicket(String ticketId, String customerName, String issueDescription) {
+//         this.ticketId = ticketId;
+//         this.customerName = customerName;
+//         this.issueDescription = issueDescription;
+//     }
+//     public String getTicketId() {
+//         return ticketId;
+//     }
+//     public String getCustomerName() {
+//         return customerName;
+//     }
+//     public String getIssueDescription() {
+//         return issueDescription;
+//     }
+//     abstract String getPriority();
+//     public String getTicketSummary() {
+//         return ticketId + " " + customerName + " " + issueDescription + " " + getPriority();
+//     }
+// }
+// class UrgentTicket extends SupportTicket {
+//     public String getPriority() {
+//         return "HIGH";
+//     }
+//     UrgentTicket(String ticketId, String customerName, String issueDescription) {
+//         super(ticketId, customerName, issueDescription);
+//     }
+// }
+// class NormalTicket extends SupportTicket {
+//     public String getPriority() {
+//         return "LOW";
+//     }
+//     NormalTicket(String ticketId, String customerName, String issueDescription) {
+//         super(ticketId, customerName, issueDescription);
+//     }
+// }
+// class TicketQueue {
+//     private Queue<SupportTicket> q = new LinkedList<SupportTicket>();
+//     public void addTicket(SupportTicket ticket) {
+//         q.add(ticket);
+//     }
+//     public SupportTicket processNextTicket() {
+//         if (q.isEmpty()) {
+//             return null;
+//         }
+//         SupportTicket tck = q.remove();
+//         return tck;
+//     }
+//     public int getQueueSize() {
+//         return q.size();
+//     }
+// }
+
+// /* Question 3 Inheritance + ArrayList (Easy) */
 // class LibraryItem {
-//     private String itemId;
-//     private String title;
-//     LibraryItem(String itemId, String title) {
-//         this.itemId = itemId;
-//         this.title = title;
-//     }
-//     public String getItemId() {
-//         return itemId;
-//     }
-//     public String getTitle() {
-//         return title;
-//     }
-//     public String getItemInfo() {
-//         return itemId + " " + title;
-//     }
+// private String itemId;
+// private String title;
+// LibraryItem(String itemId, String title) {
+// this.itemId = itemId;
+// this.title = title;
+// }
+// public String getItemId() {
+// return itemId;
+// }
+// public String getTitle() {
+// return title;
+// }
+// public String getItemInfo() {
+// return itemId + " " + title;
+// }
 // }
 // class Book extends LibraryItem {
-//     private String author;
-//     Book(String author, String itemId, String title) {
-//         super(itemId, title);
-//         this.author = author;
-//     }
-//     @Override
-//     public String getItemInfo() {
-//         String str = super.getItemInfo();
-//         return author + " ".concat(str);
-//     }
+// private String author;
+// Book(String author, String itemId, String title) {
+// super(itemId, title);
+// this.author = author;
+// }
+// @Override
+// public String getItemInfo() {
+// String str = super.getItemInfo();
+// return author + " ".concat(str);
+// }
 // }
 // class Magazine extends LibraryItem {
-//     private int issueNumber;
-//     Magazine(int issueNumber, String itemId, String title) {
-//         super(itemId, title);
-//         this.issueNumber = issueNumber;
-//     }
-//     @Override
-//     public String getItemInfo() {
-//         String prev = super.getItemInfo();
-//         return Integer.toString(issueNumber) + " ".concat(prev);
-//     }
+// private int issueNumber;
+// Magazine(int issueNumber, String itemId, String title) {
+// super(itemId, title);
+// this.issueNumber = issueNumber;
+// }
+// @Override
+// public String getItemInfo() {
+// String prev = super.getItemInfo();
+// return Integer.toString(issueNumber) + " ".concat(prev);
+// }
 // }
 // class Library {
-//     private String libraryName;
-//     private ArrayList<LibraryItem> liblist = new ArrayList<LibraryItem>();
-//     Library(String libraryName) {
-//         this.libraryName = libraryName;
-//     }
-//     public String getLibraryName() {
-//         return libraryName;
-//     }
-//     public void addItem(LibraryItem item) {
-//         liblist.add(item);
-//     }
-//     public ArrayList<LibraryItem> getAllItems() {
-//         return new ArrayList<>(liblist);
-//     }
+// private String libraryName;
+// private ArrayList<LibraryItem> liblist = new ArrayList<LibraryItem>();
+// Library(String libraryName) {
+// this.libraryName = libraryName;
+// }
+// public String getLibraryName() {
+// return libraryName;
+// }
+// public void addItem(LibraryItem item) {
+// liblist.add(item);
+// }
+// public ArrayList<LibraryItem> getAllItems() {
+// return new ArrayList<>(liblist);
+// }
 // }
 
 // /* Question 2 Encapsulation + Stack (Easy) */
@@ -160,6 +217,26 @@ public class Oops_dsa_3 {
         // int i = 0;
         // while (i < list.size()) {
         // System.out.println((list.get(i).getItemInfo()));
+        // i++;
+        // }
+
+        // /* Question 4 ===> Abstraction + Queue (Medium) */
+        // UrgentTicket ut1 = new UrgentTicket("TU-152", "Tony", "Server issue");
+        // UrgentTicket ut2 = new UrgentTicket("TU-122", "Popoye", "Payment issue");
+        // NormalTicket nt1 = new NormalTicket("TN-435", "Banner", "Late booking");
+        // NormalTicket nt2 = new NormalTicket("TN-345", "Steve", "Late entry");
+        // TicketQueue tq = new TicketQueue();
+        // tq.addTicket(ut1);
+        // tq.addTicket(ut2);
+        // tq.addTicket(nt1);
+        // tq.addTicket(nt2);
+        // int i = 0;
+        // while (i != 4) {
+        // SupportTicket ticket = tq.processNextTicket();
+        // if (ticket != null) {
+        // System.out.println("Ticket Summary ==> " + ticket.getTicketSummary());
+        // }
+        // System.out.println("Queue Size ==> " + tq.getQueueSize());
         // i++;
         // }
     }
