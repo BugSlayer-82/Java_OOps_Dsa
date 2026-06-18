@@ -1,76 +1,173 @@
-
 // import java.util.ArrayList;
-import java.util.Stack;
+// import java.util.Stack;
 // import java.util.Queue;
 // import java.util.LinkedList;
 
+// /* Question 10 Putting It All Together (Hard) */
+
+// /* Question 9 Composition + LinkedList + Interface (Hard) */
+// interface Postable {
+//     String getPostId();
+//     String getContent();
+//     int getLikes();
+// }
+// class Post implements Postable {
+//     private String postId;
+//     private String content;
+//     private int likes;
+//     Post(String postId, String content) {
+//         this.postId = postId;
+//         this.content = content;
+//         this.likes = 0;
+//     }
+//     public void addLike() {
+//         likes++;
+//     }
+//     public String getPostId() {
+//         return postId;
+//     }
+//     public String getContent() {
+//         return content;
+//     }
+//     public int getLikes() {
+//         return likes;
+//     }
+// }
+// class UserProfile {
+//     private String username;
+//     private String userId;
+//     private LinkedList<Post> usrPost = new LinkedList<Post>();
+//     UserProfile(String userId, String username) {
+//         this.userId = userId;
+//         this.username = username;
+//     }
+//     public String getUsername() {
+//         return username;
+//     }
+//     public String getUserId() {
+//         return userId;
+//     }
+//     public void createPost(String postId, String content) {
+//         Post p = new Post(postId, content);
+//         usrPost.add(p);
+//     }
+//     public Post getPostById(String postId) {
+//         for (Post p : usrPost) {
+//             if ((p.getPostId()).equals(postId)) {
+//                 return p;
+//             }
+//         }
+//         return null;
+//     }
+//     public LinkedList<Post> getAllPost() {
+//         return usrPost;
+//     }
+// }
+// class SocialFeed {
+//     private LinkedList<UserProfile> profile = new LinkedList<UserProfile>();
+//     public void addUser(UserProfile user) {
+//         profile.add(user);
+//     }
+//     public UserProfile getUserById(String userId) {
+//         for (UserProfile up : profile) {
+//             if ((up.getUserId()).equals(userId)) {
+//                 return up;
+//             }
+//         }
+//         return null;
+//     }
+//     public String getFeedSummary() {
+//         String newStr = "";
+//         for (UserProfile user : profile) {
+//             for (Post pu : user.getAllPost())
+//                 newStr += pu.getContent() + " " + pu.getLikes() + "\n";
+//         }
+//         return newStr;
+//     }
+// }
+
 // /* Question 8 Abstract + Interface + Stack (Medium-Hard) */
-interface Executable {
-    String execute();
-    String undo();
-}
-
-abstract class TextCommand {
-    private String commandText;
-    protected String targetText;
-
-    TextCommand(String commandText, String targetText) {
-        this.commandText = commandText;
-        this.targetText = targetText;
-    }
-
-    public String getCommandText() {
-        return commandText;
-    }
-
-    public String getTargetText() {
-        return targetText;
-    }
-
-    abstract String getDescription();
-}
-
-class TypeCommand extends TextCommand implements Executable {
-    TypeCommand(String commandText, String targetText) {
-        super(commandText, targetText);
-    }
-
-    public String execute() {
-        return "Typed : " + targetText;
-    }
-
-    public String undo() {
-        return "Removed : " + targetText;
-    }
-
-    // Write your own descirption
-    public String getDescription() {
-        return getCommandText()+"text :'"+getTargetText()+"'";
-    }
-}
-
-class DeleteCommand extends TextCommand implements Executable {
-    DeleteCommand(String commandText, String targetText) {
-        super(commandText, targetText);
-    }
-
-    public String execute() {
-        return "Deleted : " + targetText;
-    }
-
-    public String undo() {
-        return "Restored : " + targetText;
-    }
-
-    // Write your own description
-    public String getDescription() {
-        return "";
-    }
-}
-
-class TextEditor {
-    private String editorName;
-}
+// interface Executable {
+// String execute();
+// String undo();
+// }
+// abstract class TextCommand {
+// private String commandText;
+// protected String targetText;
+// TextCommand(String commandText, String targetText) {
+// this.commandText = commandText;
+// this.targetText = targetText;
+// }
+// public String getCommandText() {
+// return commandText;
+// }
+// public String getTargetText() {
+// return targetText;
+// }
+// abstract String getDescription();
+// }
+// class TypeCommand extends TextCommand implements Executable {
+// TypeCommand(String commandText, String targetText) {
+// super(commandText, targetText);
+// }
+// public String execute() {
+// return "Typed : " + targetText;
+// }
+// public String undo() {
+// return "Removed : " + targetText;
+// }
+// public String getDescription() {
+// return getCommandText() + " typed : '" + getTargetText() + "'";
+// }
+// }
+// class DeleteCommand extends TextCommand implements Executable {
+// DeleteCommand(String commandText, String targetText) {
+// super(commandText, targetText);
+// }
+// public String execute() {
+// return "Deleted : " + targetText;
+// }
+// public String undo() {
+// return "Restored : " + targetText;
+// }
+// public String getDescription() {
+// return getCommandText() + " typed : '" + getTargetText() + "'";
+// }
+// }
+// class TextEditor {
+// private String editorName;
+// private Stack<TextCommand> undoStack = new Stack<>();
+// private Stack<TextCommand> redoStack = new Stack<>();
+// TextEditor(String editorName) {
+// this.editorName = editorName;
+// }
+// public String getEditorName() {
+// return editorName;
+// }
+// public void executeCommand(TextCommand cmd) {
+// Executable e1 = (Executable) cmd;
+// System.out.println(e1.execute());
+// undoStack.push(cmd);
+// }
+// public void undo() {
+// if (undoStack.isEmpty()) {
+// System.out.println("Nothing to undo");
+// return;
+// }
+// Executable e2 = (Executable) undoStack.pop();
+// System.out.println(e2.undo());
+// redoStack.push((TextCommand) e2);
+// }
+// public void redo() {
+// if (redoStack.isEmpty()) {
+// System.out.println("Nothing to redo");
+// return;
+// }
+// Executable e3 = (Executable) redoStack.pop();
+// System.out.println(e3.execute());
+// undoStack.push((TextCommand) e3);
+// }
+// }
 
 // /* Question 7 Static + Composition + ArrayList (Medium) */
 // class MenuItem {
@@ -111,7 +208,7 @@ class TextEditor {
 // totalPrice += menuItem.getPrice();
 // }
 // return totalPrice;
-//
+// }
 // public String getOrderSummary() {
 // return orderId + " " + customerName + " " + getOrderTotal();
 // }
@@ -125,7 +222,7 @@ class TextEditor {
 // private String animalName;
 // private String animalId;
 // private int age;
-// Animal(String animalId,String animalName, int age) {
+// Animal(String animalId, String animalName, int age) {
 // this.animalName = animalName;
 // this.animalId = animalId;
 // this.age = age;
@@ -145,43 +242,43 @@ class TextEditor {
 // }
 // class Lion extends Animal {
 // private String preyType;
-// Lion(String animalId,String animalName, int age, String preyType) {
-// super(animalId,animalName, age);
+// Lion(String animalId, String animalName, int age, String preyType) {
+// super(animalId, animalName, age);
 // this.preyType = preyType;
 // }
 // @Override
 // public String getFeedingSchedule() {
-// return super.getFeedingSchedule()+" "+"Two-Four day";
+// return super.getFeedingSchedule() + " " + "Two-Four day";
 // }
-// public String getPreyType(){
+// public String getPreyType() {
 // return preyType;
 // }
 // }
 // class Elephant extends Animal {
 // private int dailyFoodKg;
-// Elephant(String animalId,String animalName, int age, int dailyFoodKg) {
-// super(animalId,animalName, age);
+// Elephant(String animalId, String animalName, int age, int dailyFoodKg) {
+// super(animalId, animalName, age);
 // this.dailyFoodKg = dailyFoodKg;
 // }
 // @Override
 // public String getFeedingSchedule() {
 // return super.getFeedingSchedule() + " " + "Daily Continuously";
 // }
-// public int getDailyFood(){
+// public int getDailyFood() {
 // return dailyFoodKg;
 // }
 // }
 // class Parrot extends Animal {
 // private String favouriteFruit;
-// Parrot(String animalId,String animalName, int age, String favouriteFruit) {
-// super(animalId,animalName, age);
+// Parrot(String animalId, String animalName, int age, String favouriteFruit) {
+// super(animalId, animalName, age);
 // this.favouriteFruit = favouriteFruit;
 // }
 // @Override
 // public String getFeedingSchedule() {
-// return super.getFeedingSchedule() + " "+"Twice daily";
+// return super.getFeedingSchedule() + " " + "Twice daily";
 // }
-// public String getFavouriteFruit(){
+// public String getFavouriteFruit() {
 // return favouriteFruit;
 // }
 // }
@@ -194,13 +291,13 @@ class TextEditor {
 // public void addAnimal(Animal animal) {
 // list.add(animal);
 // }
-// public String getZooName(){
+// public String getZooName() {
 // return zooName;
 // }
 // public String getFeedingReport() {
 // String str = "";
-// for(Animal anm : list){
-// str += anm.getFeedingSchedule()+ "\n";
+// for (Animal anm : list) {
+// str += anm.getFeedingSchedule() + "\n";
 // }
 // return str;
 // }
@@ -208,7 +305,7 @@ class TextEditor {
 
 // /* Queustion 5 Interface + LinkedList (Medium) */
 // interface Manageable {
-// String getTaskId()
+// String getTaskId();
 // String getStatus();
 // String updateStatus(String newStatus);
 // }
@@ -521,14 +618,14 @@ public class Oops_dsa_3 {
         // }
 
         // /* Question 6 ===> Polymorphism + ArrayList (Medium)*/
-        // Animal a1 = new Lion("A-589","Lion",56,"Wildbeests");
-        // Animal a2 = new Elephant("A-425","Elephant", 40,140);
-        // Animal a3 = new Parrot("A-756","Parrot",20,"Bananas");
+        // Animal a1 = new Lion("A-589", "Lion", 56, "Wildbeests");
+        // Animal a2 = new Elephant("A-425", "Elephant", 40, 140);
+        // Animal a3 = new Parrot("A-756", "Parrot", 20, "Bananas");
         // Zoo zn = new Zoo("Kanpur Zoo");
         // zn.addAnimal(a1);
         // zn.addAnimal(a2);
         // zn.addAnimal(a3);
-        // System.out.println("Zoo Name ==> "+zn.getZooName());
+        // System.out.println("Zoo Name ==> " + zn.getZooName());
         // System.out.println("Feeding reports are :- ");
         // System.out.print(zn.getFeedingReport());
 
@@ -546,7 +643,42 @@ public class Oops_dsa_3 {
         // System.out.println("Total Order ==> " + Order.getTotalOrders());
 
         // /* Question 8 ===> Abstract + Interface + Stack (Medium-Hard) *
+        // TextCommand tc1 = new TypeCommand("printf()", "Display output");
+        // TextCommand tc2 = new TypeCommand("scanf()", "Read input");
+        // TextCommand tc3 = new TypeCommand("fopen()", "Open the file");
+        // TextEditor te = new TextEditor("Popoye");
+        // System.out.println("Editor name ==> " + te.getEditorName());
+        // te.executeCommand(tc1);
+        // te.executeCommand(tc2);
+        // te.executeCommand(tc3);
+        // te.undo();
+        // te.undo();
+        // te.redo();
 
+        // /* Question 9 ===> Composition + LinkedList + Interface (Hard) */
+        // UserProfile up1 = new UserProfile("Popoye_rox", "Popoye");
+        // UserProfile up2 = new UserProfile("Steve_rox", "Captain-America");
+        // SocialFeed sf = new SocialFeed();
+        // up1.createPost("p-001", "pop_img_code");
+        // up1.createPost("p-002", "pop_img_tech");
+        // Post p1 = up1.getPostById("p-001");
+        // p1.addLike();
+        // p1.addLike();
+        // p1.addLike();
+        // System.out.println("Total Likes ==> " + p1.getLikes());
+        // up2.createPost("p-003", "cap_dance_img");
+        // up2.createPost("p-004", "cap_music_reel");
+        // Post p2 = up2.getPostById("p-004");
+        // p2.addLike();
+        // p2.addLike();
+        // p2.addLike();
+        // p2.addLike();
+        // System.out.println("Total Likes ==> " + p2.getLikes());
+        // sf.addUser(up1);
+        // sf.addUser(up2);
+        // System.out.println("Feed summary of user :-");
+        // System.out.println(sf.getFeedSummary());
 
+        // /* Question 10 ===> Putting It All Together (Hard) */
     }
 }
