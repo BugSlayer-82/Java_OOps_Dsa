@@ -1,155 +1,125 @@
-import java.util.Stack;
+// import java.util.Stack;
 // import java.util.Queue;
-import java.util.ArrayList;
-import java.util.LinkedList;
-
+// import java.util.ArrayList;
+// import java.util.LinkedList;
+// import java.util.List;
 // /* Question 10 Putting It All Together (Hard) */
-
-abstract class Person {
-    private String personId;
-    private String name;
-    private int age;
-
-    Person(String personId, String name, int age) {
-        this.personId = personId;
-        this.name = name;
-        this.age = age;
-    }
-
-    public String getPersonId() {
-        return personId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public abstract String getRole();
-}
-
-interface Schedulable {
-    String addAppointment(String appointment);
-
-    ArrayList<String> getAppointments();
-
-}
-
-class Doctor extends Person implements Schedulable {
-    private String specialization;
-    private ArrayList<String> appList = new ArrayList<>();
-
-    Doctor(String personId, String name, int age, String specialization) {
-        super(personId, name, age);
-        this.specialization = specialization;
-    }
-
-    public String getRole() {
-        return "Doctor";
-    }
-
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public String addAppointment(String appointment) {
-        appList.add(appointment);
-        return "Appointment added : " + appointment;
-    }
-
-    public ArrayList<String> getAppointments() {
-        return appList;
-    }
-}
-
-class Patient extends Person {
-    private String diagnosis;
-    private Stack<String> history = new Stack<String>();
-
-    Patient(String personId, String name, int age, String diagnosis) {
-        super(personId, name, age);
-        this.diagnosis = diagnosis;
-    }
-
-    public String getRole() {
-        return "Patient";
-    }
-
-    public void addMedicalHistory(String entry) {
-        history.push(entry);
-    }
-
-    public Stack<String> getMedicalHistory() {
-        return history;
-    }
-
-    public String getDiagnosis() {
-        return diagnosis;
-    }
-}
-
-class Appointment {
-    private Doctor dr;
-    private Patient pt;
-    private String date;
-    private String appointmentId;
-
-    Appointment(String appointmentId, String date, Doctor dr, Patient pt) {
-        this.appointmentId = appointmentId;
-        this.date = date;
-        this.dr = dr;
-        this.pt = pt;
-    }
-
-    public String getAppointmentDetails() {
-        return appointmentId + " " +
-                date + " " +
-                dr.getName() + " " +
-                dr.getSpecialization() + " " +
-                pt.getName() + " " +
-                pt.getDiagnosis();
-    }
-}
-
-class Hospital {
-    private String hospitalName;
-    private LinkedList<Doctor> docList = new LinkedList<Doctor>();
-    private LinkedList<Patient> patList = new LinkedList<Patient>();
-    private LinkedList<Appointment> apoList = new LinkedList<Appointment>();
-
-    Hospital(String hospitalName) {
-        this.hospitalName = hospitalName;
-    }
-
-    public void addDoctor(Doctor d) {
-        docList.add(d);
-    }
-
-    public void addPatient(Patient p) {
-        patList.add(p);
-    }
-
-    public void addAppointment(Appointment a) {
-        apoList.add(a);
-    }
-
-    public String getHospitalReport() {
-        String newStr = hospitalName + " \n";
-        for (Doctor drx : docList) {
-            newStr += drx.getName() + " " + drx.getAge() + " " + drx.getSpecialization() + "\n";
-        }
-        for (Patient ptx : patList) {
-            newStr += ptx.getName() + " " + ptx.getAge() + " " + ptx.getDiagnosis() + "\n";
-        }
-        for (Appointment aptx : apoList) {
-            newStr += aptx.getAppointmentDetails() + "\n";
-        }
-        return newStr;
-    }
-}
+// abstract class Person {
+//     private String personId;
+//     private String name;
+//     private int age;
+//     Person(String personId, String name, int age) {
+//         this.personId = personId;
+//         this.name = name;
+//         this.age = age;
+//     }
+//     public String getPersonId() {
+//         return personId;
+//     }
+//     public String getName() {
+//         return name;
+//     }
+//     public int getAge() {
+//         return age;
+//     }
+//     public abstract String getRole();
+// }
+// interface Schedulable {
+//     String addAppointment(String appointment);
+//     List<String> getAppointments();
+// }
+// class Doctor extends Person implements Schedulable {
+//     private String specialization;
+//     private ArrayList<String> appList = new ArrayList<>();
+//     Doctor(String personId, String name, int age, String specialization) {
+//         super(personId, name, age);
+//         this.specialization = specialization;
+//     }
+//     public String getRole() {
+//         return "Doctor";
+//     }
+//     public String getSpecialization() {
+//         return specialization;
+//     }
+//     public String addAppointment(String appointment) {
+//         appList.add(appointment);
+//         return "Appointment added : " + appointment;
+//     }
+//     public ArrayList<String> getAppointments() {
+//         return appList;
+//     }
+// }
+// class Patient extends Person {
+//     private String diagnosis;
+//     private ArrayList<String> history = new ArrayList<String>();
+//     Patient(String personId, String name, int age, String diagnosis) {
+//         super(personId, name, age);
+//         this.diagnosis = diagnosis;
+//     }
+//     public String getRole() {
+//         return "Patient";
+//     }
+//     public void addMedicalHistory(String entry) {
+//         history.add(entry);
+//     }
+//     public ArrayList<String> getMedicalHistory() {
+//         return history;
+//     }
+//     public String getDiagnosis() {
+//         return diagnosis;
+//     }
+// }
+// class Appointment {
+//     private Doctor dr;
+//     private Patient pt;
+//     private String date;
+//     private String appointmentId;
+//     Appointment(String appointmentId, String date, Doctor dr, Patient pt) {
+//         this.appointmentId = appointmentId;
+//         this.date = date;
+//         this.dr = dr;
+//         this.pt = pt;
+//     }
+//     public String getAppointmentDetails() {
+//         return appointmentId + " " +
+//                 date + " " +
+//                 dr.getName() + " " +
+//                 dr.getSpecialization() + " " +
+//                 pt.getName() + " " +
+//                 pt.getDiagnosis();
+//     }
+// }
+// class Hospital {
+//     private String hospitalName;
+//     private LinkedList<Doctor> docList = new LinkedList<Doctor>();
+//     private LinkedList<Patient> patList = new LinkedList<Patient>();
+//     private LinkedList<Appointment> apoList = new LinkedList<Appointment>();
+//     Hospital(String hospitalName) {
+//         this.hospitalName = hospitalName;
+//     }
+//     public void addDoctor(Doctor d) {
+//         docList.add(d);
+//     }
+//     public void addPatient(Patient p) {
+//         patList.add(p);
+//     }
+//     public void addAppointment(Appointment a) {
+//         apoList.add(a);
+//     }
+//     public String getHospitalReport() {
+//         String newStr = hospitalName + " \n";
+//         for (Doctor drx : docList) {
+//             newStr += drx.getName() + " " + drx.getAge() + " " + drx.getSpecialization() + "\n";
+//         }
+//         for (Patient ptx : patList) {
+//             newStr += ptx.getName() + " " + ptx.getAge() + " " + ptx.getDiagnosis() + "\n";
+//         }
+//         for (Appointment aptx : apoList) {
+//             newStr += aptx.getAppointmentDetails() + "\n";
+//         }
+//         return newStr;
+//     }
+// }
 
 // /* Question 9 Composition + LinkedList + Interface (Hard) */
 // interface Postable {
@@ -826,23 +796,22 @@ public class Oops_dsa_3 {
         // System.out.println(sf.getFeedSummary());
 
         // /* Question 10 ===> Putting It All Together (Hard) */
-        Hospital h = new Hospital("Strange's Care Center ");
-        Doctor d1 = new Doctor("D-10", "Dr.Strange", 58, "Neurologist");
-        Doctor d2 = new Doctor("D-16", "Dr.Banner", 48, "Aesthetic Surgeon");
-        Patient p1 = new Patient("P-04", "TonyStark", 28, "Brain Tumors");
-        Patient p2 = new Patient("P-08", "Natasha", 26, "Gynecomastia");
-        Appointment ap1 = new Appointment("A-102", "11-05-2025", d1, p1);
-        Appointment ap2 = new Appointment("A-106", "20-04-2024", d2, p2);
-        h.addDoctor(d1);
-        h.addDoctor(d2);
-        h.addPatient(p1);
-        h.addPatient(p2);
-        h.addAppointment(ap1);
-        h.addAppointment(ap2);
-        d1.addAppointment("A-102");
-        d2.addAppointment("A-106");
-        System.out.println("Hospital Report :-");
-        System.out.println(h.getHospitalReport());
-
+        // Hospital h = new Hospital("Strange's Care Center ");
+        // Doctor d1 = new Doctor("D-10", "Dr.Strange", 58, "Neurologist");
+        // Doctor d2 = new Doctor("D-16", "Dr.Banner", 48, "Aesthetic Surgeon");
+        // Patient p1 = new Patient("P-04", "TonyStark", 28, "Brain Tumors");
+        // Patient p2 = new Patient("P-08", "Natasha", 26, "Gynecomastia");
+        // Appointment ap1 = new Appointment("A-102", "11-05-2025", d1, p1);
+        // Appointment ap2 = new Appointment("A-106", "20-04-2024", d2, p2);
+        // h.addDoctor(d1);
+        // h.addDoctor(d2);
+        // h.addPatient(p1);
+        // h.addPatient(p2);
+        // h.addAppointment(ap1);
+        // h.addAppointment(ap2);
+        // d1.addAppointment("A-102");
+        // d2.addAppointment("A-106");
+        // System.out.println("Hospital Report :-");
+        // System.out.println(h.getHospitalReport());
     }
 }
