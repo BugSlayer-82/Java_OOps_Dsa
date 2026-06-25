@@ -1,119 +1,101 @@
-
+// import java.util.Queue;
 // import java.util.Stack;
-import java.util.HashSet;
 // import java.util.Vector;
+// import java.util.HashSet;
 // import java.util.ArrayList;
 // import java.util.Collection;
-import java.util.LinkedList;
+// import java.util.LinkedList;
+
+// /* Question 8 Static + Composition + Queue + StringBuilder (Hard) */
 
 // /* Question 7 Abstract + Interface + HashSet + LinkedList (Hard) */
-interface Trackable {
-    String getId();
-
-    String getSummary();
-}
-
-abstract class UniversityMember {
-    private String memberId;
-    private String memberName;
-
-    UniversityMember(String memberId, String memberName) {
-        this.memberId = memberId;
-        this.memberName = memberName;
-    }
-
-    public String getMemberId() {
-        return memberId;
-    }
-
-    public String getMemberName() {
-        return memberName;
-    }
-
-    public abstract String getRole();
-}
-
-class Professor extends UniversityMember implements Trackable {
-    private String subject;
-    private HashSet<String> set = new HashSet<>();
-
-    Professor(String memberId, String memberName, String subject) {
-        super(memberId, memberName);
-        this.subject = subject;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public String getRole() {
-        return "Professor";
-    }
-
-    public String getId() {
-        return getMemberId(); // here
-    }
-
-    public void addResearchTopic(String topic) {
-        set.add(topic);
-    }
-
-    public String getSummary() { // Recheck this method after completing other class
-
-        return getMemberName() + " " + subject + " " + set; // here
-    }
-
-}
-
-class GradStudent extends UniversityMember implements Trackable {
-    private String thesisTopic;
-    private String supervisorId;
-
-    GradStudent(String memberId, String memberName, String thesisTopic, String supervisorId) {
-        super(memberId, memberName);
-        this.thesisTopic = thesisTopic;
-        this.supervisorId = supervisorId;
-    }
-
-    public String getRole() {
-        return "Graduate Student";
-    }
-
-    public String getId() {
-        return getMemberId();
-    }
-
-    public String getSummary() {
-        return getMemberName() + " " + thesisTopic + " " + supervisorId;
-    }
-}
-
-class Department {
-    private String departmentName;
-    private LinkedList<Professor> pList = new LinkedList<>();
-    private LinkedList<GradStudent> gList = new LinkedList<>();
-
-    Department(String departmentName) {
-        this.departmentName = departmentName;
-    }
-
-    public String getDepartmentName() {
-        return departmentName;
-    }
-
-    public void addProfessor(Professor p) {
-        pList.add(p);
-    }
-
-    public void addGradStudent(GradStudent g) {
-        gList.add(g);
-    }
-
-    public void getDepartmentReport() {
-        StringBuilder sb = new StringBuilder();
-
-    }
-}
+// interface Trackable {
+//     String getId();
+//     String getSummary();
+// }
+// abstract class UniversityMember {
+//     private String memberId;
+//     private String memberName;
+//     UniversityMember(String memberId, String memberName) {
+//         this.memberId = memberId;
+//         this.memberName = memberName;
+//     }
+//     public String getMemberId() {
+//         return memberId;
+//     }
+//     public String getMemberName() {
+//         return memberName;
+//     }
+//     public abstract String getRole();
+// }
+// class Professor extends UniversityMember implements Trackable {
+//     private String subject;
+//     private HashSet<String> set = new HashSet<>();
+//     Professor(String memberId, String memberName, String subject) {
+//         super(memberId, memberName);
+//         this.subject = subject;
+//     }
+//     public String getSubject() {
+//         return subject;
+//     }
+//     public String getRole() {
+//         return "Professor";
+//     }
+//     public String getId() {
+//         return getMemberId(); // here
+//     }
+//     public void addResearchTopic(String topic) {
+//         set.add(topic);
+//     }
+//     public String getSummary() {
+//         return getMemberName() + " " + subject + " " + set;
+//     }
+// }
+// class GradStudent extends UniversityMember implements Trackable {
+//     private String thesisTopic;
+//     private String supervisorId;
+//     GradStudent(String memberId, String memberName, String thesisTopic, String supervisorId) {
+//         super(memberId, memberName);
+//         this.thesisTopic = thesisTopic;
+//         this.supervisorId = supervisorId;
+//     }
+//     public String getRole() {
+//         return "Graduate Student";
+//     }
+//     public String getId() {
+//         return getMemberId();
+//     }
+//     public String getSummary() {
+//         return getMemberName() + " " + thesisTopic + " " + supervisorId;
+//     }
+// }
+// class Department {
+//     private String departmentName;
+//     private LinkedList<Professor> pList = new LinkedList<>();
+//     private LinkedList<GradStudent> gList = new LinkedList<>();
+//     Department(String departmentName) {
+//         this.departmentName = departmentName;
+//     }
+//     public String getDepartmentName() {
+//         return departmentName;
+//     }
+//     public void addProfessor(Professor p) {
+//         pList.add(p);
+//     }
+//     public void addGradStudent(GradStudent g) {
+//         gList.add(g);
+//     }
+//     public String getDepartmentReport() {
+//         StringBuilder sb = new StringBuilder();
+//         for (Professor pr : pList) {
+//             sb.append(pr.getSummary()).append("\n");
+//         }
+//         for (GradStudent gr : gList) {
+//             sb.append(gr.getSummary()).append("\n");
+//         }
+//         return sb.toString();
+//     }
+// }
 
 // /* Question 6 Polymorphism + Vector + StringBuilder (Medium) */
 // class Employee {
@@ -578,6 +560,27 @@ public class Oops_dsa_4 {
         // System.out.print(prs.generatePayrollReport());
 
         // /* Question 7 ===> Abstract + Interface + HashSet + LinkedList (Hard) */
+        // Professor p1 = new Professor("P-253", "Popoye", "CSE-CORE");
+        // Professor p2 = new Professor("P-254", "Tony", "CS-DS");
+        // GradStudent gs1 = new GradStudent("G-432", "Strange", "BubbleSort",
+        // "Dr.Banner");
+        // GradStudent gs2 = new GradStudent("G-452", "Natasha", "Binary Search",
+        // "Dr.Banner");
+        // Department d = new Department("Computer Science Engineering");
+        // p1.addResearchTopic("Binary Tree");
+        // p1.addResearchTopic("LinkedList");
+        // p1.addResearchTopic("LinkedList");
+        // p1.addResearchTopic("LinkedList");
+        // p2.addResearchTopic("Probability");
+        // p2.addResearchTopic("Matrix");
+        // System.out.println("Department name ==> " + d.getDepartmentName());
+        // d.addProfessor(p1);
+        // d.addProfessor(p2);
+        // d.addGradStudent(gs1);
+        // d.addGradStudent(gs2);
+        // System.out.print(d.getDepartmentReport());
+
+        // /* Question 8 ===> Static + Composition + Queue + StringBuilder (Hard) */
 
     }
 
