@@ -5,7 +5,7 @@
 ## Question 1 — Encapsulation + StringBuilder + ArrayList (Easy)
 
 You are building a **note-taking app**.
-
+ 
 - Create a class called `Note` with a private `String` noteId, a private `String` title, and a private `StringBuilder` for the note content
 - Add a constructor that takes `noteId` and `title` only — content should start empty
 - Add a method `appendContent(String text)` that adds text to the existing content — do not replace, only append to it
