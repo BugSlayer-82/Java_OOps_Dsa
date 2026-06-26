@@ -81,6 +81,10 @@ class CheckInCounter {
         this.ft = flight;
     }
 
+    public String getCounterCode() {
+        return counterCode;
+    }
+
     public void joinPassenger(Passenger p) {
         pq.add(p);
     }
@@ -89,8 +93,8 @@ class CheckInCounter {
         if (pq.isEmpty()) {
             return null;
         }
-        Passenger remP = pq.remove();
-        return remP;
+        Passenger rp = pq.remove();
+        return rp;
     }
 
     public int getQueueLength() {
@@ -115,7 +119,14 @@ class Airport {
     }
 
     public String getAirportStatus() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        sb.append(airportName);
+        for (CheckInCounter cic : chkCount) {
+            sb.append(cic.getCounterCode()).append(" - ");
+            sb.append(cic.ft.getFlightInfo()).append(" - ");
+            sb.append(cic.getQueueLength()).append("\n");
+        }
+        return sb.toString();
     }
 }
 
@@ -694,6 +705,34 @@ public class Oops_dsa_4 {
 
         // /* Question 8 ===> Static + Composition + Queue + StringBuilder (Hard) */
 
+        Flight f1 = new Flight("F-586A", "Muscut", "Oman");
+        Flight f2 = new Flight("F-658A", "Riyadh", "Dubai");
+
+        CheckInCounter c1 = new CheckInCounter("C254", f1);
+        CheckInCounter c2 = new CheckInCounter("C795", f2);
+
+        Passenger p1 = new Passenger("P-354", "Popoye", "Oman");
+        Passenger p2 = new Passenger("P-758", "Stark", "Oman");
+        Passenger p3 = new Passenger("P-246", "Steve", "Oman");
+
+        Passenger p4 = new Passenger("P-778", "Tony", "Dubai");
+        Passenger p5 = new Passenger("P-698", "Bob", "Dubai");
+        Passenger p6 = new Passenger("P-589", "Roy", "Dubai");
+
+        Airport a = new Airport("Abu Dhabi International");
+        c1.joinPassenger(p1);
+        c1.joinPassenger(p2);
+        c1.joinPassenger(p3);
+        c2.joinPassenger(p4);
+        c2.joinPassenger(p5);
+        c2.joinPassenger(p6);
+        // System.out.println("Check In Info ==> " + c1.checkInNext());
+        // System.out.println("Check In Info ==> " + c1.checkInNext());
+
+        System.out.println("Airport Name ==> " + a.getAirportName());
+        System.out.println("Airport Status ==> " + a.getAirportStatus());
+        System.out.println("Total Flight Count ==> " + Flight.getTotalFlights());
+        System.out.println("Total Passenger Count ==> " + Passenger.getTotalPassengers());
     }
 
 }
