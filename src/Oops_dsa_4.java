@@ -1,134 +1,115 @@
-import java.util.Queue;
+// import java.util.Queue;
 // import java.util.Stack;
 // import java.util.Vector;
 // import java.util.HashSet;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 // import java.util.Collection;
-import java.util.LinkedList;
+// import java.util.LinkedList;
+
+// /* Question 9  Abstract + Interface + BinaryTree-style LinkedList + HashSet (Hard) */
 
 // /* Question 8 Static + Composition + Queue + StringBuilder (Hard) */
-class Passenger {
-    private String passengerId;
-    private String passengerName;
-    private String destination;
-    private static int totalPassengers;
-
-    Passenger(String passengerId, String passengerName, String destination) {
-        this.passengerId = passengerId;
-        this.passengerName = passengerName;
-        this.destination = destination;
-        totalPassengers++;
-    }
-
-    public String getPassengerId() {
-        return passengerId;
-    }
-
-    public String getPassengerName() {
-        return passengerName;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public static int getTotalPassengers() {
-        return totalPassengers;
-    }
-}
-
-class Flight {
-    private String flightId;
-    private String origin;
-    private String destination;
-    private static int totalFlights;
-
-    Flight(String flightId, String origin, String destination) {
-        this.flightId = flightId;
-        this.origin = origin;
-        this.destination = destination;
-        totalFlights++;
-    }
-
-    public String getFlightId() {
-        return flightId;
-    }
-
-    public String getOrigin() {
-        return origin;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public static int getTotalFlights() {
-        return totalFlights;
-    }
-
-    public String getFlightInfo() {
-        return "FlightId --> " + flightId + " Origin --> " + origin + " Destination --> " + destination;
-    }
-}
-
-class CheckInCounter {
-    private String counterCode;
-    Flight ft;
-    private Queue<Passenger> pq = new LinkedList<>();
-
-    CheckInCounter(String counterCode, Flight flight) {
-        this.counterCode = counterCode;
-        this.ft = flight;
-    }
-
-    public String getCounterCode() {
-        return counterCode;
-    }
-
-    public void joinPassenger(Passenger p) {
-        pq.add(p);
-    }
-
-    public Passenger checkInNext() {
-        if (pq.isEmpty()) {
-            return null;
-        }
-        Passenger rp = pq.remove();
-        return rp;
-    }
-
-    public int getQueueLength() {
-        return pq.size();
-    }
-}
-
-class Airport {
-    private String airportName;
-    private ArrayList<CheckInCounter> chkCount = new ArrayList<>();
-
-    Airport(String airportName) {
-        this.airportName = airportName;
-    }
-
-    public void addCounter(CheckInCounter c) {
-        chkCount.add(c);
-    }
-
-    public String getAirportName() {
-        return airportName;
-    }
-
-    public String getAirportStatus() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(airportName);
-        for (CheckInCounter cic : chkCount) {
-            sb.append(cic.getCounterCode()).append(" - ");
-            sb.append(cic.ft.getFlightInfo()).append(" - ");
-            sb.append(cic.getQueueLength()).append("\n");
-        }
-        return sb.toString();
-    }
-}
+// class Passenger {
+//     private String passengerId;
+//     private String passengerName;
+//     private String destination;
+//     private static int totalPassengers;
+//     Passenger(String passengerId, String passengerName, String destination) {
+//         this.passengerId = passengerId;
+//         this.passengerName = passengerName;
+//         this.destination = destination;
+//         totalPassengers++;
+//     }
+//     public String getPassengerId() {
+//         return passengerId;
+//     }
+//     public String getPassengerName() {
+//         return passengerName;
+//     }
+//     public String getDestination() {
+//         return destination;
+//     }
+//     public static int getTotalPassengers() {
+//         return totalPassengers;
+//     }
+// }
+// class Flight {
+//     private String flightId;
+//     private String origin;
+//     private String destination;
+//     private static int totalFlights;
+//     Flight(String flightId, String origin, String destination) {
+//         this.flightId = flightId;
+//         this.origin = origin;
+//         this.destination = destination;
+//         totalFlights++;
+//     }
+//     public String getFlightId() {
+//         return flightId;
+//     }
+//     public String getOrigin() {
+//         return origin;
+//     }
+//     public String getDestination() {
+//         return destination;
+//     }
+//     public static int getTotalFlights() {
+//         return totalFlights;
+//     }
+//     public String getFlightInfo() {
+//         return "FlightId --> " + flightId + " Origin --> " + origin + " Destination --> " + destination;
+//     }
+// }
+// class CheckInCounter {
+//     private String counterCode;
+//     private Flight ft;
+//     private Queue<Passenger> pq = new LinkedList<>();
+//     CheckInCounter(String counterCode, Flight flight) {
+//         this.counterCode = counterCode;
+//         this.ft = flight;
+//     }
+//     public Flight getFlight() {
+//         return ft;
+//     }
+//     public String getCounterCode() {
+//         return counterCode;
+//     }
+//     public void joinQueue(Passenger p) {
+//         pq.add(p);
+//     }
+//     public Passenger checkInNext() {
+//         if (pq.isEmpty()) {
+//             return null;
+//         }
+//         return pq.remove();
+//     }
+//     public int getQueueLength() {
+//         return pq.size();
+//     }
+// }
+// class Airport {
+//     private String airportName;
+//     private ArrayList<CheckInCounter> chkCount = new ArrayList<>();
+//     Airport(String airportName) {
+//         this.airportName = airportName;
+//     }
+//     public void addCounter(CheckInCounter c) {
+//         chkCount.add(c);
+//     }
+//     public String getAirportName() {
+//         return airportName;
+//     }
+//     public String getAirportStatus() {
+//         StringBuilder sb = new StringBuilder();
+//         sb.append(airportName).append("\n");
+//         for (CheckInCounter cic : chkCount) {
+//             sb.append(cic.getCounterCode()).append(" - ");
+//             sb.append((cic.getFlight()).getFlightInfo()).append(" - ");
+//             sb.append(cic.getQueueLength()).append("\n");
+//         }
+//         return sb.toString();
+//     }
+// }
 
 // /* Question 7 Abstract + Interface + HashSet + LinkedList (Hard) */
 // interface Trackable {
@@ -704,35 +685,35 @@ public class Oops_dsa_4 {
         // System.out.print(d.getDepartmentReport());
 
         // /* Question 8 ===> Static + Composition + Queue + StringBuilder (Hard) */
+        // Flight f1 = new Flight("F-586A", "Muscut", "Oman");
+        // Flight f2 = new Flight("F-658A", "Riyadh", "Dubai");
+        // CheckInCounter c1 = new CheckInCounter("C254", f1);
+        // CheckInCounter c2 = new CheckInCounter("C795", f2);
+        // Passenger p1 = new Passenger("P-354", "Popoye", "Oman");
+        // Passenger p2 = new Passenger("P-758", "Stark", "Oman");
+        // Passenger p3 = new Passenger("P-246", "Steve", "Oman");
+        // Passenger p4 = new Passenger("P-778", "Tony", "Dubai");
+        // Passenger p5 = new Passenger("P-698", "Bob", "Dubai");
+        // Passenger p6 = new Passenger("P-589", "Roy", "Dubai");
+        // Airport a = new Airport("Abu Dhabi International");
+        // a.addCounter(c1);
+        // a.addCounter(c2);
+        // c1.joinQueue(p1);
+        // c1.joinQueue(p2);
+        // c1.joinQueue(p3);
+        // c2.joinQueue(p4);
+        // c2.joinQueue(p5);
+        // c2.joinQueue(p6);
+        // c1.checkInNext();
+        // c1.checkInNext();
+        // System.out.println("Airport Name ==> " + a.getAirportName());
+        // System.out.print("Airport Status ==> " + a.getAirportStatus());
+        // System.out.println("Total Flight Count ==> " + Flight.getTotalFlights());
+        // System.out.println("Total Passenger Count ==> " +
+        // Passenger.getTotalPassengers());
 
-        Flight f1 = new Flight("F-586A", "Muscut", "Oman");
-        Flight f2 = new Flight("F-658A", "Riyadh", "Dubai");
-
-        CheckInCounter c1 = new CheckInCounter("C254", f1);
-        CheckInCounter c2 = new CheckInCounter("C795", f2);
-
-        Passenger p1 = new Passenger("P-354", "Popoye", "Oman");
-        Passenger p2 = new Passenger("P-758", "Stark", "Oman");
-        Passenger p3 = new Passenger("P-246", "Steve", "Oman");
-
-        Passenger p4 = new Passenger("P-778", "Tony", "Dubai");
-        Passenger p5 = new Passenger("P-698", "Bob", "Dubai");
-        Passenger p6 = new Passenger("P-589", "Roy", "Dubai");
-
-        Airport a = new Airport("Abu Dhabi International");
-        c1.joinPassenger(p1);
-        c1.joinPassenger(p2);
-        c1.joinPassenger(p3);
-        c2.joinPassenger(p4);
-        c2.joinPassenger(p5);
-        c2.joinPassenger(p6);
-        // System.out.println("Check In Info ==> " + c1.checkInNext());
-        // System.out.println("Check In Info ==> " + c1.checkInNext());
-
-        System.out.println("Airport Name ==> " + a.getAirportName());
-        System.out.println("Airport Status ==> " + a.getAirportStatus());
-        System.out.println("Total Flight Count ==> " + Flight.getTotalFlights());
-        System.out.println("Total Passenger Count ==> " + Passenger.getTotalPassengers());
+        // /* Question 9 ===> Abstract + Interface + BinaryTree-style LinkedList +
+        // HashSet (Hard) */
     }
 
 }
