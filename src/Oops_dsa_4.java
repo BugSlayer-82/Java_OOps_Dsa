@@ -1,100 +1,212 @@
-// import java.util.Queue;
+import java.util.Queue;
 // import java.util.Stack;
 // import java.util.Vector;
 // import java.util.HashSet;
-// import java.util.ArrayList;
+import java.util.ArrayList;
 // import java.util.Collection;
-// import java.util.LinkedList;
+import java.util.LinkedList;
 
 // /* Question 8 Static + Composition + Queue + StringBuilder (Hard) */
+class Passenger {
+    private String passengerId;
+    private String passengerName;
+    private String destination;
+    private static int totalPassengers;
+
+    Passenger(String passengerId, String passengerName, String destination) {
+        this.passengerId = passengerId;
+        this.passengerName = passengerName;
+        this.destination = destination;
+        totalPassengers++;
+    }
+
+    public String getPassengerId() {
+        return passengerId;
+    }
+
+    public String getPassengerName() {
+        return passengerName;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public static int getTotalPassengers() {
+        return totalPassengers;
+    }
+}
+
+class Flight {
+    private String flightId;
+    private String origin;
+    private String destination;
+    private static int totalFlights;
+
+    Flight(String flightId, String origin, String destination) {
+        this.flightId = flightId;
+        this.origin = origin;
+        this.destination = destination;
+        totalFlights++;
+    }
+
+    public String getFlightId() {
+        return flightId;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public static int getTotalFlights() {
+        return totalFlights;
+    }
+
+    public String getFlightInfo() {
+        return "FlightId --> " + flightId + " Origin --> " + origin + " Destination --> " + destination;
+    }
+}
+
+class CheckInCounter {
+    private String counterCode;
+    Flight ft;
+    private Queue<Passenger> pq = new LinkedList<>();
+
+    CheckInCounter(String counterCode, Flight flight) {
+        this.counterCode = counterCode;
+        this.ft = flight;
+    }
+
+    public void joinPassenger(Passenger p) {
+        pq.add(p);
+    }
+
+    public Passenger checkInNext() {
+        if (pq.isEmpty()) {
+            return null;
+        }
+        Passenger remP = pq.remove();
+        return remP;
+    }
+
+    public int getQueueLength() {
+        return pq.size();
+    }
+}
+
+class Airport {
+    private String airportName;
+    private ArrayList<CheckInCounter> chkCount = new ArrayList<>();
+
+    Airport(String airportName) {
+        this.airportName = airportName;
+    }
+
+    public void addCounter(CheckInCounter c) {
+        chkCount.add(c);
+    }
+
+    public String getAirportName() {
+        return airportName;
+    }
+
+    public String getAirportStatus() {
+        return "";
+    }
+}
 
 // /* Question 7 Abstract + Interface + HashSet + LinkedList (Hard) */
 // interface Trackable {
-//     String getId();
-//     String getSummary();
+// String getId();
+// String getSummary();
 // }
 // abstract class UniversityMember {
-//     private String memberId;
-//     private String memberName;
-//     UniversityMember(String memberId, String memberName) {
-//         this.memberId = memberId;
-//         this.memberName = memberName;
-//     }
-//     public String getMemberId() {
-//         return memberId;
-//     }
-//     public String getMemberName() {
-//         return memberName;
-//     }
-//     public abstract String getRole();
+// private String memberId;
+// private String memberName;
+// UniversityMember(String memberId, String memberName) {
+// this.memberId = memberId;
+// this.memberName = memberName;
+// }
+// public String getMemberId() {
+// return memberId;
+// }
+// public String getMemberName() {
+// return memberName;
+// }
+// public abstract String getRole();
 // }
 // class Professor extends UniversityMember implements Trackable {
-//     private String subject;
-//     private HashSet<String> set = new HashSet<>();
-//     Professor(String memberId, String memberName, String subject) {
-//         super(memberId, memberName);
-//         this.subject = subject;
-//     }
-//     public String getSubject() {
-//         return subject;
-//     }
-//     public String getRole() {
-//         return "Professor";
-//     }
-//     public String getId() {
-//         return getMemberId(); // here
-//     }
-//     public void addResearchTopic(String topic) {
-//         set.add(topic);
-//     }
-//     public String getSummary() {
-//         return getMemberName() + " " + subject + " " + set;
-//     }
+// private String subject;
+// private HashSet<String> set = new HashSet<>();
+// Professor(String memberId, String memberName, String subject) {
+// super(memberId, memberName);
+// this.subject = subject;
+// }
+// public String getSubject() {
+// return subject;
+// }
+// public String getRole() {
+// return "Professor";
+// }
+// public String getId() {
+// return getMemberId(); // here
+// }
+// public void addResearchTopic(String topic) {
+// set.add(topic);
+// }
+// public String getSummary() {
+// return getMemberName() + " " + subject + " " + set;
+// }
 // }
 // class GradStudent extends UniversityMember implements Trackable {
-//     private String thesisTopic;
-//     private String supervisorId;
-//     GradStudent(String memberId, String memberName, String thesisTopic, String supervisorId) {
-//         super(memberId, memberName);
-//         this.thesisTopic = thesisTopic;
-//         this.supervisorId = supervisorId;
-//     }
-//     public String getRole() {
-//         return "Graduate Student";
-//     }
-//     public String getId() {
-//         return getMemberId();
-//     }
-//     public String getSummary() {
-//         return getMemberName() + " " + thesisTopic + " " + supervisorId;
-//     }
+// private String thesisTopic;
+// private String supervisorId;
+// GradStudent(String memberId, String memberName, String thesisTopic, String
+// supervisorId) {
+// super(memberId, memberName);
+// this.thesisTopic = thesisTopic;
+// this.supervisorId = supervisorId;
+// }
+// public String getRole() {
+// return "Graduate Student";
+// }
+// public String getId() {
+// return getMemberId();
+// }
+// public String getSummary() {
+// return getMemberName() + " " + thesisTopic + " " + supervisorId;
+// }
 // }
 // class Department {
-//     private String departmentName;
-//     private LinkedList<Professor> pList = new LinkedList<>();
-//     private LinkedList<GradStudent> gList = new LinkedList<>();
-//     Department(String departmentName) {
-//         this.departmentName = departmentName;
-//     }
-//     public String getDepartmentName() {
-//         return departmentName;
-//     }
-//     public void addProfessor(Professor p) {
-//         pList.add(p);
-//     }
-//     public void addGradStudent(GradStudent g) {
-//         gList.add(g);
-//     }
-//     public String getDepartmentReport() {
-//         StringBuilder sb = new StringBuilder();
-//         for (Professor pr : pList) {
-//             sb.append(pr.getSummary()).append("\n");
-//         }
-//         for (GradStudent gr : gList) {
-//             sb.append(gr.getSummary()).append("\n");
-//         }
-//         return sb.toString();
-//     }
+// private String departmentName;
+// private LinkedList<Professor> pList = new LinkedList<>();
+// private LinkedList<GradStudent> gList = new LinkedList<>();
+// Department(String departmentName) {
+// this.departmentName = departmentName;
+// }
+// public String getDepartmentName() {
+// return departmentName;
+// }
+// public void addProfessor(Professor p) {
+// pList.add(p);
+// }
+// public void addGradStudent(GradStudent g) {
+// gList.add(g);
+// }
+// public String getDepartmentReport() {
+// StringBuilder sb = new StringBuilder();
+// for (Professor pr : pList) {
+// sb.append(pr.getSummary()).append("\n");
+// }
+// for (GradStudent gr : gList) {
+// sb.append(gr.getSummary()).append("\n");
+// }
+// return sb.toString();
+// }
 // }
 
 // /* Question 6 Polymorphism + Vector + StringBuilder (Medium) */
