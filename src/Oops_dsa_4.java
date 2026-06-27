@@ -1,114 +1,224 @@
+
 // import java.util.Queue;
 // import java.util.Stack;
 // import java.util.Vector;
-// import java.util.HashSet;
-// import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.ArrayList;
 // import java.util.Collection;
-// import java.util.LinkedList;
+import java.util.LinkedList;
 
 // /* Question 9  Abstract + Interface + BinaryTree-style LinkedList + HashSet (Hard) */
+interface Reportable {
+    String getEmployeeId();
+
+    String getReport();
+}
+
+abstract class OrgMember {
+    private String memberId;
+    private String memberName;
+    private String department;
+
+    OrgMember(String memberId, String memberName, String department) {
+        this.memberId = memberId;
+        this.memberName = memberName;
+        this.department = department;
+    }
+
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public String getMemberName() {
+        return memberName;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public abstract String getDesignation();
+}
+
+class Manager extends OrgMember implements Reportable {
+    private String teamName;
+    private LinkedList<String> directReportIds = new LinkedList<String>();
+
+    Manager(String teamName, String memberId, String memberName, String department) {
+        super(memberId, memberName, department);
+        this.teamName = teamName;
+    }
+
+    public String getDesignation() {
+        return "Manager";
+    }
+
+    public String getEmployeeId() {
+        return super.getMemberId();
+    }
+
+    public String getReport() { // recheck after other class and method
+        return super.getMemberName() + " " + teamName + " " + super.getDepartment() + " " + directReportIds;
+    }
+
+    public void addDirectReport(String employeeId) {
+        directReportIds.add(employeeId);
+    }
+}
+
+class IndividualContributor extends OrgMember implements Reportable {
+    private String skillSet;
+    private HashSet<String> certification = new HashSet<>();
+
+    IndividualContributor(String skillSet, String memberId, String memberName, String department) {
+        super(memberId, memberName, department);
+        this.skillSet = skillSet;
+    }
+
+    public void addCertification(String cert) {
+        certification.add(cert);
+    }
+
+    public String getEmployeeId() {
+        return super.getMemberId();
+    }
+
+    public String getReport() {
+        return super.getMemberName() + " " + skillSet + " " + super.getDepartment() + " " + certification;
+    }
+
+    public String getDesignation() {
+        return "IC";
+    }
+}
+
+class OrgChart {
+    private String companyName;
+    private ArrayList<Manager> amn = new ArrayList<>();
+    private ArrayList<IndividualContributor> aic = new ArrayList<>();
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void addManager(Manager m) {
+        amn.add(m);
+    }
+
+    public void addIC(IndividualContributor ic) {
+        aic.add(ic);
+    }
+
+    public String getOrgReport() {
+        StringBuilder sb = new StringBuilder();
+
+        return sb.toString();
+    }
+
+}
 
 // /* Question 8 Static + Composition + Queue + StringBuilder (Hard) */
 // class Passenger {
-//     private String passengerId;
-//     private String passengerName;
-//     private String destination;
-//     private static int totalPassengers;
-//     Passenger(String passengerId, String passengerName, String destination) {
-//         this.passengerId = passengerId;
-//         this.passengerName = passengerName;
-//         this.destination = destination;
-//         totalPassengers++;
-//     }
-//     public String getPassengerId() {
-//         return passengerId;
-//     }
-//     public String getPassengerName() {
-//         return passengerName;
-//     }
-//     public String getDestination() {
-//         return destination;
-//     }
-//     public static int getTotalPassengers() {
-//         return totalPassengers;
-//     }
+// private String passengerId;
+// private String passengerName;
+// private String destination;
+// private static int totalPassengers;
+// Passenger(String passengerId, String passengerName, String destination) {
+// this.passengerId = passengerId;
+// this.passengerName = passengerName;
+// this.destination = destination;
+// totalPassengers++;
+// }
+// public String getPassengerId() {
+// return passengerId;
+// }
+// public String getPassengerName() {
+// return passengerName;
+// }
+// public String getDestination() {
+// return destination;
+// }
+// public static int getTotalPassengers() {
+// return totalPassengers;
+// }
 // }
 // class Flight {
-//     private String flightId;
-//     private String origin;
-//     private String destination;
-//     private static int totalFlights;
-//     Flight(String flightId, String origin, String destination) {
-//         this.flightId = flightId;
-//         this.origin = origin;
-//         this.destination = destination;
-//         totalFlights++;
-//     }
-//     public String getFlightId() {
-//         return flightId;
-//     }
-//     public String getOrigin() {
-//         return origin;
-//     }
-//     public String getDestination() {
-//         return destination;
-//     }
-//     public static int getTotalFlights() {
-//         return totalFlights;
-//     }
-//     public String getFlightInfo() {
-//         return "FlightId --> " + flightId + " Origin --> " + origin + " Destination --> " + destination;
-//     }
+// private String flightId;
+// private String origin;
+// private String destination;
+// private static int totalFlights;
+// Flight(String flightId, String origin, String destination) {
+// this.flightId = flightId;
+// this.origin = origin;
+// this.destination = destination;
+// totalFlights++;
+// }
+// public String getFlightId() {
+// return flightId;
+// }
+// public String getOrigin() {
+// return origin;
+// }
+// public String getDestination() {
+// return destination;
+// }
+// public static int getTotalFlights() {
+// return totalFlights;
+// }
+// public String getFlightInfo() {
+// return "FlightId --> " + flightId + " Origin --> " + origin + " Destination
+// --> " + destination;
+// }
 // }
 // class CheckInCounter {
-//     private String counterCode;
-//     private Flight ft;
-//     private Queue<Passenger> pq = new LinkedList<>();
-//     CheckInCounter(String counterCode, Flight flight) {
-//         this.counterCode = counterCode;
-//         this.ft = flight;
-//     }
-//     public Flight getFlight() {
-//         return ft;
-//     }
-//     public String getCounterCode() {
-//         return counterCode;
-//     }
-//     public void joinQueue(Passenger p) {
-//         pq.add(p);
-//     }
-//     public Passenger checkInNext() {
-//         if (pq.isEmpty()) {
-//             return null;
-//         }
-//         return pq.remove();
-//     }
-//     public int getQueueLength() {
-//         return pq.size();
-//     }
+// private String counterCode;
+// private Flight ft;
+// private Queue<Passenger> pq = new LinkedList<>();
+// CheckInCounter(String counterCode, Flight flight) {
+// this.counterCode = counterCode;
+// this.ft = flight;
+// }
+// public Flight getFlight() {
+// return ft;
+// }
+// public String getCounterCode() {
+// return counterCode;
+// }
+// public void joinQueue(Passenger p) {
+// pq.add(p);
+// }
+// public Passenger checkInNext() {
+// if (pq.isEmpty()) {
+// return null;
+// }
+// return pq.remove();
+// }
+// public int getQueueLength() {
+// return pq.size();
+// }
 // }
 // class Airport {
-//     private String airportName;
-//     private ArrayList<CheckInCounter> chkCount = new ArrayList<>();
-//     Airport(String airportName) {
-//         this.airportName = airportName;
-//     }
-//     public void addCounter(CheckInCounter c) {
-//         chkCount.add(c);
-//     }
-//     public String getAirportName() {
-//         return airportName;
-//     }
-//     public String getAirportStatus() {
-//         StringBuilder sb = new StringBuilder();
-//         sb.append(airportName).append("\n");
-//         for (CheckInCounter cic : chkCount) {
-//             sb.append(cic.getCounterCode()).append(" - ");
-//             sb.append((cic.getFlight()).getFlightInfo()).append(" - ");
-//             sb.append(cic.getQueueLength()).append("\n");
-//         }
-//         return sb.toString();
-//     }
+// private String airportName;
+// private ArrayList<CheckInCounter> chkCount = new ArrayList<>();
+// Airport(String airportName) {
+// this.airportName = airportName;
+// }
+// public void addCounter(CheckInCounter c) {
+// chkCount.add(c);
+// }
+// public String getAirportName() {
+// return airportName;
+// }
+// public String getAirportStatus() {
+// StringBuilder sb = new StringBuilder();
+// sb.append(airportName).append("\n");
+// for (CheckInCounter cic : chkCount) {
+// sb.append(cic.getCounterCode()).append(" - ");
+// sb.append((cic.getFlight()).getFlightInfo()).append(" - ");
+// sb.append(cic.getQueueLength()).append("\n");
+// }
+// return sb.toString();
+// }
 // }
 
 // /* Question 7 Abstract + Interface + HashSet + LinkedList (Hard) */
