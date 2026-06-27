@@ -2,120 +2,106 @@
 // import java.util.Queue;
 // import java.util.Stack;
 // import java.util.Vector;
-import java.util.HashSet;
-import java.util.ArrayList;
 // import java.util.Collection;
-import java.util.LinkedList;
+// import java.util.HashSet;
+// import java.util.ArrayList;
+// import java.util.LinkedList;
+
+// /* Question 10  Putting It All Together (Hard) */
 
 // /* Question 9  Abstract + Interface + BinaryTree-style LinkedList + HashSet (Hard) */
-interface Reportable {
-    String getEmployeeId();
-
-    String getReport();
-}
-
-abstract class OrgMember {
-    private String memberId;
-    private String memberName;
-    private String department;
-
-    OrgMember(String memberId, String memberName, String department) {
-        this.memberId = memberId;
-        this.memberName = memberName;
-        this.department = department;
-    }
-
-    public String getMemberId() {
-        return memberId;
-    }
-
-    public String getMemberName() {
-        return memberName;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public abstract String getDesignation();
-}
-
-class Manager extends OrgMember implements Reportable {
-    private String teamName;
-    private LinkedList<String> directReportIds = new LinkedList<String>();
-
-    Manager(String teamName, String memberId, String memberName, String department) {
-        super(memberId, memberName, department);
-        this.teamName = teamName;
-    }
-
-    public String getDesignation() {
-        return "Manager";
-    }
-
-    public String getEmployeeId() {
-        return super.getMemberId();
-    }
-
-    public String getReport() { // recheck after other class and method
-        return super.getMemberName() + " " + teamName + " " + super.getDepartment() + " " + directReportIds;
-    }
-
-    public void addDirectReport(String employeeId) {
-        directReportIds.add(employeeId);
-    }
-}
-
-class IndividualContributor extends OrgMember implements Reportable {
-    private String skillSet;
-    private HashSet<String> certification = new HashSet<>();
-
-    IndividualContributor(String skillSet, String memberId, String memberName, String department) {
-        super(memberId, memberName, department);
-        this.skillSet = skillSet;
-    }
-
-    public void addCertification(String cert) {
-        certification.add(cert);
-    }
-
-    public String getEmployeeId() {
-        return super.getMemberId();
-    }
-
-    public String getReport() {
-        return super.getMemberName() + " " + skillSet + " " + super.getDepartment() + " " + certification;
-    }
-
-    public String getDesignation() {
-        return "IC";
-    }
-}
-
-class OrgChart {
-    private String companyName;
-    private ArrayList<Manager> amn = new ArrayList<>();
-    private ArrayList<IndividualContributor> aic = new ArrayList<>();
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void addManager(Manager m) {
-        amn.add(m);
-    }
-
-    public void addIC(IndividualContributor ic) {
-        aic.add(ic);
-    }
-
-    public String getOrgReport() {
-        StringBuilder sb = new StringBuilder();
-
-        return sb.toString();
-    }
-
-}
+// interface Reportable {
+//     String getEmployeeId();
+//     String getReport();
+// }
+// abstract class OrgMember {
+//     private String memberId;
+//     private String memberName;
+//     private String department;
+//     OrgMember(String memberId, String memberName, String department) {
+//         this.memberId = memberId;
+//         this.memberName = memberName;
+//         this.department = department;
+//     }
+//     public String getMemberId() {
+//         return memberId;
+//     }
+//     public String getMemberName() {
+//         return memberName;
+//     }
+//     public String getDepartment() {
+//         return department;
+//     }
+//     public abstract String getDesignation();
+// }
+// class Manager extends OrgMember implements Reportable {
+//     private String teamName;
+//     private LinkedList<String> directReportIds = new LinkedList<String>();
+//     Manager(String memberId, String memberName, String department, String teamName) {
+//         super(memberId, memberName, department);
+//         this.teamName = teamName;
+//     }
+//     public String getDesignation() {
+//         return "Manager";
+//     }
+//     public String getEmployeeId() {
+//         return super.getMemberId();
+//     }
+//     public String getReport() { // recheck after other class and method
+//         return super.getMemberName() + " " + teamName + " " + super.getDepartment() + " " + directReportIds;
+//     }
+//     public void addDirectReport(String employeeId) {
+//         directReportIds.add(employeeId);
+//     }
+// }
+// class IndividualContributor extends OrgMember implements Reportable {
+//     private String skillSet;
+//     private HashSet<String> certifications = new HashSet<>();
+//     IndividualContributor(String memberId, String memberName, String department, String skillSet) {
+//         super(memberId, memberName, department);
+//         this.skillSet = skillSet;
+//     }
+//     public void addCertification(String cert) {
+//         certifications.add(cert);
+//     }
+//     public String getEmployeeId() {
+//         return super.getMemberId();
+//     }
+//     public String getReport() {
+//         return super.getMemberName() + " " + skillSet + " " + super.getDepartment() + " " + certifications;
+//     }
+//     public String getDesignation() {
+//         return "IC";
+//     }
+// }
+// class OrgChart {
+//     private String companyName;
+//     private ArrayList<Manager> amn = new ArrayList<>();
+//     private ArrayList<IndividualContributor> aic = new ArrayList<>();
+//     OrgChart(String companyName) {
+//         this.companyName = companyName;
+//     }
+//     public String getCompanyName() {
+//         return companyName;
+//     }
+//     public void addManager(Manager m) {
+//         amn.add(m);
+//     }
+//     public void addIC(IndividualContributor ic) {
+//         aic.add(ic);
+//     }
+//     public String getOrgReport() {
+//         StringBuilder sb = new StringBuilder();
+//         sb.append(companyName).append("\n");
+//         for (Manager mg : amn) {
+//             sb.append(mg.getReport()).append("\n");
+//         }
+//         for (IndividualContributor icr : aic) {
+//             sb.append(icr.getReport()).append("\n");
+//         }
+//         return sb.toString();
+//     }
+// }
 
 // /* Question 8 Static + Composition + Queue + StringBuilder (Hard) */
 // class Passenger {
@@ -824,6 +810,32 @@ public class Oops_dsa_4 {
 
         // /* Question 9 ===> Abstract + Interface + BinaryTree-style LinkedList +
         // HashSet (Hard) */
+        // Manager m1 = new Manager("M-687", "Natasha", "Security", "Avengers Team");
+        // Manager m2 = new Manager("M-135", "Bruce Banner", "Research", "Gamma Lab");
+        // IndividualContributor ic1 = new IndividualContributor("IC-685", "Tony Stark",
+        // "Research", "AI Specialist");
+        // IndividualContributor ic2 = new IndividualContributor("IC-785", "Steve
+        // Rogers", "Security", "Tactical Combat");
+        // IndividualContributor ic3 = new IndividualContributor("IC-985", "Peter
+        // Parker", "Research", "Web Engineering");
+        // m2.addDirectReport("IC-685");
+        // m2.addDirectReport("IC-985");
+        // m1.addDirectReport("IC-785");
+        // ic1.addCertification("Java Core");
+        // ic1.addCertification("Java Core");
+        // ic2.addCertification("Leadership");
+        // ic2.addCertification("Defense");
+        // ic3.addCertification("Web Expert");
+        // ic3.addCertification("Web Expert");
+        // OrgChart oc = new OrgChart("Stark Industries");
+        // oc.addManager(m1);
+        // oc.addManager(m2);
+        // oc.addIC(ic1);
+        // oc.addIC(ic2);
+        // oc.addIC(ic3);
+        // System.out.print(oc.getOrgReport());
+
+        // /* Question 10 ===> Putting It All Together (Hard) */
     }
 
 }
