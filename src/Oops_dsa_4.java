@@ -1,106 +1,285 @@
 
 // import java.util.Queue;
 // import java.util.Stack;
-// import java.util.Vector;
 // import java.util.Collection;
+// import java.util.Vector;
+// import java.util.Set;
 // import java.util.HashSet;
+// import java.util.LinkedList;
+// import java.util.List;
 // import java.util.ArrayList;
 // import java.util.LinkedList;
 
 // /* Question 10  Putting It All Together (Hard) */
+// abstract class User {
+//     private String userId;
+//     private String email;
+//     private int age;
+//     User(String userId, String email, int age) {
+//         this.userId = userId;
+//         this.email = email;
+//         this.age = age;
+//     }
+//     public String getUserId() {
+//         return userId;
+//     }
+//     public String getEmail() {
+//         return email;
+//     }
+//     public int getAge() {
+//         return age;
+//     }
+//     public abstract String getUserType();
+// }
+// interface Transactable {
+//     String addTransaction(String txnId);
+//     List<String> getTransactions();
+// }
+// class Buyer extends User implements Transactable {
+//     private String shippingAddress;
+//     private String buyerName;
+//     private ArrayList<String> transactions = new ArrayList<>();
+//     Buyer(String userId, String email, int age, String shippingAddress, String buyerName) {
+//         super(userId, email, age);
+//         this.shippingAddress = shippingAddress;
+//         this.buyerName = buyerName;
+//     }
+//     public String getBuyerName() {
+//         return buyerName;
+//     }
+//     public String getShippingAddress() {
+//         return shippingAddress;
+//     }
+//     public String getUserType() {
+//         return "Buyer";
+//     }
+//     public String addTransaction(String txnId) {
+//         transactions.add(txnId);
+//         return "Transaction recorded: " + txnId;
+//     }
+//     public List<String> getTransactions() {
+//         return transactions;
+//     }
+// }
+// class Seller extends User {
+//     private String storeName;
+//     private HashSet<String> proCat = new HashSet<>();
+//     Seller(String userId, String email, int age, String storeName) {
+//         super(userId, email, age);
+//         this.storeName = storeName;
+//     }
+//     public String getStoreName() {
+//         return storeName;
+//     }
+//     public void addCategory(String category) {
+//         proCat.add(category);
+//     }
+//     public Set<String> getCategories() {
+//         return proCat;
+//     }
+//     public String getUserType() {
+//         return "Seller";
+//     }
+// }
+// class Product {
+//     private String productId;
+//     private String productName;
+//     private double price;
+//     private Seller seller;
+//     Product(String productId, String productName, double price, Seller seller) {
+//         this.productId = productId;
+//         this.productName = productName;
+//         this.price = price;
+//         this.seller = seller;
+//     }
+//     public String getProductId() {
+//         return productId;
+//     }
+//     public Seller getSeller() {
+//         return seller;
+//     }
+//     public String getProductName() {
+//         return productName;
+//     }
+//     public double getPrice() {
+//         return price;
+//     }
+//     public String getProductDetails() {
+//         return "Product Id --> " + productId + " Product Name --> " + productName + " Price --> " + price
+//                 + "Store Name --> " + seller.getStoreName();
+//     }
+// }
+// class Order {
+//     private String orderId;
+//     private Buyer buyer;
+//     private String status;
+//     private LinkedList<Product> products = new LinkedList<>();
+//     Order(String orderId, Buyer buyer) {
+//         this.orderId = orderId;
+//         this.buyer = buyer;
+//         status = "PENDING";
+//     }
+//     public String getOrderId() {
+//         return orderId;
+//     }
+//     public void addProduct(Product p) {
+//         products.add(p);
+//     }
+//     public double getOrderTotal() {
+//         double totalPrice = 0;
+//         for (Product pr : products) {
+//             totalPrice += pr.getPrice();
+//         }
+//         return totalPrice;
+//     }
+//     public void updateStatus(String status) {
+//         this.status = status;
+//     }
+//     public String getOrderDetails() {
+//         StringBuilder sb1 = new StringBuilder();
+//         sb1.append(orderId).append(" ");
+//         sb1.append(buyer.getBuyerName()).append(" ");
+//         sb1.append(status).append(" ");
+//         for (Product pr : products) {
+//             sb1.append(pr.getProductName()).append(", ");
+//         }
+//         sb1.append("Total --> ").append(getOrderTotal());
+//         return sb1.toString();
+//     }
+// }
+// class Platform {
+//     private String platformName;
+//     private Vector<Buyer> buyer = new Vector<>();
+//     private Vector<Seller> seller = new Vector<>();
+//     private ArrayList<Order> order = new ArrayList<>();
+//     Platform(String platformName) {
+//         this.platformName = platformName;
+//     }
+//     public String getPlatformName() {
+//         return platformName;
+//     }
+//     public void addBuyer(Buyer b) {
+//         buyer.add(b);
+//     }
+//     public void addSeller(Seller s) {
+//         seller.add(s);
+//     }
+//     public void addOrder(Order o) {
+//         order.add(o);
+//     }
+//     public String getPlatformReport() {
+//         StringBuilder sb2 = new StringBuilder();
+//         sb2.append("Platform Name --> ").append(platformName).append("\n");
+//         for (Buyer br : buyer) {
+//             sb2.append("Buyer name --> " + br.getBuyerName()).append(br.getTransactions()).append("\n");
+//         }
+//         for (Seller sr : seller) {
+//             sb2.append("Store name --> " + sr.getStoreName()).append(sr.getCategories()).append("\n");
+//         }
+//         for (Order or : order) {
+//             sb2.append(or.getOrderDetails()).append("\n");
+//         }
+//         return sb2.toString();
+//     }
+// }
 
-// /* Question 9  Abstract + Interface + BinaryTree-style LinkedList + HashSet (Hard) */
+// /* Question 9 Abstract + Interface + BinaryTree-style LinkedList + HashSet
+// (Hard) */
 // interface Reportable {
-//     String getEmployeeId();
-//     String getReport();
+// String getEmployeeId();
+// String getReport();
 // }
 // abstract class OrgMember {
-//     private String memberId;
-//     private String memberName;
-//     private String department;
-//     OrgMember(String memberId, String memberName, String department) {
-//         this.memberId = memberId;
-//         this.memberName = memberName;
-//         this.department = department;
-//     }
-//     public String getMemberId() {
-//         return memberId;
-//     }
-//     public String getMemberName() {
-//         return memberName;
-//     }
-//     public String getDepartment() {
-//         return department;
-//     }
-//     public abstract String getDesignation();
+// private String memberId;
+// private String memberName;
+// private String department;
+// OrgMember(String memberId, String memberName, String department) {
+// this.memberId = memberId;
+// this.memberName = memberName;
+// this.department = department;
+// }
+// public String getMemberId() {
+// return memberId;
+// }
+// public String getMemberName() {
+// return memberName;
+// }
+// public String getDepartment() {
+// return department;
+// }
+// public abstract String getDesignation();
 // }
 // class Manager extends OrgMember implements Reportable {
-//     private String teamName;
-//     private LinkedList<String> directReportIds = new LinkedList<String>();
-//     Manager(String memberId, String memberName, String department, String teamName) {
-//         super(memberId, memberName, department);
-//         this.teamName = teamName;
-//     }
-//     public String getDesignation() {
-//         return "Manager";
-//     }
-//     public String getEmployeeId() {
-//         return super.getMemberId();
-//     }
-//     public String getReport() { // recheck after other class and method
-//         return super.getMemberName() + " " + teamName + " " + super.getDepartment() + " " + directReportIds;
-//     }
-//     public void addDirectReport(String employeeId) {
-//         directReportIds.add(employeeId);
-//     }
+// private String teamName;
+// private LinkedList<String> directReportIds = new LinkedList<String>();
+// Manager(String memberId, String memberName, String department, String
+// teamName) {
+// super(memberId, memberName, department);
+// this.teamName = teamName;
+// }
+// public String getDesignation() {
+// return "Manager";
+// }
+// public String getEmployeeId() {
+// return super.getMemberId();
+// }
+// public String getReport() { // recheck after other class and method
+// return super.getMemberName() + " " + teamName + " " + super.getDepartment() +
+// " " + directReportIds;
+// }
+// public void addDirectReport(String employeeId) {
+// directReportIds.add(employeeId);
+// }
 // }
 // class IndividualContributor extends OrgMember implements Reportable {
-//     private String skillSet;
-//     private HashSet<String> certifications = new HashSet<>();
-//     IndividualContributor(String memberId, String memberName, String department, String skillSet) {
-//         super(memberId, memberName, department);
-//         this.skillSet = skillSet;
-//     }
-//     public void addCertification(String cert) {
-//         certifications.add(cert);
-//     }
-//     public String getEmployeeId() {
-//         return super.getMemberId();
-//     }
-//     public String getReport() {
-//         return super.getMemberName() + " " + skillSet + " " + super.getDepartment() + " " + certifications;
-//     }
-//     public String getDesignation() {
-//         return "IC";
-//     }
+// private String skillSet;
+// private HashSet<String> certifications = new HashSet<>();
+// IndividualContributor(String memberId, String memberName, String department,
+// String skillSet) {
+// super(memberId, memberName, department);
+// this.skillSet = skillSet;
+// }
+// public void addCertification(String cert) {
+// certifications.add(cert);
+// }
+// public String getEmployeeId() {
+// return super.getMemberId();
+// }
+// public String getReport() {
+// return super.getMemberName() + " " + skillSet + " " + super.getDepartment() +
+// " " + certifications;
+// }
+// public String getDesignation() {
+// return "IC";
+// }
 // }
 // class OrgChart {
-//     private String companyName;
-//     private ArrayList<Manager> amn = new ArrayList<>();
-//     private ArrayList<IndividualContributor> aic = new ArrayList<>();
-//     OrgChart(String companyName) {
-//         this.companyName = companyName;
-//     }
-//     public String getCompanyName() {
-//         return companyName;
-//     }
-//     public void addManager(Manager m) {
-//         amn.add(m);
-//     }
-//     public void addIC(IndividualContributor ic) {
-//         aic.add(ic);
-//     }
-//     public String getOrgReport() {
-//         StringBuilder sb = new StringBuilder();
-//         sb.append(companyName).append("\n");
-//         for (Manager mg : amn) {
-//             sb.append(mg.getReport()).append("\n");
-//         }
-//         for (IndividualContributor icr : aic) {
-//             sb.append(icr.getReport()).append("\n");
-//         }
-//         return sb.toString();
-//     }
+// private String companyName;
+// private ArrayList<Manager> amn = new ArrayList<>();
+// private ArrayList<IndividualContributor> aic = new ArrayList<>();
+// OrgChart(String companyName) {
+// this.companyName = companyName;
+// }
+// public String getCompanyName() {
+// return companyName;
+// }
+// public void addManager(Manager m) {
+// amn.add(m);
+// }
+// public void addIC(IndividualContributor ic) {
+// aic.add(ic);
+// }
+// public String getOrgReport() {
+// StringBuilder sb = new StringBuilder();
+// sb.append(companyName).append("\n");
+// for (Manager mg : amn) {
+// sb.append(mg.getReport()).append("\n");
+// }
+// for (IndividualContributor icr : aic) {
+// sb.append(icr.getReport()).append("\n");
+// }
+// return sb.toString();
+// }
 // }
 
 // /* Question 8 Static + Composition + Queue + StringBuilder (Hard) */
@@ -836,6 +1015,39 @@ public class Oops_dsa_4 {
         // System.out.print(oc.getOrgReport());
 
         // /* Question 10 ===> Putting It All Together (Hard) */
+        // Seller s1 = new Seller("S-894", "Popoye234@shop.com", 26, "Popoye Shop");
+        // Seller s2 = new Seller("S-674", "Tony374@shop.com", 30, "Tony Store");
+        // s1.addCategory("Toys");
+        // s1.addCategory("Toys");
+        // s1.addCategory("Toys");
+        // s2.addCategory("Electronics");
+        // s2.addCategory("Electronics");
+        // Product p1 = new Product("P-364", "ToysCar", 200.36d, s1);
+        // Product p2 = new Product("P-466", "Mouse", 500.68d, s2); // Mouse belongs to
+        // s2 (Electronics)
+        // Product p3 = new Product("P-785", "Skates", 684.48d, s1); // Skates belongs
+        // to s1 (Toys)
+        // Buyer b1 = new Buyer("B-954", "stark354@buyer.org", 43, "Block-A",
+        // "TonyStark");
+        // Buyer b2 = new Buyer("B-758", "popoye3945@buyer.org", 28, "Block-B",
+        // "Popoye");
+        // Order o1 = new Order("O-234", b1);
+        // o1.addProduct(p1);
+        // o1.addProduct(p3);
+        // Order o2 = new Order("O-758", b2);
+        // o2.addProduct(p2);
+        // o2.addProduct(p1);
+        // System.out.println(b1.addTransaction("TXN-101"));
+        // System.out.println(b2.addTransaction("TXN-102"));
+        // o1.updateStatus("DELIVERED");
+        // Platform platform = new Platform("First platform");
+        // platform.addSeller(s1);
+        // platform.addSeller(s2);
+        // platform.addBuyer(b1);
+        // platform.addBuyer(b2);
+        // platform.addOrder(o1);
+        // platform.addOrder(o2);
+        // System.out.print(platform.getPlatformReport());
     }
 
 }
