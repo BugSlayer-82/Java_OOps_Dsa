@@ -1,132 +1,262 @@
-# Java OOP + Data Structures Practice Questions (Custom Set)
+# Java OOP + Data Structures Practice Set (5 Questions)
 
 ## Instructions
 
--   Choose suitable access modifiers.
--   Choose suitable variable types.
--   Choose the most appropriate Data Structure yourself.
--   Decide return types wherever possible.
--   Focus on clean OOP design.
+-   Variable names are provided.
+-   You must decide:
+    -   Variable types
+    -   Access modifiers
+    -   Return types
+    -   Suitable Data Structure
+    -   Appropriate OOP concepts
 
 ------------------------------------------------------------------------
 
-# Question 1 --- Movie Ticket Booking System (Medium)
+# Question 1 --- Movie Ticket Booking System
 
-You are building a Movie Ticket Booking System.
+You are building a **Movie Ticket Booking System**.
 
--   Create a class called `MovieShow`.
--   Store movie details and booked seats.
--   Design variables yourself.
+Create a class called `MovieShow`.
+
+The class should store:
+
+-   Movie Id
+-   Movie Name
+-   Show Time
+-   Total Seats
+-   All Seat Bookings
 
 ### Constructor
 
--   Initialize movie details.
--   Initially, no seats are booked.
+Initialize:
+
+-   Movie Id
+-   Movie Name
+-   Show Time
+-   Total Seats
+
+Initially no booking should exist.
 
 ### Methods
 
--   Book a seat for a customer.
--   Prevent duplicate bookings.
--   Cancel a booking.
--   Check whether a seat is available.
--   Find who booked a particular seat.
--   Return total booked seats.
--   Generate a booking report.
+-   `bookSeat(...)`
+
+    -   Store Customer Name, Ticket Id and Seat Number.
+    -   Do not allow duplicate seat booking.
+
+-   `cancelBooking(...)`
+
+    -   Cancel booking using Seat Number.
+
+-   `searchBooking(...)`
+
+    -   Search booking using Ticket Id.
+
+-   `getAvailableSeats()`
+
+-   `getBookedSeats()`
+
+-   `generateReport()`
+
+    -   Return complete booking report.
 
 ### Main Method
 
--   Create one show.
--   Book at least 6 seats.
--   Try duplicate booking.
+-   Create one movie show.
+-   Book 6 seats.
 -   Cancel one booking.
--   Search two seats.
+-   Search one booking.
 -   Print final report.
 
 ------------------------------------------------------------------------
 
-# Question 2 --- Online Shopping Cart (Medium)
+# Question 2 --- Online Food Ordering System
 
-Create classes to manage a customer's shopping cart.
+Create a class called `Restaurant`.
 
-Methods should allow: - add product - remove product - update quantity -
-search product - calculate total bill - generate invoice
+The class should store:
 
-Create multiple products in `main()` and test every operation.
+-   Restaurant Id
+-   Restaurant Name
+-   All Food Items
 
-------------------------------------------------------------------------
+Create another class called `FoodItem`.
 
-# Question 3 --- Student Result Management (Medium)
+Store:
 
-Create a student management system.
+-   Food Id
+-   Food Name
+-   Price
+-   Category
 
-Methods should: - add/update subject marks - search subject - calculate
-average - determine pass/fail - generate result card
+### Constructor
 
-Create multiple students and display topper.
+Initialize all details.
 
-------------------------------------------------------------------------
+Initially no food item exists.
 
-# Question 4 --- Hospital Appointment System (Hard)
+### Methods
 
-Design a hospital system using suitable OOP concepts.
+-   addFoodItem(...)
+-   removeFoodItem(...)
+-   updateFoodPrice(...)
+-   searchFood(...)
+-   showMenu()
+-   generateRestaurantReport()
 
-Implement methods to: - register doctor - register patient - book
-appointment - cancel appointment - search appointment - generate
-hospital report
+### Main Method
 
-------------------------------------------------------------------------
-
-# Question 5 --- Digital Library System (Hard)
-
-Create a library system.
-
-Implement methods to: - issue book - return book - search by id - search
-by title - show issued books - generate complete report
-
-------------------------------------------------------------------------
-
-# Question 6 --- Food Delivery System (Hard)
-
-Implement: - place order - cancel order - dispatch next order - search
-customer order - calculate total sales - generate delivery report
+-   Create one restaurant.
+-   Add 8 food items.
+-   Update one price.
+-   Remove one item.
+-   Search one item.
+-   Print complete menu.
 
 ------------------------------------------------------------------------
 
-# Question 7 --- Banking System (Hard)
+# Question 3 --- Library Management System
 
-Implement: - create account - deposit - withdraw - transfer -
-transaction history - account summary
+Create a class called `Library`.
+
+Store:
+
+-   Library Id
+-   Library Name
+-   All Books
+-   Issued Books
+
+Create another class called `Book`.
+
+Store:
+
+-   Book Id
+-   Book Name
+-   Author Name
+-   Publication
+
+### Constructor
+
+Initialize all details.
+
+Initially no book is issued.
+
+### Methods
+
+-   addBook(...)
+-   issueBook(...)
+-   returnBook(...)
+-   searchBook(...)
+-   getIssuedBooks()
+-   generateLibraryReport()
+
+### Main Method
+
+-   Add 10 books.
+-   Issue 3 books.
+-   Return one.
+-   Search two books.
+-   Print report.
 
 ------------------------------------------------------------------------
 
-# Question 8 --- University Management System (Hard)
+# Question 4 --- Hospital Management System
 
-Implement: - add professor - add student - assign guide - enroll
-courses - search member - department report
+Create a class called `Hospital`.
+
+Store:
+
+-   Hospital Id
+-   Hospital Name
+-   Doctors
+-   Patients
+-   Appointments
+
+Create classes:
+
+Doctor
+
+Store:
+
+-   Doctor Id
+-   Doctor Name
+-   Specialization
+
+Patient
+
+Store:
+
+-   Patient Id
+-   Patient Name
+-   Disease
+
+### Methods
+
+-   addDoctor(...)
+-   addPatient(...)
+-   bookAppointment(...)
+-   cancelAppointment(...)
+-   searchAppointment(...)
+-   generateHospitalReport()
+
+### Main Method
+
+-   Add doctors.
+-   Add patients.
+-   Book appointments.
+-   Cancel one.
+-   Print report.
 
 ------------------------------------------------------------------------
 
-# Question 9 --- Social Media Platform (Hard)
+# Question 5 --- Banking System
 
-Implement: - create user - create post - like post - delete post -
-search user - generate feed report
+Create a class called `Bank`.
+
+Store:
+
+-   Bank Name
+-   Branch Name
+-   All Accounts
+
+Create another class called `Account`.
+
+Store:
+
+-   Account Number
+-   Holder Name
+-   Balance
+
+### Constructor
+
+Initialize all details.
+
+### Methods
+
+-   createAccount(...)
+-   deposit(...)
+-   withdraw(...)
+-   transferMoney(...)
+-   searchAccount(...)
+-   generateBankReport()
+
+### Main Method
+
+-   Create multiple accounts.
+-   Deposit money.
+-   Withdraw money.
+-   Transfer money.
+-   Search one account.
+-   Print final report.
 
 ------------------------------------------------------------------------
 
-# Question 10 --- Mini E-Commerce Platform (Hard)
+## Important
 
-Implement: - register buyer/seller - add products - place order - cancel
-order - update order status - search order - generate platform report
+For every question you must decide yourself:
 
-------------------------------------------------------------------------
-
-## Rules
-
-For every question, **you must decide yourself**:
-
--   Which Data Structure should be used.
--   Which variables should be `private`, `public`, `protected`, or
-    `static`.
--   Appropriate data types.
--   Appropriate return types.
--   Which OOP concepts fit best.
+-   Appropriate Data Structure
+-   Appropriate Variable Types
+-   Appropriate Access Modifiers
+-   Appropriate Return Types
+-   Appropriate OOP Concepts
