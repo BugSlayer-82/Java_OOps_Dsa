@@ -709,5 +709,3 @@ public class Oops_1 {
         // System.out.println("Salary ==> " + ((Payable) dep2.staff).calculateSalary());
     }
 }
-
-hello
