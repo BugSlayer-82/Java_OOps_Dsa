@@ -11,6 +11,7 @@ public class LeetCode_1 {
         System.out.println("In main class");
         System.out.println("This is window");
         System.out.println("This is mac");
+        System.out.println("This is linux");
         sol.printNum();
     }
 }
