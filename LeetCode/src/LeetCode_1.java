@@ -11,6 +11,7 @@ public class LeetCode_1 {
         Solution sol = new Solution();
         System.out.println("In main class");
         System.out.println("This is main method");
+        System.out.println("this is final");
         sol.printNum();
     }
 }
