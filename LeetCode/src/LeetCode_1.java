@@ -3,6 +3,7 @@ class Solution {
     public void printNum() {
         System.out.println("This is num");
         System.out.println("Second commit");
+        System.out.println("Corrected");
     }
 }
 
