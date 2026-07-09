@@ -14,5 +14,6 @@ public class LeetCode_1 {
         System.out.println("This is main method");
         System.out.println("this is final");
         sol.printNum();
+
     }
 }
