@@ -21,22 +21,31 @@ class Solution {
     // return new String(ch);
     // }
 
-    // /* Question 3 -----> Check for Duplicates */
-    public boolean containsDuplicate(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            int curr = arr[i];
-            int count = 1;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (curr == arr[j]) {
-                    count++;
-                }
-            }
-            if (count >= 2) {
-                return true;
-            }
-        }
-        return false;
-    }
+    // /* Question 3 -----> Check for Duplicates (Time O(n^2) & Space O(1))*/
+    // public boolean containsDuplicate(int[] arr) {
+    // for (int i = 0; i < arr.length; i++) {
+    // int curr = arr[i];
+    // for (int j = i + 1; j < arr.length; j++) {
+    // if (curr == arr[j]) {
+    // return true;
+    // }
+    // }
+    // }
+    // return false;
+    // }
+
+    // /* Question 4 -----> Two Sum (Time O(n^2) & Space O(1))*/
+    // public int[] twoSum(int[] nums, int target) {
+    // for (int i = 0; i < nums.length; i++) {
+    // for (int j = i + 1; j < nums.length; j++) {
+    // if (nums[i] + nums[j] == target) {
+    // return new int[] { i, j }; // return the indices
+    // }
+    // }
+    // }
+    // return new int[] {}; // return an empty array if no match found
+    // }
+
 }
 
 public class OOps_dsa_6 {
@@ -54,13 +63,23 @@ public class OOps_dsa_6 {
         // System.out.println("Reversed ==> " + result);
 
         // /* Question 3 -----> Check for Duplicates */
-        Solution sol = new Solution();
-        int[] arr = { 1, 10, 2, 4, 9, 0 };
-        boolean isAvailable = sol.containsDuplicate(arr);
-        if (isAvailable) {
-            System.out.println("Array contains duplicates");
-        } else {
-            System.out.println("Array doesn't contains duplicates");
-        }
+        // Solution sol = new Solution();
+        // int[] arr = { 1, 1, 2, 4, 9 };
+        // boolean isAvailable = sol.containsDuplicate(arr);
+        // if (isAvailable) {
+        // System.out.println("Array contains duplicates");
+        // } else {
+        // System.out.println("Array doesn't contains duplicates");
+        // }
+
+        // /* Question 4 -----> Two Sum */
+        // Solution sol = new Solution();
+        // int[] nums = { 2, 11, 15, 8 };
+        // int target = 10;
+        // int[] result = sol.twoSum(nums, target);
+        // for (int i = 0; i < result.length; i++) {
+        // System.out.print(result[i] + " ");
+        // }
+        // System.out.println();
     }
 }
