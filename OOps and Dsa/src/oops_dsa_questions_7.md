@@ -25,7 +25,7 @@ public int sumArray(int[] arr) {
 }
 ```
 
----
+--- 
 
 ## Q2: Reverse a String
 
