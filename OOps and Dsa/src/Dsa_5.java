@@ -48,7 +48,7 @@ class Solution {
 
 }
 
-public class OOps_dsa_6 {
+public class Dsa_5 {
     public static void main(String[] args) {
         // /* Question 1 ----> Sum of Array */
         // Solution sol = new Solution();
