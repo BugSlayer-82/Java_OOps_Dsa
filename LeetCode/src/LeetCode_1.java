@@ -1,17 +1,17 @@
 // /* Question 1 ---> Two Sum Problem */
 class Solution {
-    public void printNum() {
-        System.out.println("This is num");
+    public int [] twoSum(int nums[],int target) {
+
+    return new int[]{};
     }
 }
 
 public class LeetCode_1 {
     public static void main(String[] args) {
         Solution sol = new Solution();
-        System.out.println("In main class");
-        System.out.println("This is window");
-        System.out.println("This is mac");
-        System.out.println("This is linux");
-        sol.printNum();
+        int [] nums = {2,7,11,15};
+        int target = 9;
+        int [] result = sol.twoSum(nums,target);
+        System.out.println(result);
     }
 }
