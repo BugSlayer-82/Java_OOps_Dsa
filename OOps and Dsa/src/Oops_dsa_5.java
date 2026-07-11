@@ -3,6 +3,8 @@
 // import java.util.HashMap;
 // import java.util.ArrayList;
 
+// /* Question 3 =====> Online Course Enrollment */
+
 // /* Question 2 =====> Employee Salary Register */
 // class Employee {
 //     private String employeeName;
@@ -132,5 +134,7 @@ public class Oops_dsa_5 {
         // comp.addEmployee(e2);
         // System.out.println(comp.getEmployee("S-857"));
         // System.out.println("Salary --> " + comp.retrieveSalary("S-857"));
+
+        // /* Question 3 =====> Online Course Enrollment */
     }
 }
