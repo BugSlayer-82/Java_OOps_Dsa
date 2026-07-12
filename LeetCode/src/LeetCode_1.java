@@ -1,7 +1,8 @@
 import java.util.HashMap;
 
+public class LeetCode_1 {
 // /* Question 1 ---> Two Sum Problem (Time & Space O(n)) */
-class Solution {
+static class Solution {
     HashMap<Integer, Integer> map = new HashMap<>();
 
     public int[] twoSum(int nums[], int target) {
@@ -17,7 +18,6 @@ class Solution {
     }
 }
 
-public class LeetCode_1 {
     public static void main(String[] args) {
         Solution sol = new Solution();
         int[] nums = { 2, 7, 11, 15, 10 };

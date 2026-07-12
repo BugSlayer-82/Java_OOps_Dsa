@@ -15,41 +15,41 @@ class ListNode {
     }
 }
 
-// /* Question 2 ------> Add Two Numbers of linked list  */
-class Solution {
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode secl1 = l1;
-        ListNode secl2 = l2;
-        int sum = 0, carry = 0;
-        int x = 0, y = 0;
-        ListNode dummyHead = new ListNode(0);
-        ListNode curr = dummyHead;
-        while (secl1 != null || secl2 != null) {
-            if (secl1 == null) {
-                x = 0;
-            } else {
-                x = secl1.val;
-                secl1 = secl1.next;
-            }
-            if (secl2 == null) {
-                y = 0;
-            } else {
-                y = secl2.val;
-                secl2 = secl2.next;
-            }
-            sum = x + y + carry;
-            carry = sum / 10;
-            curr.next = new ListNode(sum % 10);
-            curr = curr.next;
-        }
-        if (carry > 0) {
-            curr.next = new ListNode(carry);
-        }
-        return dummyHead.next;
-    }
-}
-
 public class LeetCode_2 {
+    // /* Question 2 ------> Add Two Numbers of linked list */
+    static class Solution {
+        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+            ListNode secl1 = l1;
+            ListNode secl2 = l2;
+            int sum = 0, carry = 0;
+            int x = 0, y = 0;
+            ListNode dummyHead = new ListNode(0);
+            ListNode curr = dummyHead;
+            while (secl1 != null || secl2 != null) {
+                if (secl1 == null) {
+                    x = 0;
+                } else {
+                    x = secl1.val;
+                    secl1 = secl1.next;
+                }
+                if (secl2 == null) {
+                    y = 0;
+                } else {
+                    y = secl2.val;
+                    secl2 = secl2.next;
+                }
+                sum = x + y + carry;
+                carry = sum / 10;
+                curr.next = new ListNode(sum % 10);
+                curr = curr.next;
+            }
+            if (carry > 0) {
+                curr.next = new ListNode(carry);
+            }
+            return dummyHead.next;
+        }
+    }
+
     // ---- VS CODE MEIN RUN KARNE KE LIYE MAIN METHOD ----
     public static void main(String[] args) {
         // Example ki pehli list banate hain: 2 -> 4 -> 3 (yani 342)
