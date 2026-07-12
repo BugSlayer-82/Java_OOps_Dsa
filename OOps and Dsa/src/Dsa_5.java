@@ -1,3 +1,5 @@
+// import java.util.Stack;
+
 class Solution {
 
     // /* Question 1 ----> Sum of Array */
@@ -46,6 +48,15 @@ class Solution {
     // return new int[] {}; // return an empty array if no match found
     // }
 
+    // /* Question 5 -----> To identify Valid Parentheses */
+    // public boolean isValid(String s) {
+    // Stack<Character> stack = new Stack<>();
+    // char ch[] = s.toCharArray();
+    // for (int i = 0; i < s.length(); i++) {
+
+    // }
+    // return false;
+    // }
 }
 
 public class Dsa_5 {
@@ -81,5 +92,11 @@ public class Dsa_5 {
         // System.out.print(result[i] + " ");
         // }
         // System.out.println();
+
+        // /* Question 5 -----> To identify Valid Parentheses */
+        // Solution sol = new Solution();
+        // String s = "(){}[]";
+        // boolean result = sol.isValid(s);
+        // System.out.println("Is valid --> " + result);
     }
 }

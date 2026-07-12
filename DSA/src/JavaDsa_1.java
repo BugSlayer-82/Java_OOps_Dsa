@@ -1,41 +1,41 @@
 public class JavaDsa_1 {
+
 	// /* Question 2 --> Reverse the array */
-	static void reverseArray(int arr[]) {
-		int n = arr.length;
-		for (int i = 0; i < n / 2; i++) {
-			int temp = arr[i];
-			arr[i] = arr[n - i - 1];
-			arr[n - i - 1] = temp;
-		}
-		for (int j = 0; j < n; j++) {
-			System.out.print(arr[j] + " ");
-		}
-		System.out.println();
-	}
+	// static void reverseArray(int arr[]) {
+	// int n = arr.length;
+	// for (int i = 0; i < n / 2; i++) {
+	// int temp = arr[i];
+	// arr[i] = arr[n - i - 1];
+	// arr[n - i - 1] = temp;
+	// }
+	// for (int j = 0; j < n; j++) {
+	// System.out.print(arr[j] + " ");
+	// }
+	// System.out.println();
+	// }
 
 	// /* Question 1 --> Maximum and Minimum Element in an Array ( We assume array
 	// exist ) */
-	/* To find minimum element */
-	static int minElement(int arr[]) {
-		int min = arr[0];
-		for (int i = 1; i < arr.length; i++) {
-			if (min > arr[i]) {
-				min = arr[i];
-			}
-		}
-		return min;
-	}
-
-	/* To find maximum element */
-	static int maxElement(int arr[]) {
-		int max = arr[0];
-		for (int i = 1; i < arr.length; i++) {
-			if (max < arr[i]) {
-				max = arr[i];
-			}
-		}
-		return max;
-	}
+	// /* To find minimum element */
+	// static int minElement(int arr[]) {
+	// int min = arr[0];
+	// for (int i = 1; i < arr.length; i++) {
+	// if (min > arr[i]) {
+	// min = arr[i];
+	// }
+	// }
+	// return min;
+	// }
+	// /* To find maximum element */
+	// static int maxElement(int arr[]) {
+	// int max = arr[0];
+	// for (int i = 1; i < arr.length; i++) {
+	// if (max < arr[i]) {
+	// max = arr[i];
+	// }
+	// }
+	// return max;
+	// }
 
 	public static void main(String[] args) {
 		// /* Question 1 --> Maximum and Minimum Element in an Array */
@@ -48,5 +48,6 @@ public class JavaDsa_1 {
 		// reverseArray(arr);
 
 		// /* Question 3 --> Maximum SubArray */
+
 	}
 }
