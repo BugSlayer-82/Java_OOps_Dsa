@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-// /* Question 1 ---> Two Sum Problem */
+// /* Question 1 ---> Two Sum Problem (Time & Space O(n)) */
 class Solution {
     HashMap<Integer, Integer> map = new HashMap<>();
 
