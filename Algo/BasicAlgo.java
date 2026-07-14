@@ -1,5 +1,12 @@
 public class BasicAlgo {
-    // /* Basic implementation of Kadane's Algorith (Standard Approach & best approach) */
+    // /* =============> Categories of Array <================  */
+    // /* Basic implementation of Prefix Sum Algorithm */
+    static void prefixSum(){
+        
+    }
+
+
+    // /* Basic implementation of Kadane's Algorithm (Standard Approach & best approach) */
     static int kadaneStandard(int [] arr){
         int currSum = arr[0];
         int maxSum = arr[0];
