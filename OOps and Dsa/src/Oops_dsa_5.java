@@ -3,68 +3,108 @@
 // import java.util.HashMap;
 // import java.util.ArrayList;
 
+// /* Question 4 =====> Bank Account Locker */
+
 // /* Question 3 =====> Online Course Enrollment */
+// class Course {
+//     private String courseName;
+//     private String courseCode;
+//     Course(String courseName, String courseCode) {
+//         this.courseName = courseName;
+//         this.courseCode = courseCode;
+//     }
+//     public String getCourseName() {
+//         return courseName;
+//     }
+//     public String getCourseCode() {
+//         return courseCode;
+//     }
+// }
+// class Catalog {
+//     private String catalogName;
+//     private HashMap<String, Course> catalog = new HashMap<>();
+//     Catalog(String catalogName) {
+//         this.catalogName = catalogName;
+//     }
+//     public String getCatalogName() {
+//         return catalogName;
+//     }
+//     public void addCourse(Course c) {
+//         catalog.put(c.getCourseCode(), c);
+//     }
+//     public boolean isCourseExist(String courseCode) {
+//         return catalog.containsKey(courseCode);
+//     }
+//     public String getCourseDetail(String courseCode) {
+//         Course course = catalog.get(courseCode);
+//         if(course !=null){
+//             return "CourseName: "+course.getCourseName() + ", CourseCode: "+course.getCourseCode();
+//         }
+//         return "Course not found";
+//     }
+// }
 
 // /* Question 2 =====> Employee Salary Register */
 // class Employee {
-//     private String employeeName;
-//     private String employeeId;
-//     private double salary;
-//     Employee(String employeeName, String employeeId, double salary) {
-//         this.employeeName = employeeName;
-//         this.employeeId = employeeId;
-//         this.salary = salary;
-//     }
-//     public String getEmployeeName() {
-//         return employeeName;
-//     }
-//     public String getEmployeeId() {
-//         return employeeId;
-//     }
-//     public void setSalary(double salary) {
-//         this.salary = salary;
-//     }
-//     public double getSalary() {
-//         return salary;
-//     }
+// private String employeeName;
+// private String employeeId;
+// private double salary;
+// Employee(String employeeName, String employeeId, double salary) {
+// this.employeeName = employeeName;
+// this.employeeId = employeeId;
+// this.salary = salary;
+// }
+// public String getEmployeeName() {
+// return employeeName;
+// }
+// public String getEmployeeId() {
+// return employeeId;
+// }
+// public void setSalary(double salary) {
+// this.salary = salary;
+// }
+// public double getSalary() {
+// return salary;
+// }
 // }
 // class Company {
-//     private String companyName;
-//     private HashMap<String, Employee> register = new HashMap<>();
-//     private static Company company;
-//     private Company() {
-//     } // Singleton Pattern
-//     public static Company getCompany() { // Method to create only one object
-//         if (company == null) {
-//             company = new Company();
-//         }
-//         return company;
-//     }
-//     public void setCompanyName(String companyName) {
-//         this.companyName = companyName;
-//     }
-//     public String getCompanyName() {
-//         return companyName;
-//     }
-//     public void addEmployee(Employee e) {
-//         String id = e.getEmployeeId();
-//         register.put(id, e);
-//     }
-//     public double retrieveSalary(String employeeId) {
-//        Employee emp = register.get(employeeId);
-//         if (emp == null) {
-//             System.out.println("Employee doesn't exist ..!");
-//             return -1;
-//         }
-//         return emp.getSalary();
-//     }
-//     public String getEmployee(String id) {
-//         Employee emp = register.get(id);
-//         return "Employee Name : " + emp.getEmployeeName() + ", Employee Id : " + emp.getEmployeeId();
-//     }
+// private String companyName;
+// private HashMap<String, Employee> register = new HashMap<>();
+// private static Company company;
+// private Company() {
+// } // Singleton Pattern
+// public static Company getCompany() { // Method to create only one object
+// if (company == null) {
+// company = new Company();
+// }
+// return company;
+// }
+// public void setCompanyName(String companyName) {
+// this.companyName = companyName;
+// }
+// public String getCompanyName() {
+// return companyName;
+// }
+// public void addEmployee(Employee e) {
+// String id = e.getEmployeeId();
+// register.put(id, e);
+// }
+// public double retrieveSalary(String employeeId) {
+// Employee emp = register.get(employeeId);
+// if (emp == null) {
+// System.out.println("Employee doesn't exist ..!");
+// return -1;
+// }
+// return emp.getSalary();
+// }
+// public String getEmployee(String id) {
+// Employee emp = register.get(id);
+// return "Employee Name : " + emp.getEmployeeName() + ", Employee Id : " +
+// emp.getEmployeeId();
+// }
 // }
 
-// /* Question 1 ===> Encapsulation, Constructor, fast lookup (Map hint) */
+// /* Question 1 =====> Encapsulation, Constructor, fast lookup (Map hint) */
 // class Book {
 // private String bookTitle;
 // private String bookId;
@@ -136,5 +176,18 @@ public class Oops_dsa_5 {
         // System.out.println("Salary --> " + comp.retrieveSalary("S-857"));
 
         // /* Question 3 =====> Online Course Enrollment */
+        // Course c1 = new Course("Computer Science (CSE)", "CSE-803");
+        // Course c2 = new Course("Civil-Engineering", "CVL-348");
+        // Course c3 = new Course("MBBS", "MBB-344");
+        // Catalog cat = new Catalog("Engineering-Catalog");
+        // System.out.println("Catalog Name ==> " + cat.getCatalogName());
+        // cat.addCourse(c1);
+        // cat.addCourse(c2);
+        // cat.addCourse(c3);
+        // System.out.println("Course is available ==> " +
+        // cat.isCourseExist("MBB-344"));
+        // System.out.println("Course Detail ==> " + cat.getCourseDetail("CVL-348"));
+
+        // /* Question 4 =====> Bank Account Locker */
     }
 }

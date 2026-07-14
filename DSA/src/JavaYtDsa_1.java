@@ -1,4 +1,4 @@
-public class JavaDsa_1 {
+public class JavaYtDsa_1 {
 
 	// /* Question 2 --> Reverse the array */
 	// static void reverseArray(int arr[]) {
