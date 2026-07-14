@@ -55,9 +55,20 @@ public class Dsa_5 {
         //     Stack<Character> stack = new Stack<>();
         //     char ch[] = s.toCharArray();
         //     for (int i = 0; i < s.length(); i++) {
-
+        //         if (ch[i] == '(' || ch[i] == '{' || ch[i] == '[') {
+        //             stack.push(ch[i]);
+        //         } else {
+        //             if (!stack.isEmpty()) {
+        //                 char top = stack.pop();
+        //                 if ((top == '(' && ch[i] != ')') || (top == '{' && ch[i] != '}') || (top == '[' && ch[i] != ']')) {
+        //                     return false;
+        //                 }
+        //             } else {
+        //                 return false;
+        //             }
+        //         }
         //     }
-        //     return false;
+        //     return stack.isEmpty();
         // }
     }
 
