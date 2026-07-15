@@ -1,3 +1,6 @@
+// import java.io.IOException;
+// import java.io.FileOutputStream;
+
 public class ExceptionHandling {
     public static void main(String[] args) {
         // /* Here is the basic implementation of try-catch in Exception Handling */
@@ -33,6 +36,44 @@ public class ExceptionHandling {
         //     System.out.println("Something else went wrong .");
         // }
 
+        // /* Order Matters ( Bad Order ) */
+        // try{
+        //     int result = 10/0;
+        // }
+        // catch(Exception e){ // Tip : Always put 'Exception' (the general one) at the end
+        //     System.out.println("General error");
+        // }
+        // catch(ArithmeticException e){
+        //     System.out.println("Divide by zero");
+        // }
         
+        // /* Here is the basic implementation of Multi Catch  */
+        // try{
+        //     int result = 10/0;
+        //     int []numbers = {1,2,3,4};
+        //     System.out.println(numbers[7]);
+        // }catch(ArithmeticException| ArrayIndexOutOfBoundsException e){
+        //     System.out.println("Math error or array error occured .");
+        // }
+
+        // -----------> Java try with resources <----------- */
+        // /* Java close Resources */
+        // try{
+        //     FileOutputStream output = new FileOutputStream("example.txt");
+        //     output.write("Hello".getBytes());
+        //     output.close(); // Must close manually
+        //     System.out.println("Successfully wrote to the file .");
+        // }catch(IOException e){
+        //     System.out.println("Error writing file .");
+        // }
+
+        // /* Java try with Resources */
+        // try(FileOutputStream output = new FileOutputStream("example.txt")){
+        //     output.write("Hello".getBytes());
+        //     // no need to call 'close()' here
+        //     System.out.println("Successfully wrote to the file .");
+        // }catch(IOException e){
+        //     System.out.println("Error writing file .");
+        // }
     }
 }

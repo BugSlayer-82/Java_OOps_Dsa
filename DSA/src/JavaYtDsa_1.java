@@ -1,7 +1,17 @@
 public class JavaYtDsa_1 {
+	// /* Question 3 --> Maximum SubArray */
+	// static int maximumSubArray(int []arr){
+	// int sum = arr[0];
+	// int maxSum = arr[0];
+	// for(int i = 1; i < arr.length; i++){
+	// sum = Math.max(sum , sum + arr[i]);
+	// maxSum = Math.max(sum, maxSum);
+	// }
+	// return maxSum;
+	// }
 
 	// /* Question 2 --> Reverse the array */
-	// static void reverseArray(int arr[]) {
+	// static void reverseArray(int []arr) {
 	// int n = arr.length;
 	// for (int i = 0; i < n / 2; i++) {
 	// int temp = arr[i];
@@ -17,7 +27,7 @@ public class JavaYtDsa_1 {
 	// /* Question 1 --> Maximum and Minimum Element in an Array ( We assume array
 	// exist ) */
 	// /* To find minimum element */
-	// static int minElement(int arr[]) {
+	// static int minElement(int []arr) {
 	// int min = arr[0];
 	// for (int i = 1; i < arr.length; i++) {
 	// if (min > arr[i]) {
@@ -27,7 +37,7 @@ public class JavaYtDsa_1 {
 	// return min;
 	// }
 	// /* To find maximum element */
-	// static int maxElement(int arr[]) {
+	// static int maxElement(int []arr) {
 	// int max = arr[0];
 	// for (int i = 1; i < arr.length; i++) {
 	// if (max < arr[i]) {
@@ -39,15 +49,17 @@ public class JavaYtDsa_1 {
 
 	public static void main(String[] args) {
 		// /* Question 1 --> Maximum and Minimum Element in an Array */
-		// int arr[] = { 2, 6, 3, 1, 7,4, 8, 9 };
+		// int [] arr = { 2, 6, 3, 1, 7,4, 8, 9 };
 		// System.out.println("Maximum Element ==> " + maxElement(arr));
 		// System.out.println("Minimum Element ==> " + minElement(arr));
 
 		// /* Question 2 --> Reverse the array */
-		// int arr[] = { 3, 2, 6, 1, 7, 4, 8, 9 };
+		// int [] arr = { 3, 2, 6, 1, 7, 4, 8, 9 };
 		// reverseArray(arr);
 
 		// /* Question 3 --> Maximum SubArray */
-
+		// int [] arr = {2,-4,20,-10,4};
+		// int result = maximumSubArray(arr);
+		// System.out.println("Max of SubArray --> " + result);
 	}
 }
