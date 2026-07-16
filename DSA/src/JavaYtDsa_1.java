@@ -1,4 +1,36 @@
+// import java.util.HashMap;
+
 public class JavaYtDsa_1 {
+	// /* Question 5 --> Chocolate Distribution Problem */
+	static void chocolateDist(int arr[]) {
+		System.out.println("This is chocolate distribute");
+	}
+
+	// /* Question 4 --> Contains Duplicate */
+	// /* Method 1 ==> Brute force (Time & space --> O(n^2) and O(1)) */
+	// static boolean containsDuplicate(int []arr){
+	// for(int i = 0; i < arr.length; i++){
+	// int curr = arr[i];
+	// for(int j = i+1; j < arr.length; j++){
+	// if(curr == arr[j]){
+	// return true;
+	// }
+	// }
+	// }
+	// return false;
+	// }
+	// /* Method 2 ==> Optimized approach (Time & space --> O(n) and O(n)) */
+	// static boolean containsDuplicate(int[] arr) {
+	// HashMap<Integer, Integer> map = new HashMap<>();
+	// for (int i = 0; i < arr.length; i++) {
+	// if (map.containsKey(arr[i])) {
+	// return true;
+	// }
+	// map.put(arr[i],i);
+	// }
+	// return false;
+	// }
+
 	// /* Question 3 --> Maximum SubArray */
 	// static int maximumSubArray(int []arr){
 	// int sum = arr[0];
@@ -61,5 +93,10 @@ public class JavaYtDsa_1 {
 		// int [] arr = {2,-4,20,-10,4};
 		// int result = maximumSubArray(arr);
 		// System.out.println("Max of SubArray --> " + result);
+
+		// /* Question 4 --> Contains Duplicate */
+		// int []arr = {3,2,5,3,1};
+		// boolean result = containsDuplicate(arr);
+		// System.out.println("Contains duplicate --> "+ result);
 	}
 }
