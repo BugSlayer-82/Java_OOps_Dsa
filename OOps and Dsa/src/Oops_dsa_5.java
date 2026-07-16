@@ -1,63 +1,65 @@
-// import java.util.Set;
+
 // import java.util.Map;
-import java.util.HashMap;
+// import java.util.Set;
+// import java.util.HashMap;
 // import java.util.ArrayList;
- 
+
+// /* Question 5 =====> Product Inventory Checker */
+
 // /* Question 4 =====> Bank Account Locker */
-class Account{
-    private long accountNumber;
-    private double balance;
-    Account(long accountNumber,double balance)
-    {
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-    }
-    public void deposit(double amount){
-        this.balance += amount;
-    }
-    public double withdraw(int amount){
-        if(amount <= balance){
-            balance -= amount;
-            return amount;
-        }
-        return -1;
-    }
-    public long getAccountNumber(){
-        return accountNumber;
-    }
-
-    public double getBalance(){
-        return balance;
-    }
-}
-class Bank{
-    private static String bankName;
-    private HashMap<Long,Account> customer = new HashMap<>();
-    private static Bank bank;
-    private Bank(String bankName){
-        Bank.bankName = bankName;
-    }
-    public static Bank getBank(String bankName){
-        if(bank == null){
-            bank = new Bank(bankName);
-        }
-        return bank;
-    }
-    public void addAccount(Account acc){
-        customer.put(acc.getAccountNumber(),acc);
-    }
-    public String getBankName(){
-        return bankName;
-    }
-    public double getAccount(long accNumber){
-        if(customer == null){
-            return -1;
-        }
-        Account acc = customer.get(accNumber);
-        return acc.getBalance(); 
-
-    }
-}
+// class Account{
+//     private long accountNumber;
+//     private double balance;
+//     Account(long accountNumber,double balance)
+//     {
+//         this.accountNumber = accountNumber;
+//         this.balance = balance;
+//     }
+//     public void deposit(double amount){
+//         if(amount > 0){
+//             this.balance += amount;
+//         }
+//     }
+//     public double withdraw(double amount){
+//         if(amount <= balance && amount > 0){
+//             balance -= amount;
+//             return amount;
+//         }
+//         return 0.0;
+//     }
+//     public long getAccountNumber(){
+//         return accountNumber;
+//     }
+//     public double getBalance(){
+//         return balance;
+//     }
+// }
+// class Bank{
+//     private String bankName;
+//     private HashMap<Long,Account> customer = new HashMap<>();
+//     private static Bank bank;
+//     private Bank(String bankName){
+//         this.bankName = bankName;
+//     }
+//     public static Bank getBank(String bankName){
+//         if(bank == null){
+//             bank = new Bank(bankName);
+//         }
+//         return bank;
+//     }
+//     public void addAccount(Account acc){
+//         customer.put(acc.getAccountNumber(),acc);
+//     }
+//     public String getBankName(){
+//         return bankName;
+//     }
+//     public Account getAccount(long accNumber){
+//         if(customer.containsKey(accNumber)){
+//             return customer.get(accNumber);
+//         }
+//         return null;
+//     }
+// } 
 
 // /* Question 3 =====> Online Course Enrollment */
 // class Course {
@@ -243,18 +245,21 @@ public class Oops_dsa_5 {
         // System.out.println("Course Detail ==> " + cat.getCourseDetail("CVL-348"));
 
         // /* Question 4 =====> Bank Account Locker */
-        Account a1 = new Account(354823830, 0);
-        Account a2 = new Account(345837345, 0);
-        Bank bank = Bank.getBank("State Bank of India");
-        System.out.println("Bank Name --> "+bank.getBankName());
-        bank.addAccount(a1);
-        bank.addAccount(a2);
-        bank.getAccount(345837345);
-        a1.deposit(5000.23);
-        a1.withdraw(500);
-        a2.deposit(34528.21);
-        a2.withdraw(6000);
-        System.out.println("Balance of a1 ==> " + a1.getBalance());
-        System.out.println("Balance of a2 ==> " + a2.getBalance());
+        // Account a1 = new Account(354823830, 0);
+        // Account a2 = new Account(345837345, 0);
+        // Bank bank = Bank.getBank("State Bank of India");
+        // System.out.println("Bank Name --> "+bank.getBankName());
+        // bank.addAccount(a1);
+        // bank.addAccount(a2);
+        // bank.getAccount(345837345);
+        // a1.deposit(5000.23);
+        // a1.withdraw(500);
+        // a2.deposit(34528.21);
+        // a2.withdraw(6000);
+        // System.out.println("Balance of a1 ==> " + a1.getBalance());
+        // System.out.println("Balance of a2 ==> " + a2.getBalance());
+
+        // /* Question 5 =====> Product Inventory Checker */
+
     }
 }
