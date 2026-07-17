@@ -1,8 +1,8 @@
-import java.util.Stack;
-// import java.util.ArrayDeque;
+// import java.util.Stack;
 // import java.util.Deque;
+// import java.util.ArrayDeque;
 
-public class OnlyDsaProblem_1 {
+public class OnlyDsaStack_1 {
     // /* Question 7 ---> Evaluate Postfix */
 
     // /* Question 6 ---> Copy the Stack to another */
