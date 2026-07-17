@@ -5,6 +5,23 @@
 // import java.util.ArrayList;
 
 // /* Question 5 =====> Product Inventory Checker */
+class Product{
+    private String productName;
+    private String productCode;
+    Product(String productName,String productCode)
+    {
+        this.productName = productName;
+        this.productCode = productCode;
+    }
+
+    public String getProductName(){
+        return productName;
+    }
+    
+    public String getProductCode(){
+        return productCode;
+    }
+}
 
 // /* Question 4 =====> Bank Account Locker */
 // class Account{
