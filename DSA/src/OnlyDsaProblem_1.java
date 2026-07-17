@@ -1,4 +1,4 @@
-// import java.util.Stack;
+import java.util.Stack;
 // import java.util.ArrayDeque;
 // import java.util.Deque;
 
@@ -8,8 +8,41 @@ public class OnlyDsaProblem_1 {
     // /* Question 6 ---> Copy the Stack to another */
 
     // /* Question 5 ---> Largest element in Stack */
+    // static int largetElement(int[] arr) {
+    //     Stack<Integer> stack = new Stack<>();
+    //     for(int i : arr){
+    //         stack.push(i);
+    //     }
+    //     if(stack.isEmpty()){
+    //         return -1;
+    //     }
+    //     int largest = stack.pop();
+    //     while(!stack.isEmpty()){
+    //         int top = stack.pop();
+    //         if(largest < top){
+    //             largest = top;
+    //         }
+    //     }
+    //     return largest;
+    // }
 
     // /* Question 4 ---> Reverse a Number */
+    // static int[] reverseNumber(int[] arr) {
+    // Stack<Integer> stack = new Stack<>();
+    // for (int i : arr) {
+    // stack.push(i);
+    // }
+    // if (stack.isEmpty()) {
+    // return new int[] {};
+    // }
+    // int[] secArr = new int[arr.length];
+    // int i = 0;
+    // while (!stack.isEmpty()){
+    // secArr[i] = stack.pop();
+    // i++;
+    // }
+    // return secArr;
+    // }
 
     // /* Question 3 ---> Reverse a String */
     // static String reverseString(String s){
@@ -76,8 +109,16 @@ public class OnlyDsaProblem_1 {
         // System.out.println("Reversed String --> "+ reverseString(s));
 
         // /* Question 4 ---> Reverse a Number */
+        // int[] arr = { 3, 2, 9, 1, 6, 4 };
+        // for (int i : reverseNumber(arr)) {
+        // System.out.print(i + " ");
+        // }
+        // System.out.println();
 
         // /* Question 5 ---> Largest element in Stack */
+        // int[] arr = { 3, 2, 6, 4, 9, 8, 1 };
+        // int result = largetElement(arr);
+        // System.out.println("Largest in Stack --> " + result);
 
         // /* Question 6 ---> Copy the Stack to another */
 
