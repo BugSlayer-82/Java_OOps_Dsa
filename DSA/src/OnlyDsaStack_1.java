@@ -1,4 +1,4 @@
-// import java.util.Stack;
+import java.util.Stack;
 // import java.util.Deque;
 // import java.util.ArrayDeque;
 
@@ -6,24 +6,35 @@ public class OnlyDsaStack_1 {
     // /* Question 7 ---> Evaluate Postfix */
 
     // /* Question 6 ---> Copy the Stack to another */
+    static void copyStack(Stack<Integer> s1, Stack<Integer> s2) {
+        if (s1.isEmpty()) {
+            return;
+        }
+        int topElement = s1.pop();
+
+        copyStack(s1, s2);
+
+        s1.push(topElement);
+        s2.push(topElement);
+    }
 
     // /* Question 5 ---> Largest element in Stack */
     // static int largetElement(int[] arr) {
-    //     Stack<Integer> stack = new Stack<>();
-    //     for(int i : arr){
-    //         stack.push(i);
-    //     }
-    //     if(stack.isEmpty()){
-    //         return -1;
-    //     }
-    //     int largest = stack.pop();
-    //     while(!stack.isEmpty()){
-    //         int top = stack.pop();
-    //         if(largest < top){
-    //             largest = top;
-    //         }
-    //     }
-    //     return largest;
+    // Stack<Integer> stack = new Stack<>();
+    // for(int i : arr){
+    // stack.push(i);
+    // }
+    // if(stack.isEmpty()){
+    // return -1;
+    // }
+    // int largest = stack.pop();
+    // while(!stack.isEmpty()){
+    // int top = stack.pop();
+    // if(largest < top){
+    // largest = top;
+    // }
+    // }
+    // return largest;
     // }
 
     // /* Question 4 ---> Reverse a Number */
@@ -121,6 +132,15 @@ public class OnlyDsaStack_1 {
         // System.out.println("Largest in Stack --> " + result);
 
         // /* Question 6 ---> Copy the Stack to another */
+        Stack<Integer> s1 = new Stack<>();
+        Stack<Integer> s2 = new Stack<>();
+        int[] arr = { 2, 3, 5, 4, 8, 6, 7 };
+        for (int i : arr) {
+            s1.push(i);
+        }
+        copyStack(s1, s2);
+        System.out.println(s1);
+        System.out.println(s2);
 
         // /* Question 7 ---> Evaluate Postfix */
     }
