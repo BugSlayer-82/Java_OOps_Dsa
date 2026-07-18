@@ -1,13 +1,13 @@
-import java.io.IOException;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+// import java.io.IOException;
+// import java.io.FileInputStream;
+// import java.io.FileOutputStream;
 
 public class FileIOStream {
     public static void main(String[] args) {
         // /* ===========>> Types of Streams <<========= */
-        // 1 ---> Byte Streams : Works with raw Binary data (like images,audio,and PDF)
+        // 1 ==> Byte Streams : Works with raw Binary data (like images,audio,and PDF)
         // files
-        // 2 ---> Character Streams : Work with text (Character and strings),These
+        // 2 ==> Character Streams : Work with text (Character and strings),These
         // streams automatically handle character encoding
 
         // /* ======>> Here is the basic implementation of FileInputStream
