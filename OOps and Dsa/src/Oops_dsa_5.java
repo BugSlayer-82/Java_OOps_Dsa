@@ -1,120 +1,135 @@
-
 // import java.util.Map;
 // import java.util.Set;
 // import java.util.HashMap;
 // import java.util.ArrayList;
 
 // /* Question 5 =====> Product Inventory Checker */
-class Product{
-    private String productName;
-    private String productCode;
-    Product(String productName,String productCode)
-    {
-        this.productName = productName;
-        this.productCode = productCode;
-    }
-
-    public String getProductName(){
-        return productName;
-    }
-    
-    public String getProductCode(){
-        return productCode;
-    }
-}
+// class Product {
+//     private String productName;
+//     private String productCode;
+//     Product(String productName, String productCode) {
+//         this.productName = productName;
+//         this.productCode = productCode;
+//     }
+//     public String getProductName() {
+//         return productName;
+//     }
+//     public String getProductCode() {
+//         return productCode;
+//     }
+// }
+// class Inventory {
+//     private String inventoryCode;
+//     private HashMap<String, Product> map = new HashMap<>();
+//     Inventory(String invCode) {
+//         this.inventoryCode = invCode;
+//     }
+//     public void addProduct(Product p) {
+//         if (p != null) {
+//             map.put(p.getProductCode(), p);
+//         }
+//     }
+//     public String getInventoryCode() {
+//         return inventoryCode;
+//     }
+//     public boolean isInStock(String productCode) {
+//         return map.containsKey(productCode);
+//     }
+// }
 
 // /* Question 4 =====> Bank Account Locker */
 // class Account{
-//     private long accountNumber;
-//     private double balance;
-//     Account(long accountNumber,double balance)
-//     {
-//         this.accountNumber = accountNumber;
-//         this.balance = balance;
-//     }
-//     public void deposit(double amount){
-//         if(amount > 0){
-//             this.balance += amount;
-//         }
-//     }
-//     public double withdraw(double amount){
-//         if(amount <= balance && amount > 0){
-//             balance -= amount;
-//             return amount;
-//         }
-//         return 0.0;
-//     }
-//     public long getAccountNumber(){
-//         return accountNumber;
-//     }
-//     public double getBalance(){
-//         return balance;
-//     }
+// private long accountNumber;
+// private double balance;
+// Account(long accountNumber,double balance)
+// {
+// this.accountNumber = accountNumber;
+// this.balance = balance;
+// }
+// public void deposit(double amount){
+// if(amount > 0){
+// this.balance += amount;
+// }
+// }
+// public double withdraw(double amount){
+// if(amount <= balance && amount > 0){
+// balance -= amount;
+// return amount;
+// }
+// return 0.0;
+// }
+// public long getAccountNumber(){
+// return accountNumber;
+// }
+// public double getBalance(){
+// return balance;
+// }
 // }
 // class Bank{
-//     private String bankName;
-//     private HashMap<Long,Account> customer = new HashMap<>();
-//     private static Bank bank;
-//     private Bank(String bankName){
-//         this.bankName = bankName;
-//     }
-//     public static Bank getBank(String bankName){
-//         if(bank == null){
-//             bank = new Bank(bankName);
-//         }
-//         return bank;
-//     }
-//     public void addAccount(Account acc){
-//         customer.put(acc.getAccountNumber(),acc);
-//     }
-//     public String getBankName(){
-//         return bankName;
-//     }
-//     public Account getAccount(long accNumber){
-//         if(customer.containsKey(accNumber)){
-//             return customer.get(accNumber);
-//         }
-//         return null;
-//     }
-// } 
+// private String bankName;
+// private HashMap<Long,Account> customer = new HashMap<>();
+// private static Bank bank;
+// private Bank(String bankName){
+// this.bankName = bankName;
+// }
+// public static Bank getBank(String bankName){
+// if(bank == null){
+// bank = new Bank(bankName);
+// }
+// return bank;
+// }
+// public void addAccount(Account acc){
+// customer.put(acc.getAccountNumber(),acc);
+// }
+// public String getBankName(){
+// return bankName;
+// }
+// public Account getAccount(long accNumber){
+// if(customer.containsKey(accNumber)){
+// return customer.get(accNumber);
+// }
+// return null;
+// }
+// }
 
 // /* Question 3 =====> Online Course Enrollment */
 // class Course {
-//     private String courseName;
-//     private String courseCode;
-//     Course(String courseName, String courseCode) {
-//         this.courseName = courseName;
-//         this.courseCode = courseCode;
-//     }
-//     public String getCourseName() {
-//         return courseName;
-//     }
-//     public String getCourseCode() {
-//         return courseCode;
-//     }
+// private String courseName;
+// private String courseCode;
+// Course(String courseName, String courseCode) {
+// this.courseName = courseName;
+// this.courseCode = courseCode;
+// }
+// public String getCourseName() {
+// return courseName;
+// }
+// public String getCourseCode() {
+// return courseCode;
+// }
 // }
 // class Catalog {
-//     private String catalogName;
-//     private HashMap<String, Course> catalog = new HashMap<>();
-//     Catalog(String catalogName) {
-//         this.catalogName = catalogName;
-//     }
-//     public String getCatalogName() {
-//         return catalogName;
-//     }
-//     public void addCourse(Course c) {
-//         catalog.put(c.getCourseCode(), c);
-//     }
-//     public boolean isCourseExist(String courseCode) {
-//         return catalog.containsKey(courseCode);
-//     }
-//     public String getCourseDetail(String courseCode) {
-//         Course course = catalog.get(courseCode);
-//         if(course !=null){
-//             return "CourseName: "+course.getCourseName() + ", CourseCode: "+course.getCourseCode();
-//         }
-//         return "Course not found";
-//     }
+// private String catalogName;
+// private HashMap<String, Course> catalog = new HashMap<>();
+// Catalog(String catalogName) {
+// this.catalogName = catalogName;
+// }
+// public String getCatalogName() {
+// return catalogName;
+// }
+// public void addCourse(Course c) {
+// catalog.put(c.getCourseCode(), c);
+// }
+// public boolean isCourseExist(String courseCode) {
+// return catalog.containsKey(courseCode);
+// }
+// public String getCourseDetail(String courseCode) {
+// Course course = catalog.get(courseCode);
+// if(course !=null){
+// return "CourseName: "+course.getCourseName() + ", CourseCode:
+// "+course.getCourseCode();
+// }
+// return "Course not found";
+// }
 // }
 
 // /* Question 2 =====> Employee Salary Register */
@@ -277,6 +292,14 @@ public class Oops_dsa_5 {
         // System.out.println("Balance of a2 ==> " + a2.getBalance());
 
         // /* Question 5 =====> Product Inventory Checker */
-
+        // Product p1 = new Product("Apple", "A-345");
+        // Product p2 = new Product("Medicine", "M-908");
+        // Product p3 = new Product("Toys", "T-847");
+        // Inventory inven = new Inventory("I-34389");
+        // System.out.println("Inventory Code --> " + inven.getInventoryCode());
+        // inven.addProduct(p1);
+        // inven.addProduct(p2);
+        // inven.addProduct(p3);
+        // System.out.println("Stock Available --> " + inven.isInStock("M-908"));
     }
 }
