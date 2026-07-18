@@ -7,7 +7,7 @@ public class OnlyDsaStack_1 {
     static int evaluatePostfix(String exp){
         int ans = 0;
         Stack<Integer> stack = new Stack<>();
-        
+
         return ans;
     }
 
