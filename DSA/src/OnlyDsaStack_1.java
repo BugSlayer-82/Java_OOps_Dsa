@@ -1,11 +1,17 @@
-// import java.util.Stack;
+import java.util.Stack;
 // import java.util.Deque;
 // import java.util.ArrayDeque;
 
 public class OnlyDsaStack_1 {
-    // /* Question 7 ---> Evaluate Postfix */
+    // /* Question 8 ---> Evaluate Postfix */
+    static int evaluatePostfix(String exp){
+        int ans = 0;
+        Stack<Integer> stack = new Stack<>();
+        
+        return ans;
+    }
 
-    // /* Question 6 ---> Copy the Stack to another */
+    // /* Question 7 ---> Copy the Stack to another */
     // static void copyStack(Stack<Integer> s1, Stack<Integer> s2) {
     //     if (s1.isEmpty()) {
     //         return;
@@ -16,6 +22,22 @@ public class OnlyDsaStack_1 {
     //     s2.push(topElement);
     // }
 
+    // /* Question 6 ---> Print and empty Stack */
+    // static void printStack(int []arr){
+    //     Stack <Integer> stack = new Stack<>();
+    //     for(int i : arr){
+    //         stack.push(i);
+    //     }
+    //     System.out.println(stack);
+    //     if(stack.isEmpty()){
+    //         System.out.println("null");
+    //     }
+    //     while(!stack.isEmpty()){
+    //         stack.pop();
+    //     }
+    //     System.out.println(stack);
+    // }
+ 
     // /* Question 5 ---> Largest element in Stack */
     // static int largetElement(int[] arr) {
     // Stack<Integer> stack = new Stack<>();
@@ -129,7 +151,11 @@ public class OnlyDsaStack_1 {
         // int result = largetElement(arr);
         // System.out.println("Largest in Stack --> " + result);
 
-        // /* Question 6 ---> Copy the Stack to another */
+        // /* Question 6 ---> Print and empty Stack */
+        // int []arr = {3,2,6,4,7,8,9};
+        // printStack(arr);
+
+        // /* Question 7 ---> Copy the Stack to another */
         // Stack<Integer> s1 = new Stack<>();
         // Stack<Integer> s2 = new Stack<>();
         // int[] arr = { 2, 3, 5, 4, 8, 6, 7 };
@@ -140,6 +166,9 @@ public class OnlyDsaStack_1 {
         // System.out.println(s1);
         // System.out.println(s2);
 
-        // /* Question 7 ---> Evaluate Postfix */
+        // /* Question 8 ---> Evaluate Postfix */
+        String exp = "3*5+24-3";
+        int result = evaluatePostfix(exp);
+        System.out.println();
     }
 }
