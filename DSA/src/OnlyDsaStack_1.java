@@ -3,13 +3,15 @@ import java.util.Stack;
 // import java.util.ArrayDeque;
 
 public class OnlyDsaStack_1 {
-    // /* Question 8 ---> Evaluate Postfix */
-    static int evaluatePostfix(String exp){
-        int ans = 0;
-        Stack<Integer> stack = new Stack<>();
 
-        return ans;
-    }
+    // /* Question 8 ---> Evaluate Postfix */
+    // static int evaluatePostfix(String exp){
+    //     Stack<Character> stack = new Stack<>();
+    //     Stack<Integer> number = new Stack<>();
+    //     System.out.println(stack);
+    //     System.out.println(number);
+    //     return ans;
+    // }
 
     // /* Question 7 ---> Copy the Stack to another */
     // static void copyStack(Stack<Integer> s1, Stack<Integer> s2) {
@@ -126,7 +128,6 @@ public class OnlyDsaStack_1 {
     // }
 
     public static void main(String[] args) {
-
         // /* Question 1 ---> Stack implementation */
         // String[] words = { "implementation", "Stack", "basic", "is", "This" };
         // useStack(words);
@@ -167,8 +168,8 @@ public class OnlyDsaStack_1 {
         // System.out.println(s2);
 
         // /* Question 8 ---> Evaluate Postfix */
-        String exp = "3*5+24-3";
-        int result = evaluatePostfix(exp);
-        System.out.println();
+        // String exp = "3*5+24-3";
+        // int result = evaluatePostfix(exp);
+        // System.out.println();
     }
 }
