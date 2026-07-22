@@ -12,7 +12,6 @@ public class BasicAlgo {
         }
         return prefix; // Return the completed prefix sum array.
     }
-
     static int rangeSum(int[] prefix, int l, int r) { // Method to find the sum of elements from index l to r using the
                                                       // prefix sum array.
         if (l == 0) { // If the range starts from index 0, no subtraction is needed.
@@ -63,6 +62,7 @@ public class BasicAlgo {
     }
 
     public static void main(String[] args) {
+     
         // /* Kadane's through Simple Approach */
         int[] arr1 = { 2, -10, 12, -5, 6 }; // Create an array on which the Simple Kadane's Algorithm will be applied.
         int result1 = kadaneSimple(arr1); // Call the kadaneSimple() method and store the maximum subarray sum in
@@ -83,5 +83,9 @@ public class BasicAlgo {
         int[] prefix = buildPrefix(arr3); // Build the prefix sum array and store it in the variable 'prefix'.
         System.out.println("Prefix sum ==> " + rangeSum(prefix, 0, 2)); // Find and print the sum of elements from index
                                                                         // 0 to index 2 using the prefix sum array.
-    }
+   
+        // /* as;lfka */
+
+
+      }
 }
