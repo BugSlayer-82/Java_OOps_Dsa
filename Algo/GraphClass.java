@@ -1,85 +1,128 @@
 
 // import java.util.Queue;
 // import java.util.Stack;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 // import java.util.LinkedList;
-import java.util.PriorityQueue;
+// import java.util.PriorityQueue;
 
 public class GraphClass {
+    // /* ========>> Minimum Spanning Tree <<======== */
+
+    // /* ========>> Bellman Ford Algorithm (Dynamic Programming) Time Complexity
+    // O(V*E) <<======== */
+    // static class Edge {
+    //     int src;
+    //     int dest;
+    //     int wei;
+    //     public Edge(int s, int d, int w) {
+    //         this.src = s;
+    //         this.dest = d;
+    //         this.wei = w;
+    //     }
+    // }
+    // public static void bellmanFord(ArrayList<Edge> []graph,int src, int V){
+    //     int []dist = new int[V];
+    //     for(int i = 0; i < V; i++){
+    //         if(i != src){
+    //             dist[i] = Integer.MAX_VALUE;
+    //         }
+    //     }
+    //     for(int k = 0 ; k < V -1 ; k ++){ // O(V)
+    //         for(int i = 0 ; i < V; i++){ // O(E)
+    //             for(int j = 0; j < graph[i].size(); j++){
+    //                 Edge e  = graph[i].get(j);
+    //                 int u = e.src;
+    //                 int v = e.dest;        
+    //                 if(dist[u] != Integer.MAX_VALUE && dist[u] + e.wei < dist[v])
+    //                 {
+    //                     dist[v] = dist[u]+e.wei;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     for(int i = 0; i < dist.length; i++){
+    //         System.out.print(dist[i]+" ");
+    //     }
+    //     System.out.println();
+    // }
+    // public static void createGraph(ArrayList<Edge>[] graph) {
+    //     for (int i = 0; i < graph.length; i++) {
+    //         graph[i] = new ArrayList<>();
+    //     }
+    //     graph[0].add(new Edge(0, 1, 2));
+    //     graph[0].add(new Edge(0, 2, 4));
+    //     graph[1].add(new Edge(1, 2, -4));
+    //     graph[2].add(new Edge(2, 3, 2));
+    //     graph[3].add(new Edge(3, 4, 4));
+    //     graph[4].add(new Edge(4, 1, -1));
+    // }
 
     // /* ========>> Dijkstra's Algorithm to print the shortest path (Greedy
     // Algorithm) Time Complexity O(E + ElogV) <<========= */
-    static class Edge {
-        int src;
-        int dest;
-        int weig;
-
-        public Edge(int s, int d, int w) {
-            this.src = s;
-            this.dest = d;
-            this.weig = w;
-        }
-    }
-
-    public static void createGraph(ArrayList<Edge>[] graph) {
-        for (int i = 0; i < graph.length; i++) {
-            graph[i] = new ArrayList<>();
-        }
-        graph[0].add(new Edge(0, 1, 2));
-        graph[0].add(new Edge(0, 2, 4));
-        graph[1].add(new Edge(1, 3, 7));
-        graph[1].add(new Edge(1, 2, 1));
-        graph[2].add(new Edge(2, 4, 3));
-        graph[3].add(new Edge(3, 5, 1));
-        graph[4].add(new Edge(4, 3, 2));
-        graph[4].add(new Edge(4, 5, 5));
-    }
-
-    public static class Pair implements Comparable<Pair> {
-        int node;
-        int dist;
-
-        public Pair(int n, int d) {
-            this.node = n;
-            this.dist = d;
-        }
-
-        @Override
-        public int compareTo(Pair p2) {
-            return this.dist - p2.dist;
-        }
-    }
-
-    public static void dijkstra(ArrayList<Edge>[] graph, int src, int V) {
-        PriorityQueue<Pair> pq = new PriorityQueue<>();
-        int[] dist = new int[V];
-        for (int i = 0; i < V; i++) {
-            if (i != src) {
-                dist[i] = Integer.MAX_VALUE;
-            }
-        }
-        boolean[] visit = new boolean[V];
-        pq.add(new Pair(0, 0));
-
-        while (!pq.isEmpty()) {
-            Pair curr = pq.remove();
-            if (!visit[curr.node]) {
-                visit[curr.node] = true;
-                for (int i = 0; i < graph[curr.node].size(); i++) {
-                    Edge e = graph[curr.node].get(i);
-                    int u = e.src;
-                    int v = e.dest;
-                    if (dist[u] + e.weig < dist[v]) {
-                        dist[v] = dist[u] + e.weig;
-                        pq.add(new Pair(v, dist[v]));
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < V; i++) {
-            System.out.print(dist[i] + " ");
-        }
-    }
+    // static class Edge {
+    // int src;
+    // int dest;
+    // int weig;
+    // public Edge(int s, int d, int w) {
+    // this.src = s;
+    // this.dest = d;
+    // this.weig = w;
+    // }
+    // }
+    // public static void createGraph(ArrayList<Edge>[] graph) {
+    // for (int i = 0; i < graph.length; i++) {
+    // graph[i] = new ArrayList<>();
+    // }
+    // graph[0].add(new Edge(0, 1, 2));
+    // graph[0].add(new Edge(0, 2, 4));
+    // graph[1].add(new Edge(1, 3, 7));
+    // graph[1].add(new Edge(1, 2, 1));
+    // graph[2].add(new Edge(2, 4, 3));
+    // graph[3].add(new Edge(3, 5, 1));
+    // graph[4].add(new Edge(4, 3, 2));
+    // graph[4].add(new Edge(4, 5, 5));
+    // }
+    // public static class Pair implements Comparable<Pair> {
+    // int node;
+    // int dist;
+    // public Pair(int n, int d) {
+    // this.node = n;
+    // this.dist = d;
+    // }
+    // @Override
+    // public int compareTo(Pair p2) {
+    // return this.dist - p2.dist;
+    // }
+    // }
+    // public static void dijkstra(ArrayList<Edge>[] graph, int src, int V) {
+    // PriorityQueue<Pair> pq = new PriorityQueue<>();
+    // int[] dist = new int[V];
+    // for (int i = 0; i < V; i++) {
+    // if (i != src) {
+    // dist[i] = Integer.MAX_VALUE;
+    // }
+    // }
+    // boolean[] visit = new boolean[V];
+    // pq.add(new Pair(0, 0));
+    // while (!pq.isEmpty()) {
+    // Pair curr = pq.remove();
+    // if (!visit[curr.node]) {
+    // visit[curr.node] = true;
+    // for (int i = 0; i < graph[curr.node].size(); i++) {
+    // Edge e = graph[curr.node].get(i);
+    // int u = e.src;
+    // int v = e.dest;
+    // if (dist[u] + e.weig < dist[v]) {
+    // dist[v] = dist[u] + e.weig;
+    // pq.add(new Pair(v, dist[v]));
+    // }
+    // }
+    // }
+    // }
+    // for (int i = 0; i < V; i++) {
+    // System.out.print(dist[i] + " ");
+    // }
+    // }
 
     // /* ========>> Cycle detection in Undirected graph Time Complexity O(V + E)
     // <<======= */
@@ -546,10 +589,17 @@ public class GraphClass {
 
         // /* ========>> Dijkstra's Algorithm to print the shortest path (Greedy
         // Algorithm) <<========= */
-        int V = 6;
-        ArrayList<Edge>[] graph = new ArrayList[V];
-        createGraph(graph);
-        dijkstra(graph, 0, V);
-        System.out.println();
+        // int V = 6;
+        // ArrayList<Edge>[] graph = new ArrayList[V];
+        // createGraph(graph);
+        // dijkstra(graph, 0, V);
+        // System.out.println();
+
+        // /* ========>> Bellman Ford Algorithm (Dynamic Programming) Time Complexity
+        // O(V*E) <<======== */
+        // int V = 5;
+        // ArrayList<Edge>[] graph = new ArrayList[V];
+        // createGraph(graph);
+        // bellmanFord(graph, 0, V);
     }
 }
