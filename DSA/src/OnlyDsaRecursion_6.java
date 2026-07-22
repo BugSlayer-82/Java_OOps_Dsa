@@ -1,17 +1,29 @@
 import java.util.Scanner;
 
 public class OnlyDsaRecursion_6 {
-    // /* Question 4 ==> Print the fibonacci of n */
-    static void printFibonacci(int n){
+    // /* Question 5 ==> Print the power a^b */
+    static int power(int base,int power){
         
+        return 0;
     }
+
+    // /* Question 4 ==> Print the fibonacci of n */
+    // static int printFibonacci(int n) {
+    //     if (n == 0) {
+    //         return 0;
+    //     }
+    //     if (n == 1) {
+    //         return 1;
+    //     }
+    //     return printFibonacci(n - 1) + printFibonacci(n - 2);
+    // }
 
     // /* Question 3 ==> Print the factorial of n */
     // static long factorial(int n){
-    //     if(n == 0){
-    //         return 1;
-    //     }
-    //     return n*factorial(n-1);
+    // if(n == 0){
+    // return 1;
+    // }
+    // return n*factorial(n-1);
     // }
 
     // /* Question 2 ==> Print number from n to 1 */
@@ -23,7 +35,7 @@ public class OnlyDsaRecursion_6 {
     // printNumber(n - 1);
     // }
 
-    // /* Questtion 1 ==> Print number from 1 to n */
+    // /* Question 1 ==> Print number from 1 to n */
     // static void printNumber(int i, int n) {
     // if (i > n) {
     // return;
@@ -34,8 +46,8 @@ public class OnlyDsaRecursion_6 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-      
-        // /* Questtion 1 ==> Print number from 1 to n */
+
+        // /* Question 1 ==> Print number from 1 to n */
         // System.out.print("Enter your number : ");
         // int n = sc.nextInt();
         // printNumber(1, n);
@@ -54,9 +66,12 @@ public class OnlyDsaRecursion_6 {
         // System.out.println("Factorial of n : " + result);
 
         // /* Question 4 ==> Print the fibonacci of n */
-        System.out.print("Enter your number : ");
-        int n = sc.nextInt();
-        printFibonacci(n);
+        // System.out.print("Enter your number of terms: ");
+        // int n = sc.nextInt();
+        // for (int i = 0; i < n; i++) {
+        //     System.out.print(printFibonacci(i) + " ");
+        // }
+        // System.out.println();
 
         sc.close();
     }
