@@ -2,14 +2,25 @@ import java.util.Queue;
 import java.util.LinkedList;
 
 public class OnlyDsaQueue_2 {
+    // /* Question 3 ---> Reverse  */
+
     // /* Question 2 ---> Reverse Queue */
-    static void reverseQueue(int [] arr){
-        Queue<Integer> q = new LinkedList<>();
-        for(int i : arr){
-            q.offer(i);
-        }
-        System.out.println(q);
-    }
+    // static void reverseQueue(int [] arr){
+    //     Queue<Integer> q = new LinkedList<>();
+    //     int left = 0;
+    //     int right = arr.length - 1;
+    //     while(left < right){
+    //         int temp = arr[left];
+    //         arr[left] = arr[right];
+    //         arr[right] = temp;
+    //         left ++;
+    //         right --;
+    //     }
+    //     for(int i : arr){
+    //         q.offer(i);
+    //     }
+    //     System.out.println(q);
+    // }
     public static void main(String[] args) {
       
         // /* Question 1 ---> Queue implementation */
@@ -26,7 +37,7 @@ public class OnlyDsaQueue_2 {
         // System.out.println(q);// empty q
 
         // /* Question 2 ---> Reverse Queue */
-        int []arr = {3,1,2,5,6,7,9};
-        reverseQueue(arr);
+        // int []arr = {3,1,2,5,6,7,9};
+        // reverseQueue(arr);
     }
 }

@@ -1,13 +1,31 @@
 import java.util.Scanner;
 
 public class OnlyDsaRecursion_6 {
+    // /* Question 10 ==> Tower of Hanoi */
+
+    // /* Question 9 ==> Recursive Binary Search */
+
+    // /* Question 8 ==> Palindrome Check */
+    static void isPalindrom(int num) {
+
+    }
+
+    // /* Question 7 ==> Reverse String */
+    // static void reverseString(String str) {
+    // int n = str.length();
+    // if (str == null || n <= 0) {
+    // return;
+    // }
+    // reverseString(str.substring(1));
+    // System.out.print(str.charAt(0));
+    // }
 
     // /* Question 6 ==> Print the sum of digits */
     // static int sumOfDigit(int num) {
-    //     if (num == 0) {
-    //         return 0;
-    //     }
-    //     return (num % 10) + sumOfDigit(num / 10);
+    // if (num == 0) {
+    // return 0;
+    // }
+    // return (num % 10) + sumOfDigit(num / 10);
     // }
 
     // /* Question 5 ==> Print the power a^b */
@@ -96,6 +114,14 @@ public class OnlyDsaRecursion_6 {
         // int num = sc.nextInt();
         // int sum = sumOfDigit(num);
         // System.out.println("Total Sum : " + sum);
+
+        // /* Question 7 ==> Reverse String */
+        // String str = "Macbook-Pro";
+        // reverseString(str);
+        // System.out.println();
+
+        // /* Question 8 ==> Palindrome check */
+        int num = 121;
 
         sc.close();
     }
