@@ -4,11 +4,21 @@ public class OnlyDsaRecursion_6 {
     // /* Question 10 ==> Tower of Hanoi */
 
     // /* Question 9 ==> Recursive Binary Search */
-
-    // /* Question 8 ==> Palindrome Check */
-    static void isPalindrom(int num) {
+    static int mid(int []arr){
+        return 0;
+    }
+    static void binarySearch(int [] arr,int x){
 
     }
+
+    // /* Question 8 ==> Palindrome Check */
+    // static int isPalindrome(int num, int reverse) {
+    // if (num == 0) {
+    // return reverse;
+    // }
+    // reverse = reverse * 10 + (num % 10);
+    // return isPalindrome(num / 10, reverse);
+    // }
 
     // /* Question 7 ==> Reverse String */
     // static void reverseString(String str) {
@@ -121,7 +131,19 @@ public class OnlyDsaRecursion_6 {
         // System.out.println();
 
         // /* Question 8 ==> Palindrome check */
-        int num = 121;
+        // System.out.print("Enter your number to check is Plindrome : ");
+        // int num = sc.nextInt();
+        // int result = isPalindrome(num, 0);
+        // if (num != result) {
+        //     System.out.println("Number is not Palindrome");
+        // } else {
+        //     System.out.println("Number is Palindrome .");
+        // }
+
+        // /* Question 9 ==> Recursive Binary Search */
+        // int [] arr = {2,3,5,6,8,9,20};
+        // binarySearch(arr, 6);
+
 
         sc.close();
     }

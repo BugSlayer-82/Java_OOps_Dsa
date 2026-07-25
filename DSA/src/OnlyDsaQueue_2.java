@@ -39,5 +39,6 @@ public class OnlyDsaQueue_2 {
         // /* Question 2 ---> Reverse Queue */
         // int []arr = {3,1,2,5,6,7,9};
         // reverseQueue(arr);
+
     }
 }
