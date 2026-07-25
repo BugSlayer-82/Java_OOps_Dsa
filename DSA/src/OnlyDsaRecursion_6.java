@@ -13,11 +13,11 @@ public class OnlyDsaRecursion_6 {
 
     // /* Question 8 ==> Palindrome Check */
     // static int isPalindrome(int num, int reverse) {
-    // if (num == 0) {
-    // return reverse;
-    // }
-    // reverse = reverse * 10 + (num % 10);
-    // return isPalindrome(num / 10, reverse);
+    //     if (num == 0) {
+    //         return reverse;
+    //     }
+    //     reverse = reverse * 10 + (num % 10);
+    //     return isPalindrome(num / 10, reverse);
     // }
 
     // /* Question 7 ==> Reverse String */
@@ -141,9 +141,8 @@ public class OnlyDsaRecursion_6 {
         // }
 
         // /* Question 9 ==> Recursive Binary Search */
-        // int [] arr = {2,3,5,6,8,9,20};
-        // binarySearch(arr, 6);
-
+        int [] arr = {2,3,5,6,8,9,20};
+        binarySearch(arr, 6);
 
         sc.close();
     }
