@@ -4,20 +4,28 @@ public class OnlyDsaRecursion_6 {
     // /* Question 10 ==> Tower of Hanoi */
 
     // /* Question 9 ==> Recursive Binary Search */
-    static int mid(int []arr){
-        return 0;
-    }
-    static void binarySearch(int [] arr,int x){
-
-    }
+    // static boolean binarySearch(int[] arr, int x, int low, int high) {
+    // if (low > high) {
+    // return false;
+    // }
+    // int mid = low + (high - low) / 2;
+    // if (arr[mid] == x) {
+    // return true;
+    // } else if (arr[mid] > x) {
+    // high = mid - 1;
+    // } else {
+    // low = mid + 1;
+    // }
+    // return binarySearch(arr, x, low, high);
+    // }
 
     // /* Question 8 ==> Palindrome Check */
     // static int isPalindrome(int num, int reverse) {
-    //     if (num == 0) {
-    //         return reverse;
-    //     }
-    //     reverse = reverse * 10 + (num % 10);
-    //     return isPalindrome(num / 10, reverse);
+    // if (num == 0) {
+    // return reverse;
+    // }
+    // reverse = reverse * 10 + (num % 10);
+    // return isPalindrome(num / 10, reverse);
     // }
 
     // /* Question 7 ==> Reverse String */
@@ -135,14 +143,21 @@ public class OnlyDsaRecursion_6 {
         // int num = sc.nextInt();
         // int result = isPalindrome(num, 0);
         // if (num != result) {
-        //     System.out.println("Number is not Palindrome");
+        // System.out.println("Number is not Palindrome");
         // } else {
-        //     System.out.println("Number is Palindrome .");
+        // System.out.println("Number is Palindrome .");
         // }
 
         // /* Question 9 ==> Recursive Binary Search */
-        int [] arr = {2,3,5,6,8,9,20};
-        binarySearch(arr, 6);
+        // int[] arr = { 2, 3, 5, 6, 8, 9, 20 };
+        // System.out.print("Enter your number you want : ");
+        // int x = sc.nextInt();
+        // boolean isFound = binarySearch(arr, x, 0, arr.length - 1);
+        // if (!isFound) {
+        //     System.out.println("X Element is not found !");
+        // } else {
+        //     System.out.println("X Element is found ..");
+        // }
 
         sc.close();
     }

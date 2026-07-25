@@ -10,7 +10,7 @@ public class OnlyDsaBinaySearch_10 {
         int low = 0;
         int high = list.size() - 1;
         while (low <= high) {
-            int mid = (high - low) + low / 2;
+            int mid = low + (high -low)/ 2;
             int curr = list.get(mid);
             if (curr == x) {
                 return mid;
