@@ -3,23 +3,23 @@ import java.util.Vector;
 public class OnlyDsaTwoPointer_8 {
     // /* Question 5 --> Two Sum on Sorted Vector */
     // static int[] twoSum(int[] arr, int target) {
-    //     Vector<Integer> list = new Vector<>();
-    //     for (int i : arr) {
-    //         list.add(i);
-    //     }
-    //     int left = 0;
-    //     int right = list.size() - 1;
-    //     while (left < right) {
-    //         int curr = list.get(left) + list.get(right);
-    //         if (curr == target) {
-    //             return new int[] { left, right };
-    //         } else if (curr < target) {
-    //             left++;
-    //         } else {
-    //             right--;
-    //         }
-    //     }
-    //     return new int[] {};
+    // Vector<Integer> list = new Vector<>();
+    // for (int i : arr) {
+    // list.add(i);
+    // }
+    // int left = 0;
+    // int right = list.size() - 1;
+    // while (left < right) {
+    // int curr = list.get(left) + list.get(right);
+    // if (curr == target) {
+    // return new int[] { left, right };
+    // } else if (curr < target) {
+    // left++;
+    // } else {
+    // right--;
+    // }
+    // }
+    // return new int[] {};
     // }
 
     // /* Question 2 --> Palindrome Check */
