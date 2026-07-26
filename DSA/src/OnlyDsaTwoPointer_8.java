@@ -22,6 +22,22 @@ public class OnlyDsaTwoPointer_8 {
     // return new int[] {};
     // }
 
+    // /* Question 3 --> Remove duplicate from sorted vector */
+    static void removeDuplicates(int []arr){
+        Vector<Integer> list = new Vector<>();
+        for(int i : arr){
+            list.add(i);
+        }
+        int slow = 0;
+        for(int fast = 1; fast < list.size(); fast++){
+            if(list.get(fast) != list.get(slow)){
+                slow ++;
+                list.set(slow,list.get(fast));
+            }
+        }
+        System.out.println(list);
+    }
+
     // /* Question 2 --> Palindrome Check */
     // static boolean isPalindrome(int [] arr){ // Method to check palindrome
     // int left = 0; // Left pointer
@@ -63,6 +79,11 @@ public class OnlyDsaTwoPointer_8 {
         // /* Question 2 --> Palindrome Check */
         // int []arr = {1,2,4};
         // System.out.println("Palindrome : " + isPalindrome(arr));
+
+        // /* Question 3 --> Remove Duplicates from sorted Vector */
+        int [] arr = {2,2,2,3,5,5,6,7,8,8,9};
+        removeDuplicates(arr);
+
 
         // /* Question 5 --> Two Sum on Sorted Vector */
         // int[] arr = { 2, 7, 11, 14, 30 };
