@@ -1,7 +1,18 @@
-import java.util.Scanner;
+// import java.util.Scanner;
 
 public class OnlyDsaRecursion_6 {
     // /* Question 10 ==> Tower of Hanoi */
+    // static void towerOfHanoi(int n, char src, char helper, char dest) {
+    // if (n == 1) {
+    // System.out.println("Move disk : 1 from Source : "
+    // + src + " to Dest : " + dest);
+    // return;
+    // }
+    // towerOfHanoi(n - 1, src, dest, helper);
+    // System.out.println("Move disk : " + n + " from Source : "
+    // + src + " to Dest : " + dest);
+    // towerOfHanoi(n - 1, helper, src, dest);
+    // }
 
     // /* Question 9 ==> Recursive Binary Search */
     // static boolean binarySearch(int[] arr, int x, int low, int high) {
@@ -92,7 +103,7 @@ public class OnlyDsaRecursion_6 {
     // }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
 
         // /* Question 1 ==> Print number from 1 to n */
         // System.out.print("Enter your number : ");
@@ -154,11 +165,16 @@ public class OnlyDsaRecursion_6 {
         // int x = sc.nextInt();
         // boolean isFound = binarySearch(arr, x, 0, arr.length - 1);
         // if (!isFound) {
-        //     System.out.println("X Element is not found !");
+        // System.out.println("X Element is not found !");
         // } else {
-        //     System.out.println("X Element is found ..");
+        // System.out.println("X Element is found ..");
         // }
 
-        sc.close();
+        // /* Question 10 ==> Tower of Hanoi */
+        // System.out.print("Enter number of plates in a tower : ");
+        // int n = sc.nextInt();
+        // towerOfHanoi(n, 'A', 'B', 'C');
+
+        // sc.close();
     }
 }
