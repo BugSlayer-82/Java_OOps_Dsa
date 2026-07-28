@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSException;
-
 public class OnlyDsaLinkedList_3 {
     Node head;
 
