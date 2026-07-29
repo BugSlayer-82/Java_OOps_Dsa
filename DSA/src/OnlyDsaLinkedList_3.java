@@ -39,7 +39,7 @@ public class OnlyDsaLinkedList_3 {
 
     public void addAtPosition(int i, int data) {
         Node newNode = new Node(data);
-        if (head == null) {
+        if (head == null || i == 0) {
             newNode.next = head;
             head = newNode;
             return;
@@ -47,7 +47,8 @@ public class OnlyDsaLinkedList_3 {
         int count = 0;
         Node currNode = head;
         while (currNode != null) {
-            if (count == i) {
+            if (count == i-1) {
+                newNode.next = currNode.next;
                 currNode.next = newNode;
                 return;
             }
@@ -77,7 +78,7 @@ public class OnlyDsaLinkedList_3 {
         list.addFirst(1);
         list.addLast(6);
         list.addLast(7);
-        list.addAtPosition(2, 5);
+        list.addAtPosition(90, 5);
         list.printList();
     }
 }
