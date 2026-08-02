@@ -11,7 +11,7 @@ decide they are the best fit.
 
 -   Each patient has an ID, name and emergency level. All details must
     be initialized during object creation.
--   Admit multiple patients.
+-   Admit multiple patients.    
 -   The most critical patient should always be treated first.
 -   Quickly check whether a patient ID is already registered.
 -   Remove the patient after treatment.
