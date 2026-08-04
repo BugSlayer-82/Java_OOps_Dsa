@@ -1,65 +1,120 @@
+// import java.util.Queue;
 // import java.util.HashMap;
 // import java.util.PriorityQueue;
+// import java.util.Stack;
+
+// /* Question 3 --> Food Delivery System */
+
+// /* Question 2 --> Browser Back & Forward History */
+// class History {
+//     private String url;
+//     private String visitedPage;
+//     History(String url, String visitedPage) {
+//         this.url = url;
+//         this.visitedPage = visitedPage;
+//     }
+//     public String getUrl() {
+//         return url;
+//     }
+//     public String getPage() {
+//         return visitedPage;
+//     }
+// }
+// class Browser {
+//     private Stack<History> backwardStack = new Stack<>();
+//     private Stack<History> forwardStack = new Stack<>();
+//     private History history;
+//     private String browserName;
+//     Browser(String name) {
+//         this.browserName = name;
+//     }
+//     public String getBrowserName() {
+//         return browserName;
+//     }
+//     public void visit(String url, String pageName) {
+//         if (url != null && pageName != null) {
+//             backwardStack.push(new History(url, pageName));
+//         }
+//         forwardStack.clear();
+//         return;
+//     }
+//     public String forward() {
+//         if (!forwardStack.isEmpty()) {
+//             history = forwardStack.pop();
+//             backwardStack.push(history);
+//             return history.getPage() + " " + history.getUrl();
+//         }
+//         return "There is no history !";
+//     }
+//     public String back() {
+//         if (!backwardStack.isEmpty()) {
+//             history = backwardStack.pop();
+//             forwardStack.push(history);
+//             return history.getPage() + " " + history.getUrl();
+//         }
+//         return "There is no previous History !";
+//     }
+// }
 
 // /* Question 1 --> Hospital Emergency Queue */
 // enum EmergencyLevel {
-//     HIGH, // Index Original = 0
-//     MEDIUM, // Index Original = 1
-//     LOW // Index Original = 2
+// HIGH, // Index Original = 0
+// MEDIUM, // Index Original = 1
+// LOW // Index Original = 2
 // }
 // class Patient implements Comparable<Patient> {
-//     private int id;
-//     private String name;
-//     private EmergencyLevel emergencyLevel;
-//     Patient(int id, String name, EmergencyLevel emLevel) {
-//         this.id = id;
-//         this.name = name;
-//         this.emergencyLevel = emLevel;
-//     }
-//     public int getId() {
-//         return id;
-//     }
-//     public String getName() {
-//         return name;
-//     }
-//     public EmergencyLevel getLevel() {
-//         return emergencyLevel;
-//     }
-//     @Override
-//     public int compareTo(Patient p) {
-//         return this.emergencyLevel.compareTo(p.emergencyLevel);
-//     }
+// private int id;
+// private String name;
+// private EmergencyLevel emergencyLevel;
+// Patient(int id, String name, EmergencyLevel emLevel) {
+// this.id = id;
+// this.name = name;
+// this.emergencyLevel = emLevel;
+// }
+// public int getId() {
+// return id;
+// }
+// public String getName() {
+// return name;
+// }
+// public EmergencyLevel getLevel() {
+// return emergencyLevel;
+// }
+// @Override
+// public int compareTo(Patient p) {
+// return this.emergencyLevel.compareTo(p.emergencyLevel);
+// }
 // }
 // class Hospital {
-//     private String hospitalName;
-//     private HashMap<Integer, Patient> map = new HashMap<>();
-//     private PriorityQueue<Patient> pList = new PriorityQueue<>();
-//     Hospital(String hospitalName) {
-//         this.hospitalName = hospitalName;
-//     }
-//     public String getHospitalName() {
-//         return hospitalName;
-//     }
-//     public void addPatient(Patient p) {
-//         if (p != null) {
-//             map.put(p.getId(), p);
-//             pList.offer(p);
-//         }
-//         return;
-//     }
-//     public String isRegistered(int id) {
-//         if (map.containsKey(id)) {
-//             return "Already registered ..";
-//         }
-//         return "Patient not exist";
-//     }
-//     public Patient treatPatient() {
-//         Patient patient = pList.poll();
-//         if (patient != null) {
-//             return map.remove(patient.getId());
-//         }
-//         return patient;
-//     }
+// private String hospitalName;
+// private HashMap<Integer, Patient> map = new HashMap<>();
+// private PriorityQueue<Patient> pList = new PriorityQueue<>();
+// Hospital(String hospitalName) {
+// this.hospitalName = hospitalName;
+// }
+// public String getHospitalName() {
+// return hospitalName;
+// }
+// public void addPatient(Patient p) {
+// if (p != null) {
+// map.put(p.getId(), p);
+// pList.offer(p);
+// }
+// return;
+// }
+// public String isRegistered(int id) {
+// if (map.containsKey(id)) {
+// return "Already registered ..";
+// }
+// return "Patient not exist";
+// }
+// public Patient treatPatient() {
+// Patient patient = pList.poll();
+// if (patient != null) {
+// return map.remove(patient.getId());
+// }
+// return patient;
+// }
 // }
 
 public class oops_dsa_6 {
@@ -83,5 +138,22 @@ public class oops_dsa_6 {
         // Patient treated3 = hospital.treatPatient();
         // System.out.println("Treated Third: " + treated3.getName() + " (" +
         // treated3.getLevel() + ")");
+
+        // /* Question 2 --> Browser Back & Forward History */
+        // Browser myBrowser = new Browser("Chrome");
+        // System.out.println("Browser Started: " + myBrowser.getBrowserName());
+        // myBrowser.visit("https://google.com", "Google Home");
+        // myBrowser.visit("https://github.com", "GitHub Dashboard");
+        // myBrowser.visit("https://stackoverflow.com", "StackOverflow Q&A");
+        // System.out.println("\n--- Going Back ---");
+        // System.out.println("Current Page: " + myBrowser.back()); 
+        // System.out.println("Current Page: " + myBrowser.back());
+        // System.out.println("\n--- Going Forward ---");
+        // System.out.println("Current Page: " + myBrowser.forward());
+        // System.out.println("\n--- Visiting New Page from GitHub ---");
+        // myBrowser.visit("https://leetcode.com", "LeetCode Problems");
+        // System.out.println("Trying to go Forward: " + myBrowser.forward());
+   
+        // /* Question 3 --> Food Delivery System */
     }
 }
