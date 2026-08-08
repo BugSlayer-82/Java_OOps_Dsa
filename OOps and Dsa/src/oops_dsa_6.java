@@ -16,17 +16,21 @@ class Order{
 
     public String getOrderId(){
         return orderId;
-    } 
+    }
+
+    public void updateStatus(String status){
+        this.orderStatus = status;
+    }
 
     public String getOrderStatus(){
         return orderStatus;
     }
 }
-class DeliverySystem{
+class Restro{
     private String restroName;
     private HashMap<String,Order> order = new HashMap<>();
     private Queue<Order> newOrder = new LinkedList<>();
-    DeliverySystem(String restroName){
+    Restro(String restroName){
         this.restroName = restroName;
     }
 
@@ -40,9 +44,16 @@ class DeliverySystem{
         }
         order.put(o.getOrderId(),o);
         newOrder.offer(o);
+        o.updateStatus("Order Placed ...");
     }
 
-
+    public void processOrder(){
+        if(newOrder.isEmpty()){
+            return;
+        }
+        Order o = newOrder.poll();
+        o.updateStatus("Under Processing ....");
+    }
     
     public String getOrder(String orderId){
         if(!order.containsKey(orderId)){
@@ -203,5 +214,17 @@ public class oops_dsa_6 {
         // System.out.println("Trying to go Forward: " + myBrowser.forward());
    
         // /* Question 3 --> Food Delivery System */
+        Restro restro = new Restro("Pizza Palace");
+        Order ord1 = new Order("ORD101", "Received");
+        Order ord2 = new Order("ORD102", "Received");
+        Order ord3 = new Order("ORD103", "Received");
+        restro.addOrder(ord1);
+        restro.addOrder(ord2);
+        restro.addOrder(ord3);
+        System.out.println(restro.getOrder("ORD101"));
+        restro.processOrder();
+        System.out.println(restro.getOrder("ORD101"));
+        System.out.println(restro.getOrder("ORD102"));
+        System.out.println(restro.getOrder("ORD999"));
     }
 }
