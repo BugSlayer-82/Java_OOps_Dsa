@@ -214,17 +214,17 @@ public class oops_dsa_6 {
         // System.out.println("Trying to go Forward: " + myBrowser.forward());
    
         // /* Question 3 --> Food Delivery System */
-        Restro restro = new Restro("Pizza Palace");
-        Order ord1 = new Order("ORD101", "Received");
-        Order ord2 = new Order("ORD102", "Received");
-        Order ord3 = new Order("ORD103", "Received");
-        restro.addOrder(ord1);
-        restro.addOrder(ord2);
-        restro.addOrder(ord3);
-        System.out.println(restro.getOrder("ORD101"));
-        restro.processOrder();
-        System.out.println(restro.getOrder("ORD101"));
-        System.out.println(restro.getOrder("ORD102"));
-        System.out.println(restro.getOrder("ORD999"));
+        // Restro restro = new Restro("Pizza Palace");
+        // Order ord1 = new Order("ORD101", "Received");
+        // Order ord2 = new Order("ORD102", "Received");
+        // Order ord3 = new Order("ORD103", "Received");
+        // restro.addOrder(ord1);
+        // restro.addOrder(ord2);
+        // restro.addOrder(ord3);
+        // System.out.println(restro.getOrder("ORD101"));
+        // restro.processOrder();
+        // System.out.println(restro.getOrder("ORD101"));
+        // System.out.println(restro.getOrder("ORD102"));
+        // System.out.println(restro.getOrder("ORD999"));
     }
 }
