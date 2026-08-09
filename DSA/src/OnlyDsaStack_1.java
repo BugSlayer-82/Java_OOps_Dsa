@@ -1,17 +1,17 @@
-// import java.util.Stack;
+import java.util.Stack;
 // import java.util.Deque;
 // import java.util.ArrayDeque;
 
 public class OnlyDsaStack_1 {
 
     // /* Question 8 ---> Evaluate Postfix */
-    // static int evaluatePostfix(String exp){
-    //     Stack<Character> stack = new Stack<>();
-    //     Stack<Integer> number = new Stack<>();
-    //     System.out.println(stack);
-    //     System.out.println(number);
-    //     return ans;
-    // }
+    static int evaluatePostfix(String exp){
+        Stack<Character> stack = new Stack<>();
+        Stack<Integer> number = new Stack<>();
+        System.out.println(stack);
+        System.out.println(number);
+        return 0;
+    }
 
     // /* Question 7 ---> Copy the Stack to another */
     // static void copyStack(Stack<Integer> s1, Stack<Integer> s2) {
@@ -168,8 +168,8 @@ public class OnlyDsaStack_1 {
         // System.out.println(s2);
 
         // /* Question 8 ---> Evaluate Postfix */
-        // String exp = "3*5+24-3";
-        // int result = evaluatePostfix(exp);
-        // System.out.println();
+        String exp = "35+*24+3-";
+        int result = evaluatePostfix(exp);
+        System.out.println();
     }
 }
