@@ -1,4 +1,5 @@
 public class OnlyDsaLinkedList_3 {
+    // /* Question 1 --> Create and Display <------ */
     Node head;
 
     static class Node {
@@ -11,6 +12,7 @@ public class OnlyDsaLinkedList_3 {
         }
     }
 
+    // /* Question 2 --> Add element at begining <------ */
     public void addFirst(int data) {
         Node newNode = new Node(data);
         if (head == null) {
@@ -22,6 +24,7 @@ public class OnlyDsaLinkedList_3 {
         head = newNode;
     }
 
+    // /* Question 3 --> Add element at last <------ */
     public void addLast(int data) {
         Node newNode = new Node(data);
         if (head == null) {
@@ -37,6 +40,23 @@ public class OnlyDsaLinkedList_3 {
         newNode = currNode;
     }
 
+    // /* Question 4 --> Remove first <------ */
+    public void delete() {
+        if(head == null){
+            return;
+        }
+        head = head.next;
+    }
+
+    // /* Question 5 --> Remove from last <------- */
+    public void deleteLast(){
+        if(head == null){
+            return;
+        }
+        Node currNode = head;
+        
+    }
+
     public void addAtPosition(int i, int data) {
         Node newNode = new Node(data);
         if (head == null || i == 0) {
@@ -47,7 +67,7 @@ public class OnlyDsaLinkedList_3 {
         int count = 0;
         Node currNode = head;
         while (currNode != null) {
-            if (count == i-1) {
+            if (count == i - 1) {
                 newNode.next = currNode.next;
                 currNode.next = newNode;
                 return;
@@ -78,7 +98,9 @@ public class OnlyDsaLinkedList_3 {
         list.addFirst(1);
         list.addLast(6);
         list.addLast(7);
-        list.addAtPosition(90, 5);
+        list.addAtPosition(4, 5);
+        list.printList();
+        // list.delete();
         list.printList();
     }
 }
