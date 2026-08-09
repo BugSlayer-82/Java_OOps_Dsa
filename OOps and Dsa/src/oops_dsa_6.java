@@ -1,68 +1,60 @@
-import java.util.Queue;
-import java.util.HashMap;
-import java.util.LinkedList;
+// import java.util.Queue;
+// import java.util.HashMap;
+// import java.util.LinkedList;
 // import java.util.Stack;
 // import java.util.PriorityQueue;
 
 // /* Question 3 --> Food Delivery System */
-class Order{
-    private String orderId;
-    private String orderStatus;
-
-    Order(String orderId,String orderStatus){
-        this.orderStatus = orderStatus;
-        this.orderId = orderId;
-    }
-
-    public String getOrderId(){
-        return orderId;
-    }
-
-    public void updateStatus(String status){
-        this.orderStatus = status;
-    }
-
-    public String getOrderStatus(){
-        return orderStatus;
-    }
-}
-class Restro{
-    private String restroName;
-    private HashMap<String,Order> order = new HashMap<>();
-    private Queue<Order> newOrder = new LinkedList<>();
-    Restro(String restroName){
-        this.restroName = restroName;
-    }
-
-    public String getRestroName(){
-        return restroName;
-    }
-
-    public void addOrder(Order o){
-        if(o == null){
-            return;
-        }
-        order.put(o.getOrderId(),o);
-        newOrder.offer(o);
-        o.updateStatus("Order Placed ...");
-    }
-
-    public void processOrder(){
-        if(newOrder.isEmpty()){
-            return;
-        }
-        Order o = newOrder.poll();
-        o.updateStatus("Under Processing ....");
-    }
-    
-    public String getOrder(String orderId){
-        if(!order.containsKey(orderId)){
-            return "Order not exists";
-        }
-        Order ord = order.get(orderId);
-        return "Order Id: "+ord.getOrderId()+" Order Status: "+ord.getOrderStatus();
-    }
-}
+// class Order{
+//     private String orderId;
+//     private String orderStatus;
+//     Order(String orderId,String orderStatus){
+//         this.orderStatus = orderStatus;
+//         this.orderId = orderId;
+//     }
+//     public String getOrderId(){
+//         return orderId;
+//     }
+//     public void updateStatus(String status){
+//         this.orderStatus = status;
+//     }
+//     public String getOrderStatus(){
+//         return orderStatus;
+//     }
+// }
+// class Restro{
+//     private String restroName;
+//     private HashMap<String,Order> order = new HashMap<>();
+//     private Queue<Order> newOrder = new LinkedList<>();
+//     Restro(String restroName){
+//         this.restroName = restroName;
+//     }
+//     public String getRestroName(){
+//         return restroName;
+//     }
+//     public void addOrder(Order o){
+//         if(o == null){
+//             return;
+//         }
+//         order.put(o.getOrderId(),o);
+//         newOrder.offer(o);
+//         o.updateStatus("Order Placed ...");
+//     }
+//     public void processOrder(){
+//         if(newOrder.isEmpty()){
+//             return;
+//         }
+//         Order o = newOrder.poll();
+//         o.updateStatus("Under Processing ....");
+//     }
+//     public String getOrder(String orderId){
+//         if(!order.containsKey(orderId)){
+//             return "Order not exists";
+//         }
+//         Order ord = order.get(orderId);
+//         return "Order Id: "+ord.getOrderId()+" Order Status: "+ord.getOrderStatus();
+//     }
+// }
 
 // /* Question 2 --> Browser Back & Forward History */
 // class History {
