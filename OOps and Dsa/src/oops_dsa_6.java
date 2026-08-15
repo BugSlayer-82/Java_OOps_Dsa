@@ -1,110 +1,185 @@
 // import java.util.Queue;
+// import java.util.Stack;
+// import java.util.TreeSet;
+// import java.util.HashSet;
 // import java.util.HashMap;
 // import java.util.LinkedList;
-// import java.util.Stack;
 // import java.util.PriorityQueue;
+
+// /* Question 5 -->  Music Playlist */
+
+// /* Question 4 --> University student registry */
+// class Student implements Comparable<Student> {
+//     private String name;
+//     private int roll;
+//     Student(String name, int roll) {
+//         this.name = name;
+//         this.roll = roll;
+//     }
+//     public int getRoll() {
+//         return roll;
+//     }
+//     public String getName() {
+//         return name;
+//     }
+//     @Override
+//     public String toString(){
+//         return "Name --> " + name + " Roll --> "+ roll;
+//     }
+//     @Override
+//     public boolean equals(Object o) {
+//         if (this == o)
+//             return true;
+//         if (o == null || getClass() != o.getClass())
+//             return false;
+//         Student student = (Student) o;
+//         return this.roll == student.roll; // Agar roll String hai toh this.roll.equals(student.roll) use karein
+//     }
+//     @Override
+    // public int hashCode() {
+    //     return Integer.hashCode(roll); // Agar roll String hai toh Objects.hash(roll) use karein
+    // }
+    // @Override
+    // public int compareTo(Student s) {
+    //     int nameComparision = this.name.compareTo(s.name);
+    //     if (nameComparision != 0) {
+    //         return nameComparision;
+    //     }
+    //     return Integer.compare(this.roll, s.roll);
+    // }
+// }
+// class University {
+//     private HashSet<Student> studentSet = new HashSet<>();
+//     private TreeSet<Student> studentAlpha = new TreeSet<>();
+//     private String universityName;
+//     private static University instance;
+//     private University(String university) {
+//         this.universityName = university;
+//     }
+//     public static University getInstance(String universityName) {
+//         if (instance == null) {
+//             instance = new University(universityName);
+//         }
+//         return instance;
+//     }
+//     public void addStudent(Student s) {
+//         if (s == null) {
+//             return;
+//         }
+//         studentSet.add(s);
+//         studentAlpha.add(s);
+//     }
+//     public String getUniversityName() {
+//         return universityName;
+//     }
+//     public void displayStudents() {
+//         for(Student std : studentAlpha){
+//             System.out.println(std.toString());
+//         }   
+//     }
+// }
 
 // /* Question 3 --> Food Delivery System */
 // class Order{
-//     private String orderId;
-//     private String orderStatus;
-//     Order(String orderId,String orderStatus){
-//         this.orderStatus = orderStatus;
-//         this.orderId = orderId;
-//     }
-//     public String getOrderId(){
-//         return orderId;
-//     }
-//     public void updateStatus(String status){
-//         this.orderStatus = status;
-//     }
-//     public String getOrderStatus(){
-//         return orderStatus;
-//     }
+// private String orderId;
+// private String orderStatus;
+// Order(String orderId,String orderStatus){
+// this.orderStatus = orderStatus;
+// this.orderId = orderId;
+// }
+// public String getOrderId(){
+// return orderId;
+// }
+// public void updateStatus(String status){
+// this.orderStatus = status;
+// }
+// public String getOrderStatus(){
+// return orderStatus;
+// }
 // }
 // class Restro{
-//     private String restroName;
-//     private HashMap<String,Order> order = new HashMap<>();
-//     private Queue<Order> newOrder = new LinkedList<>();
-//     Restro(String restroName){
-//         this.restroName = restroName;
-//     }
-//     public String getRestroName(){
-//         return restroName;
-//     }
-//     public void addOrder(Order o){
-//         if(o == null){
-//             return;
-//         }
-//         order.put(o.getOrderId(),o);
-//         newOrder.offer(o);
-//         o.updateStatus("Order Placed ...");
-//     }
-//     public void processOrder(){
-//         if(newOrder.isEmpty()){
-//             return;
-//         }
-//         Order o = newOrder.poll();
-//         o.updateStatus("Under Processing ....");
-//     }
-//     public String getOrder(String orderId){
-//         if(!order.containsKey(orderId)){
-//             return "Order not exists";
-//         }
-//         Order ord = order.get(orderId);
-//         return "Order Id: "+ord.getOrderId()+" Order Status: "+ord.getOrderStatus();
-//     }
+// private String restroName;
+// private HashMap<String,Order> order = new HashMap<>();
+// private Queue<Order> newOrder = new LinkedList<>();
+// Restro(String restroName){
+// this.restroName = restroName;
+// }
+// public String getRestroName(){
+// return restroName;
+// }
+// public void addOrder(Order o){
+// if(o == null){
+// return;
+// }
+// order.put(o.getOrderId(),o);
+// newOrder.offer(o);
+// o.updateStatus("Order Placed ...");
+// }
+// public void processOrder(){
+// if(newOrder.isEmpty()){
+// return;
+// }
+// Order o = newOrder.poll();
+// o.updateStatus("Under Processing ....");
+// }
+// public String getOrder(String orderId){
+// if(!order.containsKey(orderId)){
+// return "Order not exists";
+// }
+// Order ord = order.get(orderId);
+// return "Order Id: "+ord.getOrderId()+" Order Status: "+ord.getOrderStatus();
+// }
 // }
 
 // /* Question 2 --> Browser Back & Forward History */
 // class History {
-//     private String url;
-//     private String visitedPage;
-//     History(String url, String visitedPage) {
-//         this.url = url;
-//         this.visitedPage = visitedPage;
-//     }
-//     public String getUrl() {
-//         return url;
-//     }
-//     public String getPage() {
-//         return visitedPage;
-//     }
+// private String url;
+// private String visitedPage;
+// History(String url, String visitedPage) {
+// this.url = url;
+// this.visitedPage = visitedPage;
+// }
+// public String getUrl() {
+// return url;
+// }
+// public String getPage() {
+// return visitedPage;
+// }
 // }
 // class Browser {
-//     private Stack<History> backwardStack = new Stack<>();
-//     private Stack<History> forwardStack = new Stack<>();
-//     private History history;
-//     private String browserName;
-//     Browser(String name) {
-//         this.browserName = name;
-//     }
-//     public String getBrowserName() {
-//         return browserName;
-//     }
-//     public void visit(String url, String pageName) {
-//         if (url != null && pageName != null) {
-//             backwardStack.push(new History(url, pageName));
-//         }
-//         forwardStack.clear();
-//         return;
-//     }
-//     public String forward() {
-//         if (!forwardStack.isEmpty()) {
-//             history = forwardStack.pop();
-//             backwardStack.push(history);
-//             return history.getPage() + " " + history.getUrl();
-//         }
-//         return "There is no history !";
-//     }
-//     public String back() {
-//         if (!backwardStack.isEmpty()) {
-//             history = backwardStack.pop();
-//             forwardStack.push(history);
-//             return history.getPage() + " " + history.getUrl();
-//         }
-//         return "There is no previous History !";
-//     }
+// private Stack<History> backwardStack = new Stack<>();
+// private Stack<History> forwardStack = new Stack<>();
+// private History history;
+// private String browserName;
+// Browser(String name) {
+// this.browserName = name;
+// }
+// public String getBrowserName() {
+// return browserName;
+// }
+// public void visit(String url, String pageName) {
+// if (url != null && pageName != null) {
+// backwardStack.push(new History(url, pageName));
+// }
+// forwardStack.clear();
+// return;
+// }
+// public String forward() {
+// if (!forwardStack.isEmpty()) {
+// history = forwardStack.pop();
+// backwardStack.push(history);
+// return history.getPage() + " " + history.getUrl();
+// }
+// return "There is no history !";
+// }
+// public String back() {
+// if (!backwardStack.isEmpty()) {
+// history = backwardStack.pop();
+// forwardStack.push(history);
+// return history.getPage() + " " + history.getUrl();
+// }
+// return "There is no previous History !";
+// }
 // }
 
 // /* Question 1 --> Hospital Emergency Queue */
@@ -197,14 +272,14 @@ public class oops_dsa_6 {
         // myBrowser.visit("https://github.com", "GitHub Dashboard");
         // myBrowser.visit("https://stackoverflow.com", "StackOverflow Q&A");
         // System.out.println("\n--- Going Back ---");
-        // System.out.println("Current Page: " + myBrowser.back()); 
+        // System.out.println("Current Page: " + myBrowser.back());
         // System.out.println("Current Page: " + myBrowser.back());
         // System.out.println("\n--- Going Forward ---");
         // System.out.println("Current Page: " + myBrowser.forward());
         // System.out.println("\n--- Visiting New Page from GitHub ---");
         // myBrowser.visit("https://leetcode.com", "LeetCode Problems");
         // System.out.println("Trying to go Forward: " + myBrowser.forward());
-   
+
         // /* Question 3 --> Food Delivery System */
         // Restro restro = new Restro("Pizza Palace");
         // Order ord1 = new Order("ORD101", "Received");
@@ -218,5 +293,28 @@ public class oops_dsa_6 {
         // System.out.println(restro.getOrder("ORD101"));
         // System.out.println(restro.getOrder("ORD102"));
         // System.out.println(restro.getOrder("ORD999"));
+ 
+        // /* Question 4 --> University student registry */
+        // University uni = University.getInstance("Tony");
+        // System.out.println("University Name --> "+ uni.getUniversityName());
+        // Student s1 = new Student("Popoye", 24);
+        // Student s2 = new Student("Stark", 47);
+        // Student s3 = new Student("Steve", 40);
+        // Student s4 = new Student("Natasha", 70);
+        // Student s5 = new Student("Rahul", 101);
+        // Student s6 = new Student("Amit", 102);
+        // Student s7 = new Student("Rahul", 103); 
+        // Student s8 = new Student("Priya", 104);
+        // uni.addStudent(s1);
+        // uni.addStudent(s2);
+        // uni.addStudent(s3);
+        // uni.addStudent(s4);
+        // uni.addStudent(s5);
+        // uni.addStudent(s6);
+        // uni.addStudent(s7);
+        // uni.addStudent(s8);
+        // System.out.println("Registered Student :-");
+        // uni.displayStudents();
+
     }
 }
