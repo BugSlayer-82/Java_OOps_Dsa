@@ -1,15 +1,48 @@
-import java.util.Stack;
+// import java.util.Stack;
 // import java.util.Deque;
 // import java.util.ArrayDeque;
 
 public class OnlyDsaStack_1 {
 
-    // /* Question 8 ---> Evaluate Postfix */
-    static int evaluatePostfix(String exp) {
-        int sum = 0;
-    
-        return sum;
+
+    // /* Question 10 ---> Min Stack */
+    static class Pair{
+
     }
+
+    // /* Question 9 ---> Infix to postfix */
+
+    // /* Question 8 ---> Evaluate Postfix */
+    // static int evaluatePostfix(String exp) {
+    //     Stack<Integer> stack = new Stack<>();
+    //     for (int i = 0; i < exp.length(); i++) {
+    //         char ch = exp.charAt(i);
+    //         // if ((ch != '+') || (ch != '-') || (ch != '*') || (ch != '/')) {
+    //         if(ch >= '0' && ch <= '9'){
+    //             stack.push(ch - '0');
+    //         } else {
+    //             int first = stack.pop();
+    //             int second = stack.pop();
+    //             switch (ch) {
+    //                 case '+':
+    //                     stack.push(first + second);
+    //                     break;
+    //                 case '-':
+    //                     stack.push(second - first);
+    //                     break;
+    //                 case '*':
+    //                     stack.push(first * second);
+    //                     break;
+    //                 case '/':
+    //                     if (first !=  0) {
+    //                         stack.push(second / first);
+    //                     }
+    //                     break;
+    //             }
+    //         }
+    //     }
+    //     return stack.pop();
+    // }
 
     // /* Question 7 ---> Copy the Stack to another */
     // static void copyStack(Stack<Integer> s1, Stack<Integer> s2) {
@@ -166,9 +199,9 @@ public class OnlyDsaStack_1 {
         // System.out.println(s2);
 
         // /* Question 8 ---> Evaluate Postfix */
-        String exp = "35+*24+3-";
-        int result = evaluatePostfix(exp);
-        System.out.println();
-        
+        // String exp = "234*+5-";
+        // int result = evaluatePostfix(exp);
+        // System.out.println("Result : " + result);
+
     }
 }

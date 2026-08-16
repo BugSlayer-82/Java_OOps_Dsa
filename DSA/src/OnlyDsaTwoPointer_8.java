@@ -84,7 +84,6 @@ public class OnlyDsaTwoPointer_8 {
         int [] arr = {2,2,2,3,5,5,6,7,8,8,9};
         removeDuplicates(arr);
 
-
         // /* Question 5 --> Two Sum on Sorted Vector */
         // int[] arr = { 2, 7, 11, 14, 30 };
         // int target = 37;
