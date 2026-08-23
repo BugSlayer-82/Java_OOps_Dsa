@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class ArrayDs {
 
     // /* Question 2 ==> To rotate the array to the right by k positions */
-    private static void reverse(int[] arr, int k) {
-        int start = 0, end = k - 1;
+    private static void reverse(int[] arr, int start,int end) {
         while (start < end) {
             int temp = arr[start];
             arr[start] = arr[end];
@@ -15,12 +14,15 @@ public class ArrayDs {
     }
 
     public static void rotateArray(int[] arr, int k) {
-        // int start = 0, end = arr.length - 1;
-        reverse(arr,k);
-
+        int n = arr.length;
+        k = k % n;
+        reverse(arr,0,n - 1);
+        reverse(arr,0,k - 1);
+        reverse(arr,k, n - 1);
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
+        System.out.println();
     }
 
     // /* Question 1 ==> Find the Second largest Distinct element from an array
