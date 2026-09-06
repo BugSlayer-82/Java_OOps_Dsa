@@ -2,7 +2,54 @@ import java.util.Scanner;
 
 public class TwoPointerAlgo {
 
+    // /* Question 4 ====> Remove Duplicates from an Sorted array */
+    static void removeDuplicate(int []arr){
+        if(arr.length == 0){
+            return;
+        }
+        int start = 0;
+        for(int end = 1; end < arr.length; end++){
+            if(arr[end] != arr[start])
+                {
+                    start++;
+                    arr[start] = arr[end];
+                }
+        }
+        int n = start + 1;
+        System.out.println("After removed duplicates .....!");
+        for(int x = 0; x < n ; x ++){
+            System.out.print(arr[x] + " ");
+        }
+        System.out.println();
+    }
+
     // /* Question 3 ====> Palindrome Check <==== */
+    // // /* =====> In case of Number or Integer <======= */
+    // static boolean isPalindrome(int []arr){
+    //     int start = 0;
+    //     int end = arr.length - 1;
+    //     while(start < end){
+    //         if(arr[start] != arr[end]){
+    //             return false;
+    //         }
+    //         start ++;
+    //         end --;
+    //     }
+    //     return true;
+    // }
+    // // /* =====> In case of String <======= */
+    // static boolean isPalindrome(String str){
+    //     int start = 0;
+    //     int end = str.length() - 1;
+    //     while(start < end){
+    //         if(str.charAt(start) != str.charAt(end)){
+    //             return false;
+    //         }
+    //         start ++;
+    //         end --;
+    //     }
+    //     return true;
+    // }
 
     // /* Question 2 ====> Reverse an Array <==== */
     // static void reverse(int[] arr) {
@@ -65,7 +112,23 @@ public class TwoPointerAlgo {
         // reverse(arr); // Call the reverse method and pass the array
 
         // /* Question 3 ====> Palindrome Check <==== */
+        // // /* =====> In case of Number or Integer <======= */
+        // int [] arr = {1,1,2,3,1};
+        // System.out.println("Palindrome : "+ isPalindrome(arr));
+        // // /* =====> In case of String <======= */
+        // String str = "madaam";
+        // System.out.println("Palindrome : " + isPalindrome(str));
 
+        // /* Question 4 ====> Remove Duplicates from an Sorted array */
+        int []arr = {1,1,2,2,3,3,4,4,5,5};
+        System.out.println("Original array ....!");
+        for(int x : arr){
+            System.out.print(x+" ");
+        }
+        System.out.println();
+        removeDuplicate(arr);
+        
+        
         sc.close();
     }
 }
