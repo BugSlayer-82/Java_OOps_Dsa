@@ -1,96 +1,106 @@
-import java.util.Vector;
-
 public class OnlyDsaTwoPointer_8 {
-    // /* Question 5 --> Two Sum on Sorted Vector */
-    // static int[] twoSum(int[] arr, int target) {
-    // Vector<Integer> list = new Vector<>();
-    // for (int i : arr) {
-    // list.add(i);
-    // }
-    // int left = 0;
-    // int right = list.size() - 1;
-    // while (left < right) {
-    // int curr = list.get(left) + list.get(right);
-    // if (curr == target) {
-    // return new int[] { left, right };
-    // } else if (curr < target) {
-    // left++;
-    // } else {
-    // right--;
-    // }
-    // }
-    // return new int[] {};
-    // }
 
-    // /* Question 3 --> Remove duplicate from sorted vector */
-    static void removeDuplicates(int []arr){
-        Vector<Integer> list = new Vector<>();
-        for(int i : arr){
-            list.add(i);
-        }
-        int slow = 0;
-        for(int fast = 1; fast < list.size(); fast++){
-            if(list.get(fast) != list.get(slow)){
-                slow ++;
-                list.set(slow,list.get(fast));
+    // /* Question 4 ---> Merge Two Sorted array */
+    public static void mergeArray(int[] arr_1, int[] arr_2) {
+        int n = arr_1.length + arr_2.length;
+        int[] arr = new int[n];
+        int x = 0,y = 0,z = 0;
+
+        while(z != n){
+            if(arr_1[x]< arr_2[y]){
+                arr[z] = arr_1[x];
+                // z++; 
+                x++;
+            }else if(arr_1[x]>arr_2[y]){
+                arr[z] = arr_2[y];
+                // z++;
+                y++;
             }
+            z++;
         }
-        System.out.println(list);
+
+        for(int i : arr){
+            System.out.print(i + " ");
+        }
+        System.out.println();
     }
 
-    // /* Question 2 --> Palindrome Check */
-    // static boolean isPalindrome(int [] arr){ // Method to check palindrome
-    // int left = 0; // Left pointer
-    // int right = arr.length - 1; // Right pointer
-    // while(left < right){
-    // if(arr[left] != arr[right]){ // If left is not equals to right than return
-    // false
-    // return false;
-    // }
-    // left ++; // Increament by one
-    // right --; // Decreament by one
-    // }
-    // return true; // Return true
-    // }
+    // /* Question 3 ---> String is Palindrome */
+    public static boolean isPalindrome(String str) {
+        if (str == null) { // Edge case if string is empty
+            return false;
+        }
+        int start = 0;
+        int end = str.length() - 1;
+        while (start < end) {
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
 
-    // /* Question 1 --> Reverse a Vector */
-    // static void reverseVector(int [] arr){ // Method to reverse a vector
-    // Vector<Integer> list = new Vector<>();
-    // for(int i : arr){ // Iterate through each element of arr to add into vector
-    // list.add(i); // Add element to list
-    // }
-    // System.out.println(list);
-    // int left = 0; // Start or left pointer
-    // int right = list.size() -1; // End or right pointer
-    // while(left < right){
-    // int temp = list.get(left);
-    // list.set(left,list.get(right));
-    // list.set(right,temp);
-    // left ++; // Increament the left pointer by one
-    // right --; // Decreament the right pointer by one
-    // }
-    // System.out.println(list);
-    // }
+    // /* Question 2 ---> Move all zeroes at the end */
+    public static void moveZeros(int[] arr) {
+        int low = 0, high = 0;
+        while (high != arr.length) {
+            if (arr[high] != 0) {
+                arr[low] = arr[high];
+                low++;
+            }
+            high++;
+        }
+        for (int i = low; i < high; i++) {
+            arr[i] = 0;
+        }
+
+        for (int x : arr) {
+            System.out.print(x + " ");
+        }
+        System.out.println();
+    }
+
+    // /* Question 1 ---> TwoSum on Sorted Array */
+    public static int[] twoSum(int[] arr, int target) {
+        int low = 0, high = arr.length - 1;
+        while (low < high) {
+            int sum = arr[low] + arr[high];
+            if (sum == target) {
+                return new int[] { low, high };
+            } else if (sum < target) {
+                low++;
+            } else {
+                high--;
+            }
+        }
+        return new int[] {};
+    }
+
     public static void main(String[] args) {
-        // /* Question 1 --> Reverse a Vector */
-        // int [] arr = {2,5,1,6,8,9};
-        // reverseVector(arr);
 
-        // /* Question 2 --> Palindrome Check */
-        // int []arr = {1,2,4};
-        // System.out.println("Palindrome : " + isPalindrome(arr));
-
-        // /* Question 3 --> Remove Duplicates from sorted Vector */
-        int [] arr = {2,2,2,3,5,5,6,7,8,8,9};
-        removeDuplicates(arr);
-
-        // /* Question 5 --> Two Sum on Sorted Vector */
-        // int[] arr = { 2, 7, 11, 14, 30 };
-        // int target = 37;
+        // /* Question 1 ---> TwoSum on Sorted Array */
+        // int[] arr = { 2, 5, 7, 11, 13 };
+        // int target = 10;
         // int[] result = twoSum(arr, target);
-        // for (int j : result) {
-        // System.out.print(j + " ");
+        // for (int x : result) {
+        // System.out.print(x + " ");
         // }
         // System.out.println();
+
+        // /* Question 2 ---> Move all zeroes at the end */
+        // int[] arr = { 4, 0, 2, 0, 1, 0, 0, 5, 9, 0, 7, 8 };
+        // moveZeros(arr);
+
+        // /* Question 3 ---> String is Palindrome */
+        // String str = "lol";
+        // System.out.println("String is Palindrome : "+ isPalindrome(str));
+
+        // /* Question 4 ---> Merge Two Sorted array */
+        int[] arr_1 = { 1, 3, 5, 7 };
+        int[] arr_2 = { 2, 4, 6, 8 };
+        mergeArray(arr_1, arr_2);
+
     }
 }
