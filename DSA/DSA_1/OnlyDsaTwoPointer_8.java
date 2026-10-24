@@ -5,7 +5,7 @@ public class OnlyDsaTwoPointer_8 {
         int n = arr_1.length + arr_2.length;
         int[] arr = new int[n];
         int x = 0,y = 0,z = 0;
-
+ 
         while(z != n){
             if(arr_1[x]< arr_2[y]){
                 arr[z] = arr_1[x];
