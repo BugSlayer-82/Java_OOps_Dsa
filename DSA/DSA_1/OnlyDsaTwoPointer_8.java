@@ -1,5 +1,18 @@
 public class OnlyDsaTwoPointer_8 {
 
+    // /* Question 5 ---> Remove duplicate from sorted Array */
+    public static int removeDuplicate(int[] arr) {
+        int i = 0;
+        int j = 1;
+        while (j < arr.length) {
+            if (arr[i] != arr[j]) {
+                arr[++i] = arr[j];
+            }
+            j++;
+        }
+        return i + 1;
+    }
+
     // /* Question 4 ---> Merge Two Sorted array (And return new array)*/
     public static int[] mergeArray(int[] arr_1, int[] arr_2) {
         int n = arr_1.length;
@@ -106,12 +119,20 @@ public class OnlyDsaTwoPointer_8 {
         // System.out.println("String is Palindrome : "+ isPalindrome(str));
 
         // /* Question 4 ---> Merge Two Sorted array */
-        int[] arr_1 = { 1, 3, 5, 7 };
-        int[] arr_2 = { 2, 4, 6, 8 };
-        int[] result = mergeArray(arr_1, arr_2);
-        for (int k : result) {
-            System.out.print(k + " ");
-        }
-        System.out.println();
+        // int[] arr_1 = { 1, 3, 5, 7 };
+        // int[] arr_2 = { 2, 4, 6, 8 };
+        // int[] result = mergeArray(arr_1, arr_2);
+        // for (int k : result) {
+        // System.out.print(k + " ");
+        // }
+        // System.out.println();
+
+        // /* Question 5 ---> Remove Duplicates from sorted Array */
+        // int[] arr = { 1, 2, 2, 3, 3, 4, 5, 6 };
+        // int n = removeDuplicate(arr);
+        // for(int i = 0; i < n; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+        // System.out.println();
     }
 }
