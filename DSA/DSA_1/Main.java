@@ -33,40 +33,56 @@ class LinkList {
         System.out.println("null");
     }
 
-    public Node merge(Node l1 , Node int val) {
-        if (head == null) {
+    public Node merge(Node list1, Node list2) {
+        if (list1 == null && list2 == null) {
             return null;
         }
-        while (head.data == val && head.next != null) {
-            head = head.next;
-        }
-        if (head.data == val && head.next == null) {
-            head = null;
+        Node p1 = list1;
+        Node p2 = list2;
+        Node p3 = null;
+        Node newNode = null;
+        if (list1.data <= list2.data) {
+            newNode = list1;
         } else {
-            Node currNode = head;
-            while (currNode != null && currNode.next != null) {
-                if (currNode.next.data == val) {
-                    currNode.next = currNode.next.next;
-                } else {
-                    currNode = currNode.next;
-                }
+            newNode = list2;
+        }
+        while (p1 != null && p2 != null) {
+            if (p1.data <= p2.data) {
+                p3 = p1.next;
+                p1.next = p2;
+                p1 = p1.next;
+                p2 = p3;
             }
         }
-        return head;
+        while(p1 != null){
+            p1.next = p2;
+            p1 = p1.next;
+        }
+        while(p2 != null){
+            p2.next = p3;
+            p2 = p2.next;
+        }
+        return newNode;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        LinkList list = new LinkList();
+        LinkList list1 = new LinkList();
         LinkList list2 = new LinkList();
-        // list.addFirst(3);
-        // list.addFirst(3);
-        // list.addFirst(6);
-        // list.addFirst(3);
-        list.printList();
+        list1.addFirst(5);
+        list1.addFirst(3);
+        list1.addFirst(1);
+
+        list2.addFirst(2);
+        list2.addFirst(4);
+        list2.addFirst(6);
+
+        list1.printList();
+        list2.printList();
         // list.removeVal(3);
-        list.head = list.merge(list.head,list2.head);
-        list.printList();
+
+        list1.head = list1.merge(list1.head, list2.head);
+        list1.printList();
     }
 }
