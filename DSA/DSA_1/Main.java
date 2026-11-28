@@ -34,35 +34,29 @@ class LinkList {
     }
 
     public Node merge(Node list1, Node list2) {
-        if (list1 == null && list2 == null) {
+        if (list1 == null && list2 == null) { // Case 1 if both list are empty then return null
             return null;
         }
         Node p1 = list1;
         Node p2 = list2;
-        Node p3 = null;
-        Node newNode = null;
-        if (list1.data <= list2.data) {
-            newNode = list1;
-        } else {
-            newNode = list2;
-        }
+        Node temp = null;
+
         while (p1 != null && p2 != null) {
             if (p1.data <= p2.data) {
-                p3 = p1.next;
+                temp = p1.next;
                 p1.next = p2;
-                p1 = p1.next;
-                p2 = p3;
+                p1 = p2;
+                p2 = temp;
+            }
+             else {
+                temp = p1.next;
+                p2.next = p1;
+                p2 = p1;
+                p1 = temp;
             }
         }
-        while(p1 != null){
-            p1.next = p2;
-            p1 = p1.next;
-        }
-        while(p2 != null){
-            p2.next = p3;
-            p2 = p2.next;
-        }
-        return newNode;
+        
+        return list1;
     }
 }
 
@@ -74,15 +68,17 @@ public class Main {
         list1.addFirst(3);
         list1.addFirst(1);
 
-        list2.addFirst(2);
-        list2.addFirst(4);
         list2.addFirst(6);
+        list2.addFirst(4);
+        list2.addFirst(2);
 
         list1.printList();
         list2.printList();
         // list.removeVal(3);
 
-        list1.head = list1.merge(list1.head, list2.head);
-        list1.printList();
+        LinkList list3 = new LinkList();
+        list3.head = list3.merge(list1.head, list2.head);
+        // System.out.println(list1.head.data);
+        list3.printList();
     }
 }
